@@ -37,40 +37,51 @@ var graph = {
   "links": [
         //SAM
         {"source": 0, "target": 24},
+        {"source": 5, "target": 24},
+        {"source": 16, "target": 24},
 
-        {"source": 0, "target": 5},
-        {"source": 0, "target": 16},
-        {"source": 5, "target": 16},
+        // {"source": 0, "target": 5},
+        // {"source": 0, "target": 16},
+        // {"source": 5, "target": 16},
 
         //Onboarding
         {"source": 2, "target": 18},
+        {"source": 1, "target": 18},
+        {"source": 10, "target": 18},
 
-        {"source": 1, "target": 2},
-        {"source": 1, "target": 10},
-        {"source": 2, "target": 10},
+        // {"source": 1, "target": 2},
+        // {"source": 1, "target": 10},
+        // {"source": 2, "target": 10},
 
         //IOT
         {"source": 3, "target": 19},
+        {"source": 6, "target": 19},
+        {"source": 13, "target": 19},
 
-        {"source": 3, "target": 6},
-        {"source": 3, "target": 13},
-        {"source": 6, "target": 13},
+        // {"source": 3, "target": 6},
+        // {"source": 3, "target": 13},
+        // {"source": 6, "target": 13},
 
         //Monitoramento
         {"source": 17, "target": 22},
+        {"source": 11, "target": 22},
 
-        {"source": 11, "target": 17},
+        // {"source": 11, "target": 17},
 
         //Dev FINEP
         {"source": 9, "target": 20},
+        {"source": 14, "target": 20},
+        {"source": 15, "target": 20},
 
-        {"source": 9, "target": 15},
-        {"source": 9, "target": 14},
-        {"source": 14, "target": 15},
+        // {"source": 9, "target": 15},
+        // {"source": 9, "target": 14},
+        // {"source": 14, "target": 15},
 
         //Dev PHP
         {"source": 8, "target": 21},
-        {"source": 7, "target": 8},
+        {"source": 7, "target": 21},
+
+        // {"source": 7, "target": 8},
 
         //Automação
         {"source": 4, "target": 23},
@@ -271,8 +282,8 @@ var linkedByIndex = {};
             })
             .style("left", d3.event.pageX - 80 + "px")
             .style("top", d3.event.pageY - 140 + "px")
-            .style("display", "inline-block")
-            .style("opacity", "1");
+            // .style("display", "inline-block")
+            // .style("opacity", "1");
         })
 		.on("mouseleave", function (d) { tooltip.style("opacity", "0") })
        
