@@ -370,7 +370,7 @@ function set_highlight(d)
   d3.select(window).on("resize", resize).on("keydown", keydown);
 	  
   force.on("tick", function() {
-        node.attr("transform", function(d) { console.log(d); return "translate(" + (d.x - 100/2) + "," + (d.y - 50/2) + ")"; });
+        node.attr("transform", function(d) { return "translate(" + (d.x - 100/2) + "," + (d.y - 50/2) + ")"; });
         text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     
         link.attr("x1", function(d) { return d.source.x; })
