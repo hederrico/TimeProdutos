@@ -3,12 +3,27 @@
 <style>
 body {
   overflow:hidden;
-   margin:0;
+  margin:0;
+  background: #202124;
 }
 
 text {
   font-family: sans-serif;
   pointer-events: none;
+}
+
+.stacked-tooltip {
+    transition: opacity 0.5s ease;
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 80px;
+    height: auto;
+    background: #f9f9f9;
+    border: 1px solid #23323d;
+    border-radius: .215rem;
+    padding: 0px 0.5rem 0.5rem;
+    pointer-events: none;
 }
 
 </style>
@@ -151,7 +166,6 @@ var force = d3.layout.force()
   .size([w,h]);
 
 var default_node_color = "#23323d";
-//var default_node_color = "rgb(3,190,100)";
 var default_link_color = "#23323d";
 var nominal_base_node_size = 8;
 var nominal_text_size = 10;
@@ -167,6 +181,8 @@ var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var defs = svg.append('defs');
 var clipPath = defs.append('clipPath').attr('id', 'circleView');
 var circle = clipPath.append('circle').attr("cx", "50").attr("cy", "25").attr("r", "25").attr("fill", "blue");
+
+tooltip = d3.select("body").append("div").attr("class", "stacked-tooltip");
 
 var g = svg.append("g");
 
@@ -241,7 +257,24 @@ var linkedByIndex = {};
         .attr("width", 100)
         .attr("height", 50)
         .attr("xlink:href", function(d) { return `Images/${d.id}.jpg`;})
-        .attr("clip-path", "url(#circleView)");
+        .attr("clip-path", "url(#circleView)")
+        .on("mousemove", function(d, i) {
+            tooltip
+            .html(() => {
+                return (`<h4 class="bolder">${d.id}</h4>
+                    <hr style="margin: 0.5rem 0;">
+                    <span class="bolder">1: </span> ${d.id}
+                    <br>
+                    <hr style="margin: 0.5rem 0">
+                    <span class="bolder">2: </span> ${d.id}`
+                )
+            })
+            .style("left", d3.event.pageX - 80 + "px")
+            .style("top", d3.event.pageY - 140 + "px")
+            .style("display", "inline-block")
+            .style("opacity", "1");
+        })
+		.on("mouseleave", function (d) { tooltip.style("opacity", "0") })
        
   var text = g.selectAll(".text")
     .data(graph.nodes)
