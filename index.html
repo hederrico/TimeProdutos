@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+
+<link href="Fonts/themify/themify.min.css" rel="stylesheet">
+
 <style>
-body {
-  overflow:hidden;
-  margin:0;
-  background: #202124;
-}
+    body {
+        overflow:hidden;
+        margin:0;
+        background: #202124;
+    }
 
-text {
-  font-family: sans-serif;
-  pointer-events: none;
-}
+    text {
+        font-family: sans-serif;
+        pointer-events: none;
+    }
 
-.stacked-tooltip {
-    transition: opacity 0.5s ease;
-    position: absolute;
-    display: inline-block;
-    opacity: 0;
-    min-width: 80px;
-    height: auto;
-    background: #f9f9f9;
-    border: 1px solid #23323d;
-    border-radius: .215rem;
-    padding: 0px 0.5rem 0.5rem;
-    pointer-events: none;
-}
+    .stacked-tooltip {
+        transition: opacity 0.5s ease;
+        position: absolute;
+        display: inline-block;
+        opacity: 0;
+        min-width: 80px;
+        height: auto;
+        background: #f9f9f9;
+        border: 1px solid #23323d;
+        border-radius: .215rem;
+        padding: 0px 0.5rem 0.5rem;
+        pointer-events: none;
+    }
 
+    .ti-anchor {
+        color: white;
+        font-size: 2rem;
+        position:absolute;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    .ti-anchor:hover {
+        color: #de7333;
+        transform: scale(1.2);
+    }
 </style>
-<body>
 
+<body>
+    <div id="theme-selector"><i class="ti-anchor"></i></div>
+    <div id="graph"></div>
+</body>
 <script src="d3.v3.min.js"></script>
 <script>
 
@@ -81,7 +101,7 @@ var graph = {
         {"source": 8, "target": 21},
         {"source": 7, "target": 21},
 
-        // {"source": 7, "target": 8},
+        // {"source": 7, "target": 8} ,
 
         //Automação
         {"source": 4, "target": 23},
@@ -186,7 +206,7 @@ var max_stroke = 4.5;
 var max_base_node_size = 36;
 var min_zoom = 0.1;
 var max_zoom = 7;
-var svg = d3.select("body").append("svg");
+var svg = d3.select("#graph").append("svg");
 var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 
 var defs = svg.append('defs');
@@ -254,15 +274,12 @@ var linkedByIndex = {};
 		towhite = "fill"
 	}
 		
-    // var circle = node.append("path")
-    //     .attr("d", d3.svg.symbol()
-    //     .size(function(d) { return Math.PI*Math.pow(size(d.size)||nominal_base_node_size,2); })
-    //     .type(function(d) { return d.type; }))
-    //     .style(tocolor, function(d) { 
-    //         if (isNumber(d.score) && d.score>=0) return color(d.score);
-    //         else return default_node_color; })
-    //     .style("stroke-width", nominal_stroke)
-    //     .style(towhite, "white");
+
+    var bgCircles = node.append("circle")
+      .attr("cx", "50")
+      .attr("cy", "25")
+      .attr("r", "26")
+      .attr("fill", default_node_color);
 
     var circle = node.append("image")
         .attr("width", 100)
@@ -286,7 +303,9 @@ var linkedByIndex = {};
             // .style("opacity", "1");
         })
 		.on("mouseleave", function (d) { tooltip.style("opacity", "0") })
-       
+    
+   
+
   var text = g.selectAll(".text")
     .data(graph.nodes)
     .enter().append("text")
@@ -294,118 +313,126 @@ var linkedByIndex = {};
 	.style("font-size", nominal_text_size + "px")
 
 	if (text_center)
-	 text.text(function(d) { return d.id; })
-	.style("text-anchor", "middle");
+	    text.text(function(d) { return d.id; })
+	        .style("text-anchor", "middle");
 	else 
-	text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
-    // .text(function(d) { return '\u2002'+d.id; });
+	    text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
 
 	node.on("mouseover", function(d) {
-	set_highlight(d);
-	})
-  .on("mousedown", function(d) { d3.event.stopPropagation();
-  	focus_node = d;
-	set_focus(d)
-	if (highlight_node === null) set_highlight(d)
-	
-}	).on("mouseout", function(d) {
-		exit_highlight();
+        set_highlight(d);
+    })
+    .on("mousedown", function(d) { d3.event.stopPropagation();
+        focus_node = d;
+        set_focus(d)
+        if (highlight_node === null) set_highlight(d)
+    }).on("mouseout", function(d) {
+        exit_highlight();
+    });
 
-}	);
-
-		d3.select(window).on("mouseup",  
-		function() {
-		if (focus_node!==null)
-		{
-			focus_node = null;
-			if (highlight_trans<1)
-			{
-	
-		circle.style("opacity", 1);
-	  text.style("opacity", 1);
-	  link.style("opacity", 1);
-	}
-		}
-	
-	if (highlight_node === null) exit_highlight();
-		});
+    d3.select(window).on("mouseup", function() {
+        if (focus_node!==null)
+        {
+            focus_node = null;
+            if (highlight_trans<1) {
+                bgCircles.style("opacity", 1)
+                circle.style("opacity", 1);
+                text.style("opacity", 1);
+                link.style("opacity", 1);
+            }   
+        }
+        if (highlight_node === null) exit_highlight();
+    });
 
 function exit_highlight()
 {
-		highlight_node = null;
-	if (focus_node===null)
-	{
+    highlight_node = null;
+	if (focus_node===null) {
+
 		svg.style("cursor","move");
-		if (highlight_color!="white")
-	{
-  	  circle.style(towhite, "white");
-	  text.style("font-weight", "normal");
-	  link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
- }
-			
+
+		if (highlight_color!="white") {
+            bgCircles.style("fill", default_node_color)
+            circle.style(towhite, "white");
+            text.style("font-weight", "normal");
+            link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
+        }		
 	}
 }
 
-function set_focus(d)
-{	
-if (highlight_trans<1)  {
-    circle.style("opacity", function(o) {
-                return isConnected(d, o) ? 1 : highlight_trans;
-            });
+function set_focus(d) {	
+    if (highlight_trans < 1)  {
+        bgCircles.style("opacity", function(o) {
+            return isConnected(d, o) ? 1 : highlight_trans;
+        });
 
-			text.style("opacity", function(o) {
-                return isConnected(d, o) ? 1 : highlight_trans;
-            });
-			
-            link.style("opacity", function(o) {
-                return o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans;
-            });		
-	}
+        circle.style("opacity", function(o) {
+            return isConnected(d, o) ? 1 : highlight_trans;
+        });
+
+        text.style("opacity", function(o) {
+            return isConnected(d, o) ? 1 : highlight_trans;
+        });
+        
+        link.style("opacity", function(o) {
+            return o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans;
+        });		
+    }
 }
 
 
-function set_highlight(d)
-{
+function set_highlight(d) {
 	svg.style("cursor","pointer");
 	if (focus_node!==null) d = focus_node;
 	highlight_node = d;
 
 	if (highlight_color!="white")
 	{
-		  circle.style(towhite, function(o) {
-                return isConnected(d, o) ? highlight_color : "white";});
-			text.style("font-weight", function(o) {
-                return isConnected(d, o) ? "bold" : "normal";});
-            link.style("stroke", function(o) {
-		      return o.source.index == d.index || o.target.index == d.index ? highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
+        bgCircles.style("fill", function(o) {
+            return isConnected(d, o) ? highlight_color : default_node_color;
+        });
 
-            });
+        circle.style(towhite, function(o) {
+            return isConnected(d, o) ? highlight_color : "white";}
+        );
+
+        text.style("font-weight", function(o) {
+            return isConnected(d, o) ? "bold" : "normal";}
+        );
+
+        link.style("stroke", function(o) {
+            return o.source.index == d.index || o.target.index == d.index 
+            ? highlight_color 
+            : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
+        });
 	}
 }
  	
  	
-  zoom.on("zoom", function() {
-  
+zoom.on("zoom", function() {
     var stroke = nominal_stroke;
-    if (nominal_stroke*zoom.scale()>max_stroke) stroke = max_stroke/zoom.scale();
+
+    if (nominal_stroke * zoom.scale() > max_stroke) 
+        stroke = max_stroke / zoom.scale();
+    
+    bgCircles.style("r", )
     link.style("stroke-width",stroke);
     circle.style("stroke-width",stroke);
-	   
-	var base_radius = nominal_base_node_size;
+
+    var base_radius = nominal_base_node_size;
     if (nominal_base_node_size*zoom.scale()>max_base_node_size) base_radius = max_base_node_size/zoom.scale();
         circle.attr("d", d3.svg.symbol()
         .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
         .type(function(d) { return d.type; }))
-		
-	//circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
-	if (!text_center) text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
-	
-	var text_size = nominal_text_size;
+        
+    //circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
+    if (!text_center) text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
+
+    var text_size = nominal_text_size;
     if (nominal_text_size*zoom.scale()>max_text_size) text_size = max_text_size/zoom.scale();
     text.style("font-size",text_size + "px");
 
-	g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-	});
+    g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+});
 	 
   svg.call(zoom);	  
 	
