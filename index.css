@@ -1,0 +1,79 @@
+/* Variables */
+body {
+    overflow: hidden;
+    margin: 0;
+    background-color: var(--bgColor);
+    transition: all .3s;
+}
+
+body[data-theme='light'] {
+    --bgColor: #FFFFFF;
+    --textColor: #6E6B7B;
+    --headingColor: #5E5873;
+    --highlightColor: #de7333;
+}
+
+body[data-theme='dark'] {
+    --bgColor: #283046;
+    --textColor: #B4B7BD;
+    --headingColor: #D0D2D6;
+    --highlightColor: #de7333;
+}
+
+/* Theme Selector */
+#theme-selector svg {
+    position:absolute;
+    top: 3rem;
+    right: 3rem;
+    cursor: pointer;
+    transition: all .3s;
+    transform: scale(1.5);
+}
+
+#theme-selector svg path {
+    fill: var(--headingColor);
+    transition: all .3s;
+}
+
+#theme-selector svg:hover {
+    transform: scale(1.8);
+}
+
+#theme-selector svg:hover path {
+    fill: #de7333;
+}
+
+/* Created By */
+#created-by {
+    position: absolute;
+    bottom: .5rem;
+    right: 1rem;
+    font-size: 1.1rem;
+    font-family: monospace;
+    color: var(--textColor);
+    user-select: none;
+}
+
+#heart-svg {
+    fill: #EA5455;
+}
+
+.link,
+.bgCircle {
+    transition: all .3s;
+}
+
+/* Tooltip */
+.stacked-tooltip {
+    transition: opacity 0.5s ease;
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 80px;
+    height: auto;
+    background: #f9f9f9;
+    border: 1px solid #23323d;
+    border-radius: .215rem;
+    padding: 0px 0.5rem 0.5rem;
+    pointer-events: none;
+}

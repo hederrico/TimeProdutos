@@ -2,56 +2,91 @@
 <meta charset="utf-8">
 
 <link href="Fonts/themify/themify.min.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
 
-<style>
-    body {
-        overflow:hidden;
-        margin:0;
-        background: #202124;
-    }
-
-    text {
-        font-family: sans-serif;
-        pointer-events: none;
-    }
-
-    .stacked-tooltip {
-        transition: opacity 0.5s ease;
-        position: absolute;
-        display: inline-block;
-        opacity: 0;
-        min-width: 80px;
-        height: auto;
-        background: #f9f9f9;
-        border: 1px solid #23323d;
-        border-radius: .215rem;
-        padding: 0px 0.5rem 0.5rem;
-        pointer-events: none;
-    }
-
-    .ti-anchor {
-        color: white;
-        font-size: 2rem;
-        position:absolute;
-        top: 2rem;
-        right: 2rem;
-        cursor: pointer;
-        transition: all .3s;
-    }
-
-    .ti-anchor:hover {
-        color: #de7333;
-        transform: scale(1.2);
-    }
-</style>
-
-<body>
-    <div id="theme-selector"><i class="ti-anchor"></i></div>
+<body data-theme="light">
+    <div id="theme-selector">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path 
+                class="theme-icon dark-theme"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.16667 2.5V0.833333C9.16667 0.333333 9.5 0 10 0C10.5 0 10.8333 0.333333 10.8333 0.833333V2.5C10.8333 
+                    3 10.5 3.33333 10 3.33333C9.5 3.33333 9.16667 3 9.16667 2.5ZM5 10C5 7.25 7.25 5 10 5C12.75 5 15 7.25 15 10C15 12.75 12.75 15 10 15C7.25 15 5 12.75 5 
+                    10ZM6.66669 10C6.66669 11.8333 8.16669 13.3333 10 13.3333C11.8334 13.3333 13.3334 11.8333 13.3334 10C13.3334 8.16667 11.8334 6.66667 10 6.66667C8.16669 
+                    6.66667 6.66669 8.16667 6.66669 10ZM10.8334 19.1667V17.5C10.8334 17 10.5 16.6667 10 16.6667C9.50002 16.6667 9.16669 17 9.16669 17.5V19.1667C9.16669 
+                    19.6667 9.50002 20 10 20C10.5 20 10.8334 19.6667 10.8334 19.1667ZM2.91669 4.08594C2.58335 3.7526 2.58335 3.2526 2.91669 2.91927C3.25002 2.58594 3.75002 
+                    2.58594 4.08335 2.91927L5.25002 4.08594C5.58335 4.41927 5.58335 4.91927 5.25002 5.2526C5.16669 5.41927 4.91669 5.5026 4.66669 5.5026C4.41669 5.5026 
+                    4.25002 5.41927 4.08335 5.2526L2.91669 4.08594ZM17.0833 17.082C17.4167 16.7487 17.4167 16.2487 17.0833 15.9154L15.9167 14.7487C15.5833 14.4154 15.0833 
+                    14.4154 14.75 14.7487C14.4167 15.082 14.4167 15.582 14.75 15.9154L15.9167 17.082C16.0833 17.2487 16.3333 17.332 16.5 17.332C16.6667 17.332 16.9167 
+                    17.2487 17.0833 17.082ZM2.5 10.8333H0.833333C0.333333 10.8333 0 10.5 0 10C0 9.5 0.333333 9.16667 0.833333 9.16667H2.5C3 9.16667 3.33333 9.5 3.33333 
+                    10C3.33333 10.5 3 10.8333 2.5 10.8333ZM19.1667 10.8333C19.6667 10.8333 20 10.5 20 10C20 9.5 19.6667 9.16667 19.1667 9.16667H17.5C17 9.16667 16.6667 
+                    9.5 16.6667 10C16.6667 10.5 17 10.8333 17.5 10.8333H19.1667ZM5.25002 14.7487C5.58335 15.082 5.58335 15.582 5.25002 15.9154L4.08335 17.082C3.91669 
+                    17.2487 3.66669 17.332 3.50002 17.332C3.33335 17.332 3.08335 17.2487 2.91669 17.082C2.58335 16.7487 2.58335 16.2487 2.91669 15.9154L4.08335 
+                    14.7487C4.41669 14.4154 5.00002 14.4154 5.25002 14.7487ZM14.75 4.08594C14.4167 4.41927 14.4167 4.91927 14.75 5.2526C14.8333 5.41927 15.1667 5.5026 
+                    15.3333 5.5026C15.5 5.5026 15.75 5.41927 15.9167 5.2526L17.0833 4.08594C17.4167 3.7526 17.4167 3.2526 17.0833 2.91927C16.75 2.58594 16.25 2.58594 
+                    15.9167 2.91927L14.75 4.08594Z"
+            />
+        </svg>
+    </div>
     <div id="graph"></div>
+    <div id="created-by">
+        Created By: Henrique Derrico
+        <svg id="heart-svg" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.5618 0C12.753 0 13.8742 0.504051 14.7151 1.36814C15.626 2.23222 16.1165 3.45635 15.9763 4.68047C15.9763 
+            5.90459 15.4858 7.12871 14.645 7.9928L8.47868 14.3294C8.33853 14.4735 8.19839 14.5455 7.98817 14.5455C7.77796 14.5455 
+            7.63781 14.4735 7.49767 14.3294L1.33136 7.9928C0.490502 7.12871 0 5.90459 0 4.68047C0 3.45635 0.490502 2.23222 1.40143 
+            1.36814C3.15323 -0.432043 6.02617 -0.432043 7.77796 1.36814L8.05824 1.65617L8.33853 1.36814C9.17939 0.504051 10.3706 0 
+            11.5618 0ZM8.05826 12.8146L13.7341 6.98206C14.3647 6.33399 14.7151 5.54191 14.7151 4.67782C14.7151 3.81374 14.3647 
+            3.02166 13.8041 2.37359C13.1735 1.79754 12.4027 1.4375 11.5618 1.4375C10.6509 1.4375 9.88012 1.79754 9.24948 
+            2.37359L8.54876 3.16567C8.26847 3.4537 7.84804 3.4537 7.56776 3.16567L6.79697 2.37359C6.16632 1.72553 5.39553 1.4375 
+            4.55467 1.4375C3.78388 1.4375 2.94302 1.72553 2.38245 2.37359C1.82188 3.02166 1.47152 3.81374 1.47152 4.67782C1.47152 
+            5.54191 1.7518 6.33399 2.38245 6.98206L8.05826 12.8146Z"/>
+        </svg>
+    </div>
 </body>
+
 <script src="d3.v3.min.js"></script>
+
 <script>
 
+
+    var themeSelector = document.getElementById('theme-selector');
+    var themeIcon = document.getElementsByClassName('theme-icon')[0];
+    var bodyElem = document.getElementsByTagName('BODY')[0];
+
+    themeSelector.onclick = function() {
+        if ((bodyElem.getAttribute('data-theme') == 'dark')) {
+            bodyElem.setAttribute('data-theme', 'light');
+            themeIcon.setAttribute('d', `M18.3954 10.0503C18.6962 9.74874 19.1977 9.74874 19.4986 9.94975C19.7994 10.1508 20 10.5528 20 10.8543C19.6991 13.5678 18.4957 15.9799 
+                    16.3896 17.6884C14.5843 19.196 12.2777 20 9.97101 20H9.06841C3.55246 19.4975 -0.459131 14.5729 0.0423182 9.04523C0.443478 4.22111 
+                    4.25449 0.40201 9.06841 0C9.46956 0 9.87072 0.201005 10.0713 0.502513C10.2719 0.904523 10.1716 1.30653 9.97101 1.60804C9.06841 
+                    2.91457 8.66725 4.52261 8.86783 6.13065C9.1687 7.63819 9.97101 9.04523 11.2748 10.0503C13.3809 11.6583 16.2893 11.6583 18.3954 
+                    10.0503ZM9.36928 17.99C11.4754 18.191 13.5814 17.5879 15.1861 16.1809C16.2893 15.2764 17.0916 14.0704 17.593 12.6633C15.0858 
+                    13.5678 12.2777 13.1658 10.0713 11.5578C8.26609 10.3518 7.1629 8.44221 6.86203 6.33166C6.66145 5.02513 6.86203 3.71859 7.36348 
+                    2.41206C4.55536 3.41709 2.44927 6.13065 2.14841 9.24623C1.74725 13.6683 4.95652 17.5879 9.36928 17.99Z`)
+        } else {
+            bodyElem.setAttribute('data-theme', 'dark');
+            themeIcon.setAttribute('d', `M9.16667 2.5V0.833333C9.16667 0.333333 9.5 0 10 0C10.5 0 10.8333 0.333333 10.8333 0.833333V2.5C10.8333 
+                3 10.5 3.33333 10 3.33333C9.5 3.33333 9.16667 3 9.16667 2.5ZM5 10C5 7.25 7.25 5 10 5C12.75 5 15 7.25 15 10C15 12.75 12.75 15 10 15C7.25 15 5 12.75 5 
+                10ZM6.66669 10C6.66669 11.8333 8.16669 13.3333 10 13.3333C11.8334 13.3333 13.3334 11.8333 13.3334 10C13.3334 8.16667 11.8334 6.66667 10 6.66667C8.16669 
+                6.66667 6.66669 8.16667 6.66669 10ZM10.8334 19.1667V17.5C10.8334 17 10.5 16.6667 10 16.6667C9.50002 16.6667 9.16669 17 9.16669 17.5V19.1667C9.16669 
+                19.6667 9.50002 20 10 20C10.5 20 10.8334 19.6667 10.8334 19.1667ZM2.91669 4.08594C2.58335 3.7526 2.58335 3.2526 2.91669 2.91927C3.25002 2.58594 3.75002 
+                2.58594 4.08335 2.91927L5.25002 4.08594C5.58335 4.41927 5.58335 4.91927 5.25002 5.2526C5.16669 5.41927 4.91669 5.5026 4.66669 5.5026C4.41669 5.5026 
+                4.25002 5.41927 4.08335 5.2526L2.91669 4.08594ZM17.0833 17.082C17.4167 16.7487 17.4167 16.2487 17.0833 15.9154L15.9167 14.7487C15.5833 14.4154 15.0833 
+                14.4154 14.75 14.7487C14.4167 15.082 14.4167 15.582 14.75 15.9154L15.9167 17.082C16.0833 17.2487 16.3333 17.332 16.5 17.332C16.6667 17.332 16.9167 
+                17.2487 17.0833 17.082ZM2.5 10.8333H0.833333C0.333333 10.8333 0 10.5 0 10C0 9.5 0.333333 9.16667 0.833333 9.16667H2.5C3 9.16667 3.33333 9.5 3.33333 
+                10C3.33333 10.5 3 10.8333 2.5 10.8333ZM19.1667 10.8333C19.6667 10.8333 20 10.5 20 10C20 9.5 19.6667 9.16667 19.1667 9.16667H17.5C17 9.16667 16.6667 
+                9.5 16.6667 10C16.6667 10.5 17 10.8333 17.5 10.8333H19.1667ZM5.25002 14.7487C5.58335 15.082 5.58335 15.582 5.25002 15.9154L4.08335 17.082C3.91669 
+                17.2487 3.66669 17.332 3.50002 17.332C3.33335 17.332 3.08335 17.2487 2.91669 17.082C2.58335 16.7487 2.58335 16.2487 2.91669 15.9154L4.08335 
+                14.7487C4.41669 14.4154 5.00002 14.4154 5.25002 14.7487ZM14.75 4.08594C14.4167 4.41927 14.4167 4.91927 14.75 5.2526C14.8333 5.41927 15.1667 5.5026 
+                15.3333 5.5026C15.5 5.5026 15.75 5.41927 15.9167 5.2526L17.0833 4.08594C17.4167 3.7526 17.4167 3.2526 17.0833 2.91927C16.75 2.58594 16.25 2.58594 
+                15.9167 2.91927L14.75 4.08594Z`)
+        }
+
+        
+        changeTheme();
+    };
 var graph = {
   "graph": [],
   "links": [
@@ -171,21 +206,16 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 
 var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true;
-
 var focus_node = null, highlight_node = null;
-
 var text_center = false;
 var outline = false;
 
 var min_score = 0;
 var max_score = 1;
 
-var color = d3.scale.linear()
-  .domain([min_score, (min_score+max_score)/2, max_score])
-  .range(["lime", "yellow", "red"]);
-
 var highlight_color = "#de7333";
 var highlight_trans = 0.1;
+var default_node_color = default_link_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
   
 var size = d3.scale.pow().exponent(1)
   .domain([1,100])
@@ -196,8 +226,6 @@ var force = d3.layout.force()
   .charge(-1000)
   .size([w,h]);
 
-var default_node_color = "#23323d";
-var default_link_color = "#23323d";
 var nominal_base_node_size = 8;
 var nominal_text_size = 10;
 var max_text_size = 24;
@@ -206,6 +234,7 @@ var max_stroke = 4.5;
 var max_base_node_size = 36;
 var min_zoom = 0.1;
 var max_zoom = 7;
+
 var svg = d3.select("#graph").append("svg");
 var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 
@@ -220,21 +249,22 @@ var g = svg.append("g");
 svg.style("cursor","move");
 
 var linkedByIndex = {};
-    graph.links.forEach(function(d) {
-	linkedByIndex[d.source + "," + d.target] = true;
-    });
 
-	function isConnected(a, b) {
-        return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+graph.links.forEach(function(d) {
+    linkedByIndex[d.source + "," + d.target] = true;
+});
+
+function isConnected(a, b) {
+    return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+}
+
+function hasConnections(a) {
+    for (var property in linkedByIndex) {
+        s = property.split(",");
+        if ((s[0] == a.index || s[1] == a.index) && linkedByIndex[property]) return true;
     }
-
-	function hasConnections(a) {
-		for (var property in linkedByIndex) {
-				s = property.split(",");
-				if ((s[0] == a.index || s[1] == a.index) && linkedByIndex[property]) 					return true;
-		}
-	return false;
-	}
+    return false;
+}
 	
   force
     .nodes(graph.nodes)
@@ -246,10 +276,7 @@ var linkedByIndex = {};
     .enter().append("line")
     .attr("class", "link")
 	.style("stroke-width",nominal_stroke)
-	.style("stroke", function(d) { 
-	    if (isNumber(d.score) && d.score>=0) return color(d.score);
-	    else return default_link_color;}
-    )
+	.style("stroke", default_link_color)
 
 
   var node = g.selectAll(".node")
@@ -259,26 +286,28 @@ var linkedByIndex = {};
     .call(force.drag)
 
 	
-	node.on("dblclick.zoom", function(d) { d3.event.stopPropagation();
-	var dcx = (window.innerWidth/2-d.x*zoom.scale());
-	var dcy = (window.innerHeight/2-d.y*zoom.scale());
-	zoom.translate([dcx,dcy]);
-	    g.attr("transform", "translate("+ dcx + "," + dcy  + ")scale(" + zoom.scale() + ")");
+	node.on("dblclick.zoom", function(d) { 
+        d3.event.stopPropagation();
+        var dcx = (window.innerWidth/2-d.x*zoom.scale());
+        var dcy = (window.innerHeight/2-d.y*zoom.scale());
+        zoom.translate([dcx,dcy]);
+        g.attr("transform", "translate("+ dcx + "," + dcy  + ")scale(" + zoom.scale() + ")");
 	});
 	
 
 	var tocolor = "fill";
 	var towhite = "stroke";
+
 	if (outline) {
 		tocolor = "stroke"
 		towhite = "fill"
 	}
 		
-
     var bgCircles = node.append("circle")
       .attr("cx", "50")
       .attr("cy", "25")
       .attr("r", "26")
+      .attr("class", "bgCircle")
       .attr("fill", default_node_color);
 
     var circle = node.append("image")
@@ -354,12 +383,12 @@ function exit_highlight()
             bgCircles.style("fill", default_node_color)
             circle.style(towhite, "white");
             text.style("font-weight", "normal");
-            link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
+            link.style("stroke", default_link_color);
         }		
 	}
 }
 
-function set_focus(d) {	
+function set_focus(d) {
     if (highlight_trans < 1)  {
         bgCircles.style("opacity", function(o) {
             return isConnected(d, o) ? 1 : highlight_trans;
@@ -382,11 +411,11 @@ function set_focus(d) {
 
 function set_highlight(d) {
 	svg.style("cursor","pointer");
-	if (focus_node!==null) d = focus_node;
+
+	if (focus_node !== null) d = focus_node;
 	highlight_node = d;
 
-	if (highlight_color!="white")
-	{
+	if (highlight_color!="white"){
         bgCircles.style("fill", function(o) {
             return isConnected(d, o) ? highlight_color : default_node_color;
         });
@@ -402,19 +431,24 @@ function set_highlight(d) {
         link.style("stroke", function(o) {
             return o.source.index == d.index || o.target.index == d.index 
             ? highlight_color 
-            : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
+            : default_link_color;
         });
 	}
 }
- 	
- 	
+
+function changeTheme() {
+    default_link_color = default_node_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
+
+    bgCircles.style("fill", default_node_color );
+    link.style("stroke", default_link_color);
+}
+
 zoom.on("zoom", function() {
     var stroke = nominal_stroke;
 
     if (nominal_stroke * zoom.scale() > max_stroke) 
         stroke = max_stroke / zoom.scale();
     
-    bgCircles.style("r", )
     link.style("stroke-width",stroke);
     circle.style("stroke-width",stroke);
 
@@ -463,83 +497,83 @@ zoom.on("zoom", function() {
 	}
 	
 	function keydown() {
-	if (d3.event.keyCode==32) {  force.stop();}
-	else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
-	{
-  switch (String.fromCharCode(d3.event.keyCode)) {
-    case "C": keyc = !keyc; break;
-    case "S": keys = !keys; break;
-	case "T": keyt = !keyt; break;
-	case "R": keyr = !keyr; break;
-    case "X": keyx = !keyx; break;
-	case "D": keyd = !keyd; break;
-	case "L": keyl = !keyl; break;
-	case "M": keym = !keym; break;
-	case "H": keyh = !keyh; break;
-	case "1": key1 = !key1; break;
-	case "2": key2 = !key2; break;
-	case "3": key3 = !key3; break;
-	case "0": key0 = !key0; break;
-  }
+	if (d3.event.keyCode==32) {
+        force.stop();
+    } else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey) {
+        switch (String.fromCharCode(d3.event.keyCode)) {
+            case "C": keyc = !keyc; break;
+            case "S": keys = !keys; break;
+            case "T": keyt = !keyt; break;
+            case "R": keyr = !keyr; break;
+            case "X": keyx = !keyx; break;
+            case "D": keyd = !keyd; break;
+            case "L": keyl = !keyl; break;
+            case "M": keym = !keym; break;
+            case "H": keyh = !keyh; break;
+            case "1": key1 = !key1; break;
+            case "2": key2 = !key2; break;
+            case "3": key3 = !key3; break;
+            case "0": key0 = !key0; break;
+        }
   	
-  link.style("display", function(d) {
-				var flag  = vis_by_type(d.source.type)&&vis_by_type(d.target.type)&&vis_by_node_score(d.source.score)&&vis_by_node_score(d.target.score)&&vis_by_link_score(d.score);
-				linkedByIndex[d.source.index + "," + d.target.index] = flag;
-              return flag?"inline":"none";});
-  node.style("display", function(d) {
-				return (key0||hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";});
-  text.style("display", function(d) {
-                return (key0||hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";});
-				
-				if (highlight_node !== null)
-				{
-					if ((key0||hasConnections(highlight_node))&&vis_by_type(highlight_node.type)&&vis_by_node_score(highlight_node.score)) { 
-					if (focus_node!==null) set_focus(focus_node);
-					set_highlight(highlight_node);
-					}
-					else {exit_highlight();}
-				}
-
-}	
+        link.style("display", function(d) {
+            var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);
+            linkedByIndex[d.source.index + "," + d.target.index] = flag;
+            return flag ? "inline" : "none";
+        });
+        node.style("display", function(d) {
+            return (key0 || hasConnections(d)) && vis_by_type(d.type) && vis_by_node_score(d.score) ? "inline" : "none";
+        });
+        text.style("display", function(d) {
+            return (key0 || hasConnections(d)) && vis_by_type(d.type) && vis_by_node_score(d.score) ? "inline" : "none";
+        });
+                        
+        if (highlight_node !== null) {
+            if ((key0 || hasConnections(highlight_node)) && vis_by_type(highlight_node.type) && vis_by_node_score(highlight_node.score)) {
+                if (focus_node!==null) set_focus(focus_node);
+                    set_highlight(highlight_node);
+            } else {
+                exit_highlight();
+            }
+        }
+    }	
 }
 
 function vis_by_type(type)
 {
 	switch (type) {
-	  case "circle": return keyc;
-	  case "square": return keys;
-	  case "triangle-up": return keyt;
-	  case "diamond": return keyr;
-	  case "cross": return keyx;
-	  case "triangle-down": return keyd;
-	  default: return true;
+        case "circle": return keyc;
+        case "square": return keys;
+        case "triangle-up": return keyt;
+        case "diamond": return keyr;
+        case "cross": return keyx;
+        case "triangle-down": return keyd;
+        default: return true;
+    }
 }
-}
+
 function vis_by_node_score(score)
 {
-	if (isNumber(score))
-	{
-	if (score>=0.666) return keyh;
-	else if (score>=0.333) return keym;
-	else if (score>=0) return keyl;
+	if (isNumber(score)) {
+        if (score>=0.666) return keyh;
+        else if (score>=0.333) return keym;
+        else if (score>=0) return keyl;
 	}
 	return true;
 }
 
 function vis_by_link_score(score)
 {
-	if (isNumber(score))
-	{
-	if (score>=0.666) return key3;
-	else if (score>=0.333) return key2;
-	else if (score>=0) return key1;
-}
+	if (isNumber(score)) {
+        if (score>=0.666) return key3;
+        else if (score>=0.333) return key2;
+        else if (score>=0) return key1;
+    }
 	return true;
 }
 
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }	
-
 
 </script>
