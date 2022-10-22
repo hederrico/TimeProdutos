@@ -1,4 +1,8 @@
 /* Variables */
+@font-face { font-family: montserrat; 
+    src: url('Fonts/Montserrat/Montserrat-Regular.ttf');
+} 
+
 body {
     overflow: hidden;
     margin: 0;
@@ -72,8 +76,82 @@ body[data-theme='dark'] {
     min-width: 80px;
     height: auto;
     background: #f9f9f9;
-    border: 1px solid #23323d;
+    border: 1px solid var(--bgColor);
     border-radius: .215rem;
     padding: 0px 0.5rem 0.5rem;
     pointer-events: none;
 }
+
+/* Text */
+.text{
+    transition: opacity .3s, fill .3s;
+    font-family: 'montserrat', sans-serif;
+}
+
+/* D3 Chart Container */
+
+#d3Container {
+    width: 100vh;
+    height: 80vh;
+    border: 1px solid var(--textColor);
+    border-radius: .215rem;
+}
+
+#centeringDiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+}
+
+/* Rotating Card */
+
+.card {
+    perspective: 60rem;
+    -webkit-perspective: 60rem;
+    -moz-perspective: 60rem;
+    
+    height: 400px;
+    width: 250px;
+}
+  
+.card__side {
+    text-align: center;
+
+    height: 400px;
+    width: 250px;
+
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    backface-visibility: hidden;
+
+    border-radius: .215rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 2rem rgba(0,0,0, .35);
+}
+
+.card__side--front {
+    background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+    background-image: linear-gradient(to right bottom, #4a577a, #283046);
+    
+}
+
+.card__side--back {
+    background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+    transform: rotateY(180deg);
+}
+
+.card:hover .card__side--front {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+    transform: rotateY(0deg);
+}
+
+
+/* TENTAR HACK NO LINK https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css/32721572#32721572 */

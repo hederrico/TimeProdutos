@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<link href="Fonts/themify/themify.min.css" rel="stylesheet">
+<link href="Fonts/Themify/themify.min.css" rel="stylesheet">
+<link href="Fonts/Montserrat/Montserrat-Regular.ttf" rel="stylesheet">
 <link href="index.css" rel="stylesheet">
 
 <body data-theme="light">
@@ -29,7 +30,22 @@
             />
         </svg>
     </div>
-    <div id="graph"></div>
+
+    <div id="centeringDiv">
+        <div class="card">
+            <div class="card__side card__side--front">
+                Frente
+            </div>
+            <div class="card__side card__side--back">
+                Verso
+            </div>
+        </div>
+
+        <div id="d3Container">
+
+        </div>
+    </div>
+
     <div id="created-by">
         Created By: Henrique Derrico
         <svg id="heart-svg" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +65,6 @@
 <script src="d3.v3.min.js"></script>
 
 <script>
-
 
     var themeSelector = document.getElementById('theme-selector');
     var themeIcon = document.getElementsByClassName('theme-icon')[0];
@@ -84,235 +99,197 @@
                 15.9167 2.91927L14.75 4.08594Z`)
         }
 
-        
         changeTheme();
     };
-var graph = {
-  "graph": [],
-  "links": [
-        //SAM
-        {"source": 0, "target": 24},
-        {"source": 5, "target": 24},
-        {"source": 16, "target": 24},
+    
+    var graph = {
+        "links": [
+            //SAM
+            {"source": 0, "target": 24},
+            {"source": 5, "target": 24},
+            {"source": 16, "target": 24},
 
-        // {"source": 0, "target": 5},
-        // {"source": 0, "target": 16},
-        // {"source": 5, "target": 16},
+            //Onboarding
+            {"source": 2, "target": 18},
+            {"source": 1, "target": 18},
+            {"source": 10, "target": 18},
 
-        //Onboarding
-        {"source": 2, "target": 18},
-        {"source": 1, "target": 18},
-        {"source": 10, "target": 18},
+            //IOT
+            {"source": 3, "target": 19},
+            {"source": 6, "target": 19},
+            {"source": 13, "target": 19},
 
-        // {"source": 1, "target": 2},
-        // {"source": 1, "target": 10},
-        // {"source": 2, "target": 10},
+            //Monitoramento
+            {"source": 17, "target": 22},
+            {"source": 11, "target": 22},
 
-        //IOT
-        {"source": 3, "target": 19},
-        {"source": 6, "target": 19},
-        {"source": 13, "target": 19},
+            //Dev FINEP
+            {"source": 9, "target": 20},
+            {"source": 14, "target": 20},
+            {"source": 15, "target": 20},
 
-        // {"source": 3, "target": 6},
-        // {"source": 3, "target": 13},
-        // {"source": 6, "target": 13},
+            //Dev PHP
+            {"source": 8, "target": 21},
+            {"source": 7, "target": 21},
 
-        //Monitoramento
-        {"source": 17, "target": 22},
-        {"source": 11, "target": 22},
+            //Automação
+            {"source": 4, "target": 23},
 
-        // {"source": 11, "target": 17},
 
-        //Dev FINEP
-        {"source": 9, "target": 20},
-        {"source": 14, "target": 20},
-        {"source": 15, "target": 20},
+            //Gestor
+            {"source": 12, "target": 18},
+            {"source": 12, "target": 19},
+            {"source": 12, "target": 20},
+            {"source": 12, "target": 21},
+            {"source": 12, "target": 22},
+            {"source": 12, "target": 23},
+            {"source": 12, "target": 24},
+        ],
+        "nodes": [
+            {"id": "Andrei",}, //0
+            {"id": "Bruno",}, //1
+            {"id": "Diana",}, //2
+            {"id": "Cris",}, //3
+            {"id": "Danilo", }, //4
+            {"id": "Fernando",}, //5
+            {"id": "Francis"}, //6
+            {"id": "Gabriel",}, //7
+            {"id": "Henrique",}, //8
+            {"id": "Juciele",}, //9
+            {"id": "Julia",}, //10
+            {"id": "Julio",}, //11
+            {"id": "Bigui",}, //12
+            {"id": "Leo",}, //13
+            {"id": "Lucas",}, //14
+            {"id": "Marcos",}, //15
+            {"id": "Milleny",}, //16
+            {"id": "Vinicio",},//17
 
-        // {"source": 9, "target": 15},
-        // {"source": 9, "target": 14},
-        // {"source": 14, "target": 15},
+            {"id": "Onboarding"},//18
+            {"id": "Iot"},//19
+            {"id": "Dev FINEP"},//20
+            {"id": "Dev PHP"},//21
+            {"id": "Monitoramento"},//22
+            {"id": "Automação"},//23
+            {"id": "Sam"},//24
+        ],
+        "directed": false,
+        "multigraph": false
+    };
 
-        //Dev PHP
-        {"source": 8, "target": 21},
-        {"source": 7, "target": 21},
+    var chartContainer = document.getElementById('d3Container');
 
-        // {"source": 7, "target": 8} ,
+    var w = chartContainer.offsetWidth;
+    var h = chartContainer.offsetHeight;
 
-        //Automação
-        {"source": 4, "target": 23},
+    var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true;
+    var focus_node = null, highlight_node = null;
+    var text_center = true;
 
-        // {"source": 4, "target": 4},
+    var highlight_color = "#de7333";
+    var highlight_trans = 0.1;
+    var  default_node_color = default_link_color = getComputedStyle(bodyElem).getPropertyValue('--textColor');
+    var default_text_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
+        
+    var force = d3.layout.force()
+    .linkDistance(90)
+    .charge(-1000)
+    .size([w,h]);
 
-        //Gestor
-        {"source": 12, "target": 18},
-        {"source": 12, "target": 19},
-        {"source": 12, "target": 20},
-        {"source": 12, "target": 21},
-        {"source": 12, "target": 22},
-        {"source": 12, "target": 23},
-        {"source": 12, "target": 24},
+    var nominal_base_node_size = 25;
+    var max_base_node_size = 4*nominal_base_node_size;
 
-        // {"source": 12, "target": 0},
-        // {"source": 12, "target": 1},
-        // {"source": 12, "target": 2},
-        // {"source": 12, "target": 3},
-        // {"source": 12, "target": 4},
-        // {"source": 12, "target": 5},
-        // {"source": 12, "target": 6},
-        // {"source": 12, "target": 7},
-        // {"source": 12, "target": 8},
-        // {"source": 12, "target": 9},
-        // {"source": 12, "target": 10},
-        // {"source": 12, "target": 11},
-        // {"source": 12, "target": 13},
-        // {"source": 12, "target": 14},
-        // {"source": 12, "target": 15},
-        // {"source": 12, "target": 16},
-        // {"source": 12, "target": 17},
-    ],
-  "nodes": [
-        {"size": 60, "score": 0, "id": "Andrei",}, //0
-        {"size": 10, "score": 0.2, "id": "Bruno",}, //1
-        {"size": 60, "score": 0.4, "id": "Diana",}, //2
-        {"size": 10, "score": 0.6, "id": "Cris",}, //3
-        {"size": 60, "score": 0.8, "id": "Danilo", }, //4
-        {"size": 10, "score": 1, "id": "Fernando",}, //5
-        {"id": "Francis"}, //6
-        {"size": 60, "score": 0, "id": "Gabriel",}, //7
-        {"size": 10, "score": 0.2, "id": "Henrique",}, //8
-        {"size": 60, "score": 0.4, "id": "Juciele",}, //9
-        {"size": 10, "score": 0.6, "id": "Julia",}, //10
-        {"size": 60, "score": 0.8, "id": "Julio",}, //11
-        {"size": 10, "score": 1, "id": "Bigui",}, //12
-        {"size": 10, "score": 1, "id": "Leo",}, //13
-        {"size": 10, "score": 1, "id": "Lucas",}, //14
-        {"size": 10, "score": 1, "id": "Marcos",}, //15
-        {"size": 10, "score": 1, "id": "Milleny",}, //16
-        {"size": 10, "score": 1, "id": "Vinicio",},//17
+    var size = d3.scale.pow()
+        .exponent(1)
+        .domain([1,100])
+        .range([nominal_base_node_size,max_base_node_size]);
 
-        {"size": 10, "score": 1, "id": "Onboarding"},//18
-        {"size": 10, "score": 1, "id": "Iot"},//19
-        {"size": 10, "score": 1, "id": "Dev FINEP"},//20
-        {"size": 10, "score": 1, "id": "Dev PHP"},//21
-        {"size": 10, "score": 1, "id": "Monitoramento"},//22
-        {"size": 10, "score": 1, "id": "Automação"},//23
-        {"size": 10, "score": 1, "id": "Sam"},//24
-    ],
-  "directed": false,
-  "multigraph": false
-};
+    var nominal_text_size = 10;
+    var max_text_size = 2.4*nominal_text_size;
 
-var w = window.innerWidth;
-var h = window.innerHeight;
+    var nominal_stroke = 1.5;
+    var max_stroke = 3*nominal_stroke;
 
-var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true;
-var focus_node = null, highlight_node = null;
-var text_center = false;
-var outline = false;
+    var min_zoom = 0.1;
+    var max_zoom = 7;
 
-var min_score = 0;
-var max_score = 1;
+    var svg = d3.select("#d3Container").append("svg");
+    var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 
-var highlight_color = "#de7333";
-var highlight_trans = 0.1;
-var default_node_color = default_link_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
-  
-var size = d3.scale.pow().exponent(1)
-  .domain([1,100])
-  .range([8,24]);
-	
-var force = d3.layout.force()
-  .linkDistance(90)
-  .charge(-1000)
-  .size([w,h]);
+    var defs = svg.append('defs');
+    var clipPath = defs.append('clipPath').attr('id', 'circleView');
+    var circle = clipPath.append('circle').attr("cx", 2*nominal_base_node_size).attr("cy", nominal_base_node_size).attr("r", nominal_base_node_size).attr("fill", "blue");
 
-var nominal_base_node_size = 8;
-var nominal_text_size = 10;
-var max_text_size = 24;
-var nominal_stroke = 1.5;
-var max_stroke = 4.5;
-var max_base_node_size = 36;
-var min_zoom = 0.1;
-var max_zoom = 7;
+    tooltip = d3.select("body").append("div").attr("class", "stacked-tooltip");
 
-var svg = d3.select("#graph").append("svg");
-var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
+    var g = svg.append("g");
 
-var defs = svg.append('defs');
-var clipPath = defs.append('clipPath').attr('id', 'circleView');
-var circle = clipPath.append('circle').attr("cx", "50").attr("cy", "25").attr("r", "25").attr("fill", "blue");
+    svg.style("cursor", "move");
 
-tooltip = d3.select("body").append("div").attr("class", "stacked-tooltip");
+    var linkedByIndex = {};
 
-var g = svg.append("g");
+    graph.links.forEach(function(d) {
+        linkedByIndex[d.source + "," + d.target] = true;
+    });
 
-svg.style("cursor","move");
-
-var linkedByIndex = {};
-
-graph.links.forEach(function(d) {
-    linkedByIndex[d.source + "," + d.target] = true;
-});
-
-function isConnected(a, b) {
-    return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
-}
-
-function hasConnections(a) {
-    for (var property in linkedByIndex) {
-        s = property.split(",");
-        if ((s[0] == a.index || s[1] == a.index) && linkedByIndex[property]) return true;
+    function isConnected(a, b) {
+        return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
     }
-    return false;
-}
+
+    function hasConnections(a) {
+        for (var property in linkedByIndex) {
+            s = property.split(",");
+            if ((s[0] == a.index || s[1] == a.index) && linkedByIndex[property]) return true;
+        }
+        return false;
+    }
 	
-  force
-    .nodes(graph.nodes)
-    .links(graph.links)
-    .start();
+    force
+        .nodes(graph.nodes)
+        .links(graph.links)
+        .start();
 
-  var link = g.selectAll(".link")
-    .data(graph.links)
-    .enter().append("line")
-    .attr("class", "link")
-	.style("stroke-width",nominal_stroke)
-	.style("stroke", default_link_color)
+    var link = g.selectAll(".link")
+        .data(graph.links)
+        .enter().append("line")
+        .attr("class", "link")
+        .style("stroke-width", nominal_stroke)
+        .style("stroke", default_link_color)
 
 
-  var node = g.selectAll(".node")
-    .data(graph.nodes)
-    .enter().append("g")
-    .attr("class", "node")
-    .call(force.drag)
+    var node = g.selectAll(".node")
+        .data(graph.nodes)
+        .enter().append("g")
+        .attr("class", "node")
+        .call(force.drag)
 
 	
 	node.on("dblclick.zoom", function(d) { 
         d3.event.stopPropagation();
-        var dcx = (window.innerWidth/2-d.x*zoom.scale());
-        var dcy = (window.innerHeight/2-d.y*zoom.scale());
+        var dcx = (chartContainer.offsetWidth / 2-d.x * zoom.scale());
+        var dcy = (chartContainer.offsetHeight / 2-d.y * zoom.scale());
         zoom.translate([dcx,dcy]);
-        g.attr("transform", "translate("+ dcx + "," + dcy  + ")scale(" + zoom.scale() + ")");
-	});
-	
+        g.attr("transform", "translate("+ dcx + "," + dcy + ")scale(" + zoom.scale() + ")");
+	}).on("mouseover", function(d) {
+        set_highlight(d);
+    }).on("mousedown", function(d) { d3.event.stopPropagation();
+        focus_node = d;
+        set_focus(d)
+        if (highlight_node === null) set_highlight(d)
+    }).on("mouseout", function(d) {
+        exit_highlight();
+    });
 
-	var tocolor = "fill";
-	var towhite = "stroke";
-
-	if (outline) {
-		tocolor = "stroke"
-		towhite = "fill"
-	}
-		
     var bgCircles = node.append("circle")
-      .attr("cx", "50")
-      .attr("cy", "25")
-      .attr("r", "26")
+      .attr("cx", 2*nominal_base_node_size)
+      .attr("cy", nominal_base_node_size)
+      .attr("r", nominal_base_node_size + nominal_stroke)
       .attr("class", "bgCircle")
       .attr("fill", default_node_color);
 
     var circle = node.append("image")
-        .attr("width", 100)
-        .attr("height", 50)
+        .attr("width", 4*nominal_base_node_size)
+        .attr("height", 2*nominal_base_node_size)
         .attr("xlink:href", function(d) { return `Images/${d.id}.jpg`;})
         .attr("clip-path", "url(#circleView)")
         .on("mousemove", function(d, i) {
@@ -333,36 +310,27 @@ function hasConnections(a) {
         })
 		.on("mouseleave", function (d) { tooltip.style("opacity", "0") })
     
-   
-
-  var text = g.selectAll(".text")
-    .data(graph.nodes)
-    .enter().append("text")
-    .attr("dy", ".35em")
-	.style("font-size", nominal_text_size + "px")
+    var text = g.selectAll(".text")
+        .data(graph.nodes)
+        .enter().append("text")
+        
+        .attr("class", "text")
+        .attr("fill", default_text_color)
+        .style("font-size", nominal_text_size + "px")
 
 	if (text_center)
 	    text.text(function(d) { return d.id; })
+            .attr("dy", -((nominal_base_node_size+nominal_stroke)*1.1))
 	        .style("text-anchor", "middle");
-	else 
-	    text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
-
-	node.on("mouseover", function(d) {
-        set_highlight(d);
-    })
-    .on("mousedown", function(d) { d3.event.stopPropagation();
-        focus_node = d;
-        set_focus(d)
-        if (highlight_node === null) set_highlight(d)
-    }).on("mouseout", function(d) {
-        exit_highlight();
-    });
+	else
+	    text.attr("dx", nominal_base_node_size + nominal_stroke)
+        .attr("dy", ".35em")
+        .text(function(d) { return '\u2002'+d.id; });
 
     d3.select(window).on("mouseup", function() {
-        if (focus_node!==null)
-        {
+        if (focus_node !== null) {
             focus_node = null;
-            if (highlight_trans<1) {
+            if (highlight_trans < 1) {
                 bgCircles.style("opacity", 1)
                 circle.style("opacity", 1);
                 text.style("opacity", 1);
@@ -372,60 +340,49 @@ function hasConnections(a) {
         if (highlight_node === null) exit_highlight();
     });
 
-function exit_highlight()
-{
-    highlight_node = null;
-	if (focus_node===null) {
+    function exit_highlight() {
+        highlight_node = null;
+        if (focus_node === null) {
+            svg.style("cursor","move");
 
-		svg.style("cursor","move");
-
-		if (highlight_color!="white") {
             bgCircles.style("fill", default_node_color)
-            circle.style(towhite, "white");
-            text.style("font-weight", "normal");
+            text.style("font-weight", "400");
             link.style("stroke", default_link_color);
-        }		
-	}
-}
-
-function set_focus(d) {
-    if (highlight_trans < 1)  {
-        bgCircles.style("opacity", function(o) {
-            return isConnected(d, o) ? 1 : highlight_trans;
-        });
-
-        circle.style("opacity", function(o) {
-            return isConnected(d, o) ? 1 : highlight_trans;
-        });
-
-        text.style("opacity", function(o) {
-            return isConnected(d, o) ? 1 : highlight_trans;
-        });
-        
-        link.style("opacity", function(o) {
-            return o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans;
-        });		
+        }
     }
-}
 
+    function set_focus(d) {
+        if (highlight_trans < 1)  {
+            bgCircles.style("opacity", function(o) {
+                return isConnected(d, o) ? 1 : highlight_trans;
+            });
 
-function set_highlight(d) {
-	svg.style("cursor","pointer");
+            circle.style("opacity", function(o) {
+                return isConnected(d, o) ? 1 : highlight_trans;
+            });
 
-	if (focus_node !== null) d = focus_node;
-	highlight_node = d;
+            text.style("opacity", function(o) {
+                return isConnected(d, o) ? 1 : highlight_trans;
+            });
+            
+            link.style("opacity", function(o) {
+                return o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans;
+            });		
+        }
+    }
 
-	if (highlight_color!="white"){
+    function set_highlight(d) {
+        svg.style("cursor","pointer");
+
+        if (focus_node !== null) d = focus_node;
+        highlight_node = d;
+
         bgCircles.style("fill", function(o) {
             return isConnected(d, o) ? highlight_color : default_node_color;
         });
 
-        circle.style(towhite, function(o) {
-            return isConnected(d, o) ? highlight_color : "white";}
-        );
-
         text.style("font-weight", function(o) {
-            return isConnected(d, o) ? "bold" : "normal";}
+            return isConnected(d, o) ? "600" : "400";}
         );
 
         link.style("stroke", function(o) {
@@ -433,48 +390,45 @@ function set_highlight(d) {
             ? highlight_color 
             : default_link_color;
         });
-	}
-}
+    }
 
-function changeTheme() {
-    default_link_color = default_node_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
+    function changeTheme() {
+        default_text_color = default_link_color = default_node_color = getComputedStyle(bodyElem).getPropertyValue('--textColor');
+        default_text_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
 
-    bgCircles.style("fill", default_node_color );
-    link.style("stroke", default_link_color);
-}
+        bgCircles.style("fill", default_node_color );
+        link.style("stroke", default_link_color);
+        text.style("fill", default_text_color);
+    }
 
-zoom.on("zoom", function() {
-    var stroke = nominal_stroke;
+    zoom.on("zoom", function() {
+        var stroke = nominal_stroke;
 
-    if (nominal_stroke * zoom.scale() > max_stroke) 
-        stroke = max_stroke / zoom.scale();
-    
-    link.style("stroke-width",stroke);
-    circle.style("stroke-width",stroke);
-
-    var base_radius = nominal_base_node_size;
-    if (nominal_base_node_size*zoom.scale()>max_base_node_size) base_radius = max_base_node_size/zoom.scale();
-        circle.attr("d", d3.svg.symbol()
-        .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
-        .type(function(d) { return d.type; }))
+        if (nominal_stroke * zoom.scale() > max_stroke) 
+            stroke = max_stroke / zoom.scale();
         
-    //circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
-    if (!text_center) text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
+        link.style("stroke-width",stroke);
 
-    var text_size = nominal_text_size;
-    if (nominal_text_size*zoom.scale()>max_text_size) text_size = max_text_size/zoom.scale();
-    text.style("font-size",text_size + "px");
+        var base_radius = (nominal_base_node_size*zoom.scale()> max_base_node_size) 
+            ? base_radius = max_base_node_size/zoom.scale()
+            : nominal_base_node_size;
+    
+        bgCircles.attr("r", nominal_base_node_size + stroke)
+        if (!text_center) text.attr("dx", nominal_base_node_size + stroke);
 
-    g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-});
+        var text_size = nominal_text_size;
+        if (nominal_text_size*zoom.scale()>max_text_size) text_size = max_text_size/zoom.scale();
+        text.style("font-size",text_size + "px");
+
+        g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    });
 	 
-  svg.call(zoom);	  
-	
-  resize();
-  //window.focus();
-  d3.select(window).on("resize", resize).on("keydown", keydown);
-	  
-  force.on("tick", function() {
+    svg.call(zoom);	  
+        
+    resize();
+    d3.select(window).on("resize", resize).on("keydown", keydown);
+        
+    force.on("tick", function() {
         node.attr("transform", function(d) { return "translate(" + (d.x - 100/2) + "," + (d.y - 50/2) + ")"; });
         text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     
@@ -487,93 +441,94 @@ zoom.on("zoom", function() {
         .attr("cy", function(d) { return d.y; });
 	});
   
-  function resize() {
-    var width = window.innerWidth, height = window.innerHeight;
-	svg.attr("width", width).attr("height", height);
-    
-	force.size([force.size()[0]+(width-w)/zoom.scale(),force.size()[1]+(height-h)/zoom.scale()]).resume();
-        w = width;
-        h = height;
+    function resize() {
+        var width = chartContainer.offsetWidth, height = chartContainer.offsetHeight
+
+        svg.attr("width", width).attr("height", height);
+
+        
+        force.size([force.size()[0]+(width-w)/zoom.scale(),force.size()[1]+(height-h)/zoom.scale()]).resume();
+            w = width;
+            h = height;
 	}
 	
 	function keydown() {
-	if (d3.event.keyCode==32) {
-        force.stop();
-    } else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey) {
-        switch (String.fromCharCode(d3.event.keyCode)) {
-            case "C": keyc = !keyc; break;
-            case "S": keys = !keys; break;
-            case "T": keyt = !keyt; break;
-            case "R": keyr = !keyr; break;
-            case "X": keyx = !keyx; break;
-            case "D": keyd = !keyd; break;
-            case "L": keyl = !keyl; break;
-            case "M": keym = !keym; break;
-            case "H": keyh = !keyh; break;
-            case "1": key1 = !key1; break;
-            case "2": key2 = !key2; break;
-            case "3": key3 = !key3; break;
-            case "0": key0 = !key0; break;
-        }
-  	
-        link.style("display", function(d) {
-            var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);
-            linkedByIndex[d.source.index + "," + d.target.index] = flag;
-            return flag ? "inline" : "none";
-        });
-        node.style("display", function(d) {
-            return (key0 || hasConnections(d)) && vis_by_type(d.type) && vis_by_node_score(d.score) ? "inline" : "none";
-        });
-        text.style("display", function(d) {
-            return (key0 || hasConnections(d)) && vis_by_type(d.type) && vis_by_node_score(d.score) ? "inline" : "none";
-        });
-                        
-        if (highlight_node !== null) {
-            if ((key0 || hasConnections(highlight_node)) && vis_by_type(highlight_node.type) && vis_by_node_score(highlight_node.score)) {
-                if (focus_node!==null) set_focus(focus_node);
-                    set_highlight(highlight_node);
-            } else {
-                exit_highlight();
+        if (d3.event.keyCode==32) {
+            force.stop();
+        } else if (d3.event.keyCode >= 48 && d3.event.keyCode <= 90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey) {
+            switch (String.fromCharCode(d3.event.keyCode)) {
+                case "C": keyc = !keyc; break;
+                case "S": keys = !keys; break;
+                case "T": keyt = !keyt; break;
+                case "R": keyr = !keyr; break;
+                case "X": keyx = !keyx; break;
+                case "D": keyd = !keyd; break;
+                case "L": keyl = !keyl; break;
+                case "M": keym = !keym; break;
+                case "H": keyh = !keyh; break;
+                case "1": key1 = !key1; break;
+                case "2": key2 = !key2; break;
+                case "3": key3 = !key3; break;
+                case "0": key0 = !key0; break;
             }
+            
+            link.style("display", function(d) {
+                var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);
+                linkedByIndex[d.source.index + "," + d.target.index] = flag;
+                return flag ? "inline" : "none";
+            });
+
+            node.style("display", function(d) {
+                return (key0 || hasConnections(d)) && vis_by_type(d.type) && vis_by_node_score(d.score) ? "inline" : "none";
+            });
+
+            text.style("opacity", function(d) {
+                return (key0 || hasConnections(d)) && keyt ? 1 : 0;
+            });
+                            
+            if (highlight_node !== null) {
+                if ((key0 || hasConnections(highlight_node)) && vis_by_type(highlight_node.type) && vis_by_node_score(highlight_node.score)) {
+                    if (focus_node!==null) set_focus(focus_node);
+                        set_highlight(highlight_node);
+                } else {
+                    exit_highlight();
+                }
+            }
+        }	
+    }
+
+    function vis_by_type(type) {
+        switch (type) {
+            case "circle": return keyc;
+            case "square": return keys;
+            case "triangle-up": return keyt;
+            case "diamond": return keyr;
+            case "cross": return keyx;
+            case "triangle-down": return keyd;
+            default: return true;
         }
+    }
+
+    function vis_by_node_score(score) {
+        if (isNumber(score)) {
+            if (score>=0.666) return keyh;
+            else if (score>=0.333) return keym;
+            else if (score>=0) return keyl;
+        }
+        return true;
+    }
+
+    function vis_by_link_score(score) {
+        if (isNumber(score)) {
+            if (score>=0.666) return key3;
+            else if (score>=0.333) return key2;
+            else if (score>=0) return key1;
+        }
+        return true;
+    }
+
+    function isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
     }	
-}
-
-function vis_by_type(type)
-{
-	switch (type) {
-        case "circle": return keyc;
-        case "square": return keys;
-        case "triangle-up": return keyt;
-        case "diamond": return keyr;
-        case "cross": return keyx;
-        case "triangle-down": return keyd;
-        default: return true;
-    }
-}
-
-function vis_by_node_score(score)
-{
-	if (isNumber(score)) {
-        if (score>=0.666) return keyh;
-        else if (score>=0.333) return keym;
-        else if (score>=0) return keyl;
-	}
-	return true;
-}
-
-function vis_by_link_score(score)
-{
-	if (isNumber(score)) {
-        if (score>=0.666) return key3;
-        else if (score>=0.333) return key2;
-        else if (score>=0) return key1;
-    }
-	return true;
-}
-
-function isNumber(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}	
 
 </script>
