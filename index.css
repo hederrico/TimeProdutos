@@ -91,10 +91,10 @@ body[data-theme='dark'] {
 /* D3 Chart Container */
 
 #d3Container {
-    width: 100vh;
-    height: 80vh;
-    border: 1px solid var(--textColor);
-    border-radius: .215rem;
+    width: 100vw;
+    height: 100vh;
+    /* border: 1px solid var(--textColor); */
+    /* border-radius: .215rem; */
 }
 
 #centeringDiv {
