@@ -3,25 +3,50 @@
     src: url('Fonts/Montserrat/Montserrat-Regular.ttf');
 } 
 
+* {
+    font-family: 'montserrat', sans-serif;
+    margin: 0;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+}
+
+:root {
+    --successColor: #28c76f;
+    --lowOpacitysuccessColor: #28C76F1F;
+}
+
 body {
     overflow: hidden;
-    margin: 0;
     background-color: var(--bgColor);
     transition: all .3s;
+
 }
 
 body[data-theme='light'] {
-    --bgColor: #FFFFFF;
+    --bgColor: #F8F8F8;
+    --panelColor: #FFFFFF;
+    --panelDarkenColor: #f3f5fa;
     --textColor: #6E6B7B;
     --headingColor: #5E5873;
     --highlightColor: #de7333;
+    --borderColor: #EBE9F1;
+    --mutedColor: #B9B9C3;
 }
 
 body[data-theme='dark'] {
-    --bgColor: #283046;
+    --bgColor: #161D31;
+    --panelColor: #283046;
+    --panelDarkenColor: #191f2f;
     --textColor: #B4B7BD;
     --headingColor: #D0D2D6;
     --highlightColor: #de7333;
+    --borderColor: #3B4253;
+    --mutedColor: #676D7D;
 }
 
 /* Theme Selector */
@@ -91,8 +116,10 @@ body[data-theme='dark'] {
 /* D3 Chart Container */
 
 #d3Container {
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw; */
+    width: 60vw;
+    height: 80vh;
+    /* display: none; */
     /* border: 1px solid var(--textColor); */
     /* border-radius: .215rem; */
 }
@@ -106,43 +133,46 @@ body[data-theme='dark'] {
 }
 
 /* Rotating Card */
-
 .card {
     perspective: 60rem;
     -webkit-perspective: 60rem;
     -moz-perspective: 60rem;
     
-    height: 400px;
-    width: 250px;
+    height: 450px;
+    width: 350px;
+
+    color: var(--textColor);
 }
   
 .card__side {
-    text-align: center;
+    height: 450px;
+    width: 350px;
 
-    height: 400px;
-    width: 250px;
-
-    transition: all .8s ease;
+    transition: all .3s ease;
     position: absolute;
     top: 0;
     left: 0;
 
     backface-visibility: hidden;
-
-    border-radius: .215rem;
     overflow: hidden;
-    box-shadow: 0 1.5rem 2rem rgba(0,0,0, .35);
+
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
 }
 
 .card__side--front {
-    background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
-    background-image: linear-gradient(to right bottom, #4a577a, #283046);
-    
+    /* background-image: linear-gradient(to right bottom, #7ed56f, #28b485); */
+    /* background-image: linear-gradient(to right bottom, #4a577a, #161D31); */
+    background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
+    /* background: var(--panelColor); */
 }
 
 .card__side--back {
-    background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+    background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
     transform: rotateY(180deg);
+    
+    display: grid;
+    place-content: center;
 }
 
 .card:hover .card__side--front {
@@ -153,5 +183,86 @@ body[data-theme='dark'] {
     transform: rotateY(0deg);
 }
 
+.card__header {
+    padding: 6px 6px 10px;
+}
 
-/* TENTAR HACK NO LINK https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css/32721572#32721572 */
+.card__header__logo {
+    width: 2rem;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.card__header__image-container {
+    transition: all .3s;
+    border: 3px solid var(--borderColor);
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem auto 0;
+    overflow: hidden;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card__header__image {
+    width: 100%;
+    height: 100%;
+}
+
+.card__body {
+    padding: 0px 6px 6px;
+    color: var(--textColor);
+}
+
+.card__body__collab-container {
+    width: fit-content;
+    margin: auto;
+    color: var(--headingColor);
+    transition: all .3s;
+    text-align: center;
+}
+
+.card__body__collab-name {
+    margin-bottom: .5rem;
+}
+
+.card__body__collab-function {
+    width: fit-content;
+    color: var(--successColor);
+    font-size: 0.8rem;
+    margin: 0 auto 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.358rem;
+    background: var(--lowOpacitysuccessColor);
+
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.card__body__collab-info {
+    margin: 10px;
+    font-size: .9rem;
+}
+
+.card__body__separator {
+    border: 0;
+    background-color: var(--borderColor);
+    height: 1px;
+    margin: 16px 2px 24px;
+}
+
+.card__body__info-line {
+    display: flex;
+    gap: .5rem;
+    position: fixed;
+    bottom: 12px;
+    right: 16px;
+}
+
+.card__body__info-name {
+    color: var(--headingColor);
+}
+
+/* PARA FAZER O CARD VIRAR AO CLICAR TENTAR HACK NO LINK https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css/32721572#32721572 */

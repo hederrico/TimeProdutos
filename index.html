@@ -5,7 +5,7 @@
 <link href="Fonts/Montserrat/Montserrat-Regular.ttf" rel="stylesheet">
 <link href="index.css" rel="stylesheet">
 
-<body data-theme="light">
+<body data-theme="dark">
     <div id="theme-selector">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path 
@@ -31,20 +31,50 @@
         </svg>
     </div>
 
-    <!-- <div id="centeringDiv"> -->
-        <!-- <div class="card">
+    <div id="centeringDiv">
+        <div class="card">
             <div class="card__side card__side--front">
-                Frente
+                <div class="card__header">
+                    <div class="card__header__logo-container">
+                        <a href="https://hit.com.vc" target="_blank">
+                            <img class="card__header__logo" src="Images/logo-hit.png" alt="Logo HIT">
+                        </a>
+                    </div>
+                    <div class="card__header__image-container">
+                        <img class="card__header__image" src="Images/Bigui.jpg" alt="Foto do Colaborador">
+                    </div>
+                </div>
+                <div class="card__body">
+                    <div class="card__body__collab-container">
+                        <div class="card__body__collab-name">
+                            <h2>
+                                Leandro Bigui
+                            </h2>
+                        </div>
+                        <div class="card__body__collab-function">
+                                Gerente de Projetos
+                        </div>
+                    </div>
+
+                    <div class="card__body__collab-info">
+                        <hr class="card__body__separator">
+
+                        <div class="card__body__info-line">
+                            <div class="card__body__info-value">
+                                Leandro.bigui@hit.com.vc
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card__side card__side--back">
-                Verso
+                Calma Apressadinho 😁🗣
             </div>
-        </div> -->
+        </div>
 
         <div id="d3Container">
-
         </div>
-    <!-- </div> -->
+    </div>
 
     <div id="created-by">
         Created By: Henrique Derrico
@@ -65,12 +95,11 @@
 <script src="d3.v3.min.js"></script>
 
 <script>
-
     var themeSelector = document.getElementById('theme-selector');
     var themeIcon = document.getElementsByClassName('theme-icon')[0];
     var bodyElem = document.getElementsByTagName('BODY')[0];
 
-    themeSelector.onclick = function() {
+    var changeTheme = function() {
         if ((bodyElem.getAttribute('data-theme') == 'dark')) {
             bodyElem.setAttribute('data-theme', 'light');
             themeIcon.setAttribute('d', `M18.3954 10.0503C18.6962 9.74874 19.1977 9.74874 19.4986 9.94975C19.7994 10.1508 20 10.5528 20 10.8543C19.6991 13.5678 18.4957 15.9799 
@@ -99,9 +128,11 @@
                 15.9167 2.91927L14.75 4.08594Z`)
         }
 
-        changeTheme();
+        changeGraphTheme();
     };
     
+    themeSelector.onclick = changeTheme;
+
     var graph = {
         "links": [
             //SAM
@@ -188,7 +219,7 @@
 
     var highlight_color = "#de7333";
     var highlight_trans = 0.1;
-    var  default_node_color = default_link_color = getComputedStyle(bodyElem).getPropertyValue('--textColor');
+    var default_node_color = default_link_color = getComputedStyle(bodyElem).getPropertyValue('--textColor');
     var default_text_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
         
     var force = d3.layout.force()
@@ -392,7 +423,7 @@
         });
     }
 
-    function changeTheme() {
+    function changeGraphTheme() {
         default_text_color = default_link_color = default_node_color = getComputedStyle(bodyElem).getPropertyValue('--textColor');
         default_text_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
 
@@ -453,6 +484,7 @@
 	}
 	
 	function keydown() {
+
         if (d3.event.keyCode==32) {
             force.stop();
         } else if (d3.event.keyCode >= 48 && d3.event.keyCode <= 90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey) {
@@ -472,6 +504,10 @@
                 case "0": key0 = !key0; break;
             }
             
+            if (String.fromCharCode(d3.event.keyCode) == "Q") {
+                changeTheme();    
+            }
+
             link.style("display", function(d) {
                 var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);
                 linkedByIndex[d.source.index + "," + d.target.index] = flag;
