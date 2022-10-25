@@ -6,6 +6,11 @@
 <link href="index.css" rel="stylesheet">
 
 <body data-theme="dark">
+    
+    <div class="copied-container" data-ani="none">
+        Texto copiado! ✍🏽
+    </div>
+
     <div id="theme-selector">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path 
@@ -37,12 +42,26 @@
                 <div class="card__header">
                     <div class="card__header__logo-container">
                         <a href="https://hit.com.vc" target="_blank">
-                            <img class="card__header__logo" src="Images/logo-hit.png" alt="Logo HIT">
+                            <img class="card__header__logo" src="Images/logo-hit.png" alt="Logo HIT" title="Site HIT">
                         </a>
                     </div>
                     <div class="card__header__image-container">
                         <img class="card__header__image" src="Images/Bigui.jpg" alt="Foto do Colaborador">
                     </div>
+
+                    <div class="card__header__turn-icon" title="Girar Cartão" data-side="front">
+                        <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
+                            5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 
+                            7.76L15.76 4.56C15.8 4.52 15.82 4.48 15.84 4.44C15.86 4.4 15.88 4.36 15.92 4.32C16 4.08 16 3.84 15.92 3.68C15.92 3.6 
+                            15.84 3.52 15.76 3.44L12.56 0.24C12.24 -0.08 11.76 -0.08 11.44 0.24C11.12 0.56 11.12 1.04 11.44 1.36L13.28 3.2H4C1.76 
+                            3.2 0 4.96 0 7.2ZM14.4 10.4C14.4 9.92 14.72 9.6 15.2 9.6C15.68 9.6 16 9.92 16 10.4V12C16 14.24 14.24 16 12 16H2.72L4.56 
+                            17.84C4.88 18.16 4.88 18.64 4.56 18.96C4.4 19.12 4.24 19.2 4 19.2C3.76 19.2 3.6 19.12 3.44 18.96L0.24 15.76C0.2 15.72 
+                            0.18 15.68 0.16 15.64C0.14 15.6 0.12 15.56 0.08 15.52C0 15.28 0 15.04 0.08 14.88C0.08 14.8 0.16 14.72 0.24 14.64L3.44 
+                            11.44C3.76 11.12 4.24 11.12 4.56 11.44C4.88 11.76 4.88 12.24 4.56 12.56L2.72 14.4H12C13.36 14.4 14.4 13.36 14.4 12V10.4Z"/>
+                        </svg>
+                    </div>
+
                 </div>
                 <div class="card__body">
                     <div class="card__body__collab-container">
@@ -59,15 +78,56 @@
                     <div class="card__body__collab-info">
                         <hr class="card__body__separator">
 
-                        <div class="card__body__info-line">
-                            <div class="card__body__info-value">
+                        <div style="width: fit-content; margin: auto; text-align: center;">
+                            Clica no Email paizão 📩
+                            <br>
+                            <br>
+                            Agora na logo do HIT! 😲
+                            <br>
+                            <br>
+                            Boa boa 🤝🏽
+                            <br><br>
+                            Finaliza rotacionando card! 🔁
+                        </div>
+                        
+                        <div class="card__body__info-line" title="Copiar Email">
+                            <div class="card__body__info-value card__body__info-email" data-type="Email">
                                 Leandro.bigui@hit.com.vc
+
+                                <div class="card__body__copy-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.90909 10.9091C3.34545 10.9091 3.63636 10.6182 3.63636 10.1818C3.63636 
+                                        9.74545 3.34545 9.45455 2.90909 9.45455H2.18182C1.74545 9.45455 1.45455 9.16364 1.45455 8.72727V2.18182C1.45455 1.74545 
+                                        1.74545 1.45455 2.18182 1.45455H8.72727C9.16364 1.45455 9.45455 1.74545 9.45455 2.18182V2.90909C9.45455 3.34545 9.74545 
+                                        3.63636 10.1818 3.63636C10.6182 3.63636 10.9091 3.34545 10.9091 2.90909V2.18182C10.9091 0.945455 9.96364 0 8.72727 
+                                        0H2.18182C0.945455 0 0 0.945455 0 2.18182V8.72727C0 9.96364 0.945455 10.9091 2.18182 10.9091H2.90909ZM13.8182 
+                                        5.09091H7.27273C6.03636 5.09091 5.09091 6.03636 5.09091 7.27273V13.8182C5.09091 15.0545 6.03636 16 7.27273 
+                                        16H13.8182C15.0545 16 16 15.0545 16 13.8182V7.27273C16 6.03636 15.0545 5.09091 13.8182 5.09091ZM14.5455 13.8182C14.5455 
+                                        14.2545 14.2545 14.5455 13.8182 14.5455H7.27273C6.83636 14.5455 6.54545 14.2545 6.54545 13.8182V7.27273C6.54545 6.83636 
+                                        6.83636 6.54545 7.27273 6.54545H13.8182C14.2545 6.54545 14.5455 6.83636 14.5455 7.27273V13.8182Z"/>
+                                    </svg>
+                                </div>
+                                    
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card__side card__side--back">
+
+                <div class="card__header__turn-icon" title="Girar Cartão" data-side="back">
+                    <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
+                        5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 
+                        7.76L15.76 4.56C15.8 4.52 15.82 4.48 15.84 4.44C15.86 4.4 15.88 4.36 15.92 4.32C16 4.08 16 3.84 15.92 3.68C15.92 3.6 
+                        15.84 3.52 15.76 3.44L12.56 0.24C12.24 -0.08 11.76 -0.08 11.44 0.24C11.12 0.56 11.12 1.04 11.44 1.36L13.28 3.2H4C1.76 
+                        3.2 0 4.96 0 7.2ZM14.4 10.4C14.4 9.92 14.72 9.6 15.2 9.6C15.68 9.6 16 9.92 16 10.4V12C16 14.24 14.24 16 12 16H2.72L4.56 
+                        17.84C4.88 18.16 4.88 18.64 4.56 18.96C4.4 19.12 4.24 19.2 4 19.2C3.76 19.2 3.6 19.12 3.44 18.96L0.24 15.76C0.2 15.72 
+                        0.18 15.68 0.16 15.64C0.14 15.6 0.12 15.56 0.08 15.52C0 15.28 0 15.04 0.08 14.88C0.08 14.8 0.16 14.72 0.24 14.64L3.44 
+                        11.44C3.76 11.12 4.24 11.12 4.56 11.44C4.88 11.76 4.88 12.24 4.56 12.56L2.72 14.4H12C13.36 14.4 14.4 13.36 14.4 12V10.4Z"/>
+                    </svg>
+                </div>
+
                 <h2>Calma Apressado 😬👻</h2>
                 <br>
                 <br>
@@ -110,6 +170,32 @@
 <script src="d3.v3.min.js"></script>
 
 <script>
+
+    var rotateIcons = document.getElementsByClassName('card__header__turn-icon');
+    var collabCard = document.getElementsByClassName('card')[0];
+    
+    for (let i = 0; i < rotateIcons.length; i++) {
+        var element = rotateIcons[i];
+        
+        element.onclick = function() {
+            collabCard.setAttribute('data-side', this.getAttribute('data-side'));
+        }
+    }
+
+    var email = document.getElementsByClassName('card__body__info-email')[0];
+    var copiedTextContainer = document.getElementsByClassName('copied-container')[0];
+
+    email.onclick = function() {
+
+        copiedTextContainer.setAttribute('data-ani', 'copiedText');
+
+        setTimeout(() => {
+            copiedTextContainer.setAttribute('data-ani', 'none');
+        }, 3300);
+
+        navigator.clipboard.writeText(this.textContent.trim());
+    }
+
     var themeSelector = document.getElementById('theme-selector');
     var themeIcon = document.getElementsByClassName('theme-icon')[0];
     var bodyElem = document.getElementsByTagName('BODY')[0];
@@ -379,7 +465,7 @@
             if (highlight_trans < 1) {
                 bgCircles.style("opacity", 1)
                 circle.style("opacity", 1);
-                text.style("opacity", 1);
+                text.style("opacity", keyt ? 1 : 0);
                 link.style("opacity", 1);
             }   
         }
@@ -408,7 +494,7 @@
             });
 
             text.style("opacity", function(o) {
-                return isConnected(d, o) ? 1 : highlight_trans;
+                return keyt ? (isConnected(d, o) ? 1 : highlight_trans) : 0;
             });
             
             link.style("opacity", function(o) {

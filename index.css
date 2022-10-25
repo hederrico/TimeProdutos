@@ -108,13 +108,12 @@ body[data-theme='dark'] {
 }
 
 /* Text */
-.text{
+.text {
     transition: opacity .3s, fill .3s;
     font-family: 'montserrat', sans-serif;
 }
 
 /* D3 Chart Container */
-
 #d3Container {
     /* width: 100vw; */
     width: 60vw;
@@ -158,6 +157,7 @@ body[data-theme='dark'] {
 
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
     border-radius: 6px;
+    border: 1px solid var(--borderColor);
 }
 
 .card__side--front {
@@ -176,11 +176,11 @@ body[data-theme='dark'] {
     text-align: center;
 }
 
-.card:hover .card__side--front {
+.card[data-side='front'] .card__side--front {
     transform: rotateY(-180deg);
 }
 
-.card:hover .card__side--back {
+.card[data-side='front'] .card__side--back {
     transform: rotateY(0deg);
 }
 
@@ -264,6 +264,61 @@ body[data-theme='dark'] {
 
 .card__body__info-name {
     color: var(--headingColor);
+}
+
+.card__body__info-email {
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+}
+
+.card__body__copy-icon svg {
+    fill: var(--textColor);
+}
+
+.card__header__turn-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.card__header__turn-icon svg {
+    fill: var(--textColor);
+}
+
+@keyframes hideElement {
+    0% {
+        bottom: 2rem;
+    }
+
+    100% {
+        bottom: -5rem;
+    }
+}
+
+/* Copied Box */
+.copied-container {
+    transition: all .3s;
+    width: fit-content;
+    padding: .5rem 1rem;
+    color: var(--textColor);
+    border: 1px solid var(--borderColor);
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    position: absolute;
+    bottom: -5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
+}
+
+.copied-container[data-ani='copiedText'] {
+    transition: all .3s;
+    opacity: 1;
+    bottom: 2rem;
+    -webkit-animation: hideElement .3s ease-in 3s;
+    animation: hideElement .3s ease-in 3s;
 }
 
 /* PARA FAZER O CARD VIRAR AO CLICAR TENTAR HACK NO LINK https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css/32721572#32721572 */
