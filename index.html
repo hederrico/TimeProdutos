@@ -240,11 +240,6 @@
     themeSelector.onclick = changeTheme;
 
     var graph = {
-        "links2": [
-            {"source": 0, "target": 24},
-            {"source": 5, "target": 24},
-            {"source": 16, "target": 24}
-        ],
         "links": [
             //SAM
             {"source": 0, "target": 24},
@@ -288,24 +283,24 @@
             {"source": 12, "target": 24},
         ],
         "nodes": [
-            {"id": "Andrei",}, //0
-            {"id": "Bruno",}, //1
-            {"id": "Diana",}, //2
-            {"id": "Cris",}, //3
-            {"id": "Danilo", }, //4
-            {"id": "Fernando",}, //5
-            {"id": "Francis"}, //6
-            {"id": "Gabriel",}, //7
-            {"id": "Henrique",}, //8
-            {"id": "Juciele",}, //9
-            {"id": "Julia",}, //10
-            {"id": "Julio",}, //11
-            {"id": "Bigui",}, //12
-            {"id": "Leo",}, //13
-            {"id": "Lucas",}, //14
-            {"id": "Marcos",}, //15
-            {"id": "Milleny",}, //16
-            {"id": "Vinicio",},//17
+            {"id": "Andrei", "num": 6, "hobbies": ['Musculação', 'Viajar', 'Andar de moto'], "emojis": ['💪🏻', '🏍️', '😎'] }, //0
+            {"id": "Bruno", "num": 13, "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], "emojis": ['😁', '🏳️‍🌈', '🤝'] }, //1
+            {"id": "Diana", "num": 4, "hobbies": ['Ler', 'Ver séries', 'Escrever'], "emojis": ['🖤', '🌊', '💻'] }, //2
+            {"id": "Cris", "num": 14, "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], "emojis": ['😁', '🤣'] }, //3
+            {"id": "Danilo", "num": 11, "hobbies": ['Ciclismo', 'Jogar (PC)'], "emojis": ['🤪', '😍', '🥲'] }, //4
+            {"id": "Fernando", "num": 17, "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], "emojis": ['🏍', '🍻', '🍖'] }, //5
+            {"id": "Francis", "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], "emojis": ['😎', '😒', '🙃']}, //6
+            {"id": "Gabriel", "num": 2, "hobbies": ['Jogar', 'Lutar Jiujitsu'], "emojis": ['🦥', '🤔'] }, //7
+            {"id": "Henrique", "num": 9, "hobbies": ['Treinar', 'Jogar', 'Aprender coisas novas'], "emojis": ['🏋🏽‍♂️', '😄', '✌🏽'] }, //8
+            {"id": "Juciele", "num": 15, "hobbies": ['Ver séries', 'Jogar', 'Redes sociais'], "emojis": ['🤣', '🥰', '😡'] }, //9
+            {"id": "Julia", "num": 18, "hobbies": ['Ler', 'Tocar teclado', 'Conhecer lugares novos'], "emojis": ['🥰', '🙄', '😚'] }, //10
+            {"id": "Julio", "num": 5, "hobbies": ['Brincar com as filhas', 'Futebol'], "emojis": ['🖤', '🚀', '⚽'] }, //11
+            {"id": "Bigui", "num": 1, "hobbies": ['Crossfit', 'Cozinhar'], "emojis": ['🚀', '😂'] }, //12
+            {"id": "Leo", "num": 7, "hobbies": ['Caminhar', 'Jogar', 'Tocar violão'], "emojis": ['😂', '🤔', '🤩'] }, //13
+            {"id": "Lucas", "num": 10, "hobbies": ['Apreciar uma boa cerveja', 'Jogar'], "emojis": ['🧙', '🤐', '🤒'] }, //14
+            {"id": "Marcos", "num": 12, "hobbies": ['Curtir a natureza', 'Estudar novas tecnologias', 'Experimentar coisas novas (comidas, lugares, etc)'], "emojis": ['🐼', '🐦'] }, //15
+            {"id": "Milleny", "num": 16, "hobbies": ['Dançar', 'Alongar', 'Ver Dorama'], "emojis": ['🤩', '😡', '💃🏻'] }, //16
+            {"id": "Vinicio", "num": 3, "hobbies": ['Jogar', 'Ver séries'], "emojis": ['🤙🏻', '👾'] },//17
 
             {"id": "Onboarding"},//18
             {"id": "Iot"},//19
@@ -498,7 +493,7 @@
                 bgCircles.style("opacity", 1)
                 circle.style("opacity", 1);
                 text.style("opacity", keyt ? 1 : 0);
-                link.style("opacity", () => keyspace ? 1 : 0);
+                link.style("opacity", keyspace ? 1 : 0);
             }   
         }
         if (highlight_node === null) exit_highlight();
@@ -623,14 +618,14 @@
         if (d3.event.keyCode == 32) {
             keyspace = !keyspace;
 
-            if (!keyspace) {
-                force.stop();
-                link.style("opacity", "0");
-                node.call(customDrag);
-            } else {
+            if (keyspace) {
                 force.resume();
                 link.style("opacity", "1");
                 node.call(force.drag);
+            } else {
+                force.stop();
+                link.style("opacity", "0");
+                node.call(customDrag);
             }
 
         } else if (d3.event.keyCode >= 48 && d3.event.keyCode <= 90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey) {
@@ -655,9 +650,6 @@
             }
 
             link.style("display", function(d) {
-                if (!keyspace) {
-                    return "none";
-                }
                 var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);
                 linkedByIndex[d.source.index + "," + d.target.index] = flag;
                 return flag ? "inline" : "none";
