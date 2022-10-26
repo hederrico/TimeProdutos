@@ -240,6 +240,11 @@
     themeSelector.onclick = changeTheme;
 
     var graph = {
+        "links2": [
+            {"source": 0, "target": 24},
+            {"source": 5, "target": 24},
+            {"source": 16, "target": 24}
+        ],
         "links": [
             //SAM
             {"source": 0, "target": 24},
@@ -368,7 +373,7 @@
     graph.links.forEach(function(d) {
         linkedByIndex[d.source + "," + d.target] = true;
     });
-
+    
     function isConnected(a, b) {
         return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
     }
@@ -394,7 +399,7 @@
         .style("stroke", default_link_color)
 
 
-    var node_drag = d3.behavior.drag()
+    var customDrag = d3.behavior.drag()
         .on("dragstart", dragstart)
         .on("drag", dragmove)
         .on("dragend", dragend);
@@ -407,21 +412,20 @@
         d.px += d3.event.dx;
         d.py += d3.event.dy;
         d.x += d3.event.dx;
-        d.y += d3.event.dy; 
+        d.y += d3.event.dy;
         tick();
     }
 
     function dragend(d, i) {
         // d.fixed = true;
         tick();
-        if(keyspace) force.resume();
     }
 
     var node = g.selectAll(".node")
         .data(graph.nodes)
         .enter().append("g")
         .attr("class", "node")
-        .call(node_drag);
+        .call(force.drag);
 
 	
 	node.on("dblclick.zoom", function(d) { 
@@ -494,7 +498,7 @@
                 bgCircles.style("opacity", 1)
                 circle.style("opacity", 1);
                 text.style("opacity", keyt ? 1 : 0);
-                link.style("opacity", 1);
+                link.style("opacity", () => keyspace ? 1 : 0);
             }   
         }
         if (highlight_node === null) exit_highlight();
@@ -526,7 +530,7 @@
             });
             
             link.style("opacity", function(o) {
-                return o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans;
+                return () => keyspace ? (o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans) : 0;
             });		
         }
     }
@@ -589,7 +593,7 @@
     d3.select(window).on("resize", resize).on("keydown", keydown);
     
     var tick = function() {
-        node.attr("transform", function(d) { return "translate(" + (d.x - 100/2) + "," + (d.y - 50/2) + ")"; });
+        node.attr("transform", function(d) {  return "translate(" + (d.x - nominal_base_node_size*2) + "," + (d.y - nominal_base_node_size) + ")"; });
         text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     
         link.attr("x1", function(d) { return d.source.x; })
@@ -621,8 +625,12 @@
 
             if (!keyspace) {
                 force.stop();
+                link.style("opacity", "0");
+                node.call(customDrag);
             } else {
                 force.resume();
+                link.style("opacity", "1");
+                node.call(force.drag);
             }
 
         } else if (d3.event.keyCode >= 48 && d3.event.keyCode <= 90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey) {
@@ -647,6 +655,9 @@
             }
 
             link.style("display", function(d) {
+                if (!keyspace) {
+                    return "none";
+                }
                 var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);
                 linkedByIndex[d.source.index + "," + d.target.index] = flag;
                 return flag ? "inline" : "none";
