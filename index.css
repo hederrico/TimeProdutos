@@ -193,6 +193,11 @@ body[data-theme='dark'] {
     position: absolute;
     top: 16px;
     left: 16px;
+    transition: transform .3s ;
+}
+
+.card__header__logo:hover {
+    transform: scale(1.2);
 }
 
 .card__header__image-container {
@@ -270,10 +275,21 @@ body[data-theme='dark'] {
     cursor: pointer;
     display: flex;
     gap: .5rem;
+    transition: all .3s;
+}
+
+.card__body__info-email:hover {
+    color: var(--highlightColor);
+    transform: scale(1.05);
 }
 
 .card__body__copy-icon svg {
+    transition: all .3s;
     fill: var(--textColor);
+}
+
+.card__body__info-email:hover svg {
+    fill: var(--highlightColor);
 }
 
 .card__header__turn-icon {
@@ -284,7 +300,13 @@ body[data-theme='dark'] {
 }
 
 .card__header__turn-icon svg {
+    transition: all .3s;
     fill: var(--textColor);
+}
+
+.card__header__turn-icon:hover svg {
+    fill: var(--highlightColor);
+    transform: scale(1.2);
 }
 
 @keyframes hideElement {
