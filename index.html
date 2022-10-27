@@ -83,12 +83,12 @@
                     <div class="card__body__collab-info">
 
                         <div class="card__body__info-line">
-                           <span class="card__body__info-attr collab__hobbies-attr">Hobbies: </span>
+                           <span class="card__body__info-attr collab__hobbies-attr">Hobbies</span>
                            <span class="card__body__info-value collab__hobbies-value">Crossfit, Cozinhar</span>
                         </div>
 
                         <div class="card__body__info-line">
-                            <span class="card__body__info-attr collab__emojis-attr">Emojis: </span>
+                            <span class="card__body__info-attr collab__emojis-attr">Emojis</span>
                             <span class="card__body__info-value collab__emojis-value">🚀    😂</span>
                          </div>
 
@@ -119,6 +119,14 @@
             </div>
             <div class="card__side card__side--back">
                 <div class="card__header">
+
+                    <div class="card__header__number-container">
+                        <div class="collab-number">1</div>
+                        <div class="collab-team">Produtos</div>
+                    </div>
+
+                    
+
                     <div class="card__header__turn-icon" title="Girar Cartão" data-side="back">
                         <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
@@ -133,15 +141,14 @@
                     </div>
                 </div>
 
-                <div class="card__body">
+                <!-- <div class="card__body">
                     <div class="card__body__collab-container">
-                        
                     </div>
 
                     <div class="card__body__collab-info">
                         
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -280,7 +287,7 @@
             {"id": "Bruno", "num": 13, "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], "emojis": ['😁', '🏳️‍🌈', '🤝'], "type": "collab", "email": "bruno.papalardo@hit.com.vc"}, //1
             {"id": "Diana", "num": 4, "hobbies": ['Ler', 'Ver séries', 'Escrever'], "emojis": ['🖤', '🌊', '💻'], "type": "collab", "email": "claudia.silva@hit.com.vc"}, //2
             {"id": "Cris", "num": 14, "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], "emojis": ['😁', '🤣'], "type": "collab", "email": "cristofer.bernado@hit.com.vc"}, //3
-            {"id": "Danilo", "num": 11, "hobbies": ['Ciclismo', 'Jogar (PC)'], "emojis": ['🤪', '😍', '🥲'], "type": "collab", "email": "danilo.baptista@hit.com.vc"}, //4
+            {"id": "Danilo", "num": 11, "hobbies": ['Ciclismo', 'Jogar (PC)'], "emojis": ['🤪', '😍', '🚴🏽‍♀️'], "type": "collab", "email": "danilo.baptista@hit.com.vc"}, //4
             {"id": "Fernando", "num": 17, "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], "emojis": ['🏍', '🍻', '🍖'], "type": "collab", "email": "fernando.gouvea@hit.com.vc"}, //5
             {"id": "Francis", "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], "emojis": ['😎', '😒', '🙃'], "type": "collab", "email": "francis.fanali@hit.com.vc"}, //6
             {"id": "Gabriel", "num": 2, "hobbies": ['Jogar', 'Lutar Jiujitsu'], "emojis": ['🦥', '🤔'], "type": "collab", "email": "gabriel.romera@hit.com.vc"}, //7
@@ -717,17 +724,24 @@
                 collabCard.setAttribute('data-ani', 'none');
             }, 500);
 
+            //Front
             var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h2')[0];
             var cHobbiesEl = collabCard.querySelectorAll('.collab__hobbies-value')[0];
             var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
             var cImgEl = collabCard.querySelectorAll('.collab-image')[0];
             var cEmailEl = collabCard.querySelectorAll('.collab__email')[0];
-            
+
             cNameEl.textContent = collabInfo.id;
             cEmailEl.textContent = collabInfo.email;
             cHobbiesEl.textContent = collabInfo.hobbies.join(', ');
             cEmojisEl.textContent = collabInfo.emojis.join('    ');
             cImgEl.setAttribute('src', `Images/${collabInfo.id}.jpg`);
+
+            //Back
+            var cNumEl = collabCard.querySelectorAll('.collab-number')[0];
+            var cTeamEl = collabCard.querySelectorAll('.collab-team')[0];
+
+            cNumEl.textContent = collabInfo.num;
         }
     }
     

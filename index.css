@@ -1,7 +1,13 @@
 /* Variables */
-@font-face { font-family: montserrat; 
+@font-face { 
+    font-family: montserrat; 
     src: url('Fonts/Montserrat/Montserrat-Regular.ttf');
-} 
+}
+
+@font-face { 
+    font-family: Pacifico; 
+    src: url('Fonts/Pacifico/Pacifico-Regular.ttf');
+}
 
 * {
     font-family: 'montserrat', sans-serif;
@@ -110,7 +116,7 @@ body[data-theme='dark'] {
 /* Text */
 .text {
     transition: opacity .3s, fill .3s;
-    font-family: 'montserrat', sans-serif;
+    /* font-family: 'montserrat', sans-serif; */
 }
 
 /* D3 Chart Container */
@@ -179,10 +185,7 @@ body[data-theme='dark'] {
 }
 
 .card__side--front {
-    /* background-image: linear-gradient(to right bottom, #7ed56f, #28b485); */
-    /* background-image: linear-gradient(to right bottom, #4a577a, #161D31); */
     background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
-    /* background: var(--panelColor); */
 }
 
 .card__side--back {
@@ -262,8 +265,11 @@ body[data-theme='dark'] {
 }
 
 .card__body__collab-info {
-    margin: 10px;
+    margin: 0px 10px;
     font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .card__body__separator {
@@ -273,13 +279,19 @@ body[data-theme='dark'] {
     margin: 16px 12px 24px;
 }
 
+
 .card__body__info-line {
     display: flex;
-    gap: .5rem;
+    gap: .25rem;
+    flex-direction: column;
 }
 
 .card__body__info-attr {
     color: var(--headingColor);
+}
+
+.card__body__info-value {
+    margin-left: 0.2rem;
 }
 
 .card__body__info-name {
@@ -327,6 +339,23 @@ body[data-theme='dark'] {
     transform: scale(1.2);
 }
 
+.card__header__number-container {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.collab-number {
+    font-size: 9rem;
+    line-height: 1.1;
+    font-family: 'Pacifico', cursive;
+}
+
+.collab-team {
+    font-size: 1.1rem;
+}
+
+/* Copied Box */
 @keyframes hideElement {
     0% {
         bottom: 2rem;
@@ -337,7 +366,6 @@ body[data-theme='dark'] {
     }
 }
 
-/* Copied Box */
 .copied-container {
     transition: all .3s;
     width: fit-content;
