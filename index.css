@@ -9,6 +9,12 @@
     src: url('Fonts/Pacifico/Pacifico-Regular.ttf');
 }
 
+@font-face { 
+    font-family: Lemon Milk; 
+    src: url('Fonts/Lemon-Milk/LEMONMILK-Regular.otf');
+}
+
+
 * {
     font-family: 'montserrat', sans-serif;
     margin: 0;
@@ -223,7 +229,7 @@ body[data-theme='dark'] {
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
-    margin: 1rem auto 0;
+    margin: 2rem auto 0;
     overflow: hidden;
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
 }
@@ -342,17 +348,17 @@ body[data-theme='dark'] {
 .card__header__number-container {
     text-align: center;
     width: fit-content;
-    margin: auto;
+    margin: 2rem auto 0;
 }
 
 .collab-number {
-    font-size: 9rem;
+    font-size: 7.5rem;
     line-height: 1.1;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lemon Milk', 'sans-serif';
 }
 
 .collab-team {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
 }
 
 /* Copied Box */
