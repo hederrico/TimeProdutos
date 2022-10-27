@@ -142,7 +142,25 @@ body[data-theme='dark'] {
 
     color: var(--textColor);
 }
-  
+
+.card[data-ani='pop'] {
+    animation-name: animate-pop;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    animation-duration: 0.5s;
+}
+
+@keyframes animate-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .card__side {
     height: 450px;
     width: 350px;
@@ -170,10 +188,6 @@ body[data-theme='dark'] {
 .card__side--back {
     background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
     transform: rotateY(180deg);
-    
-    display: grid;
-    place-content: center;
-    text-align: center;
 }
 
 .card[data-side='front'] .card__side--front {
@@ -256,15 +270,16 @@ body[data-theme='dark'] {
     border: 0;
     background-color: var(--borderColor);
     height: 1px;
-    margin: 16px 2px 24px;
+    margin: 16px 12px 24px;
 }
 
 .card__body__info-line {
     display: flex;
     gap: .5rem;
-    position: fixed;
-    bottom: 12px;
-    right: 16px;
+}
+
+.card__body__info-attr {
+    color: var(--headingColor);
 }
 
 .card__body__info-name {
@@ -276,6 +291,9 @@ body[data-theme='dark'] {
     display: flex;
     gap: .5rem;
     transition: all .3s;
+    position: fixed;
+    bottom: 12px;
+    right: 16px;
 }
 
 .card__body__info-email:hover {

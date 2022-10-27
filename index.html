@@ -40,7 +40,7 @@
     </div>
 
     <div id="centeringDiv">
-        <div class="card">
+        <div class="card" data-collab="1">
             <div class="card__side card__side--front">
                 <div class="card__header">
                     <div class="card__header__logo-container">
@@ -49,7 +49,7 @@
                         </a>
                     </div>
                     <div class="card__header__image-container">
-                        <img class="card__header__image" src="Images/Bigui.jpg" alt="Foto do Colaborador">
+                        <img class="card__header__image collab-image" src="Images/Bigui.jpg" alt="Foto do Colaborador">
                     </div>
 
                     <div class="card__header__turn-icon" title="Girar Cartão" data-side="front">
@@ -78,26 +78,25 @@
                         </div>
                     </div>
 
-                    <div class="card__body__collab-info">
-                        <hr class="card__body__separator">
+                    <hr class="card__body__separator">
 
-                        <div style="width: fit-content; margin: auto; text-align: center;">
-                            Clica no Email paizão 📩
-                            <br>
-                            <br>
-                            Agora na logo do HIT! 😲
-                            <br>
-                            <br>
-                            Boa boa 🤝🏽
-                            <br><br>
-                            Arrasta alguém e aperta barra de espaço ⏩
-                            <br><br>
-                            Finaliza rotacionando card! 🔁
+                    <div class="card__body__collab-info">
+
+                        <div class="card__body__info-line">
+                           <span class="card__body__info-attr collab__hobbies-attr">Hobbies: </span>
+                           <span class="card__body__info-value collab__hobbies-value">Crossfit, Cozinhar</span>
                         </div>
+
+                        <div class="card__body__info-line">
+                            <span class="card__body__info-attr collab__emojis-attr">Emojis: </span>
+                            <span class="card__body__info-value collab__emojis-value">🚀    😂</span>
+                         </div>
+
                         
                         <div class="card__body__info-line" title="Copiar Email">
                             <div class="card__body__info-value card__body__info-email" data-type="Email">
-                                Leandro.bigui@hit.com.vc
+                                
+                                <span class="collab__email">leandro.bigui@hit.com.vc</span>
 
                                 <div class="card__body__copy-icon">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,36 +118,30 @@
                 </div>
             </div>
             <div class="card__side card__side--back">
-
-                <div class="card__header__turn-icon" title="Girar Cartão" data-side="back">
-                    <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
-                        5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 
-                        7.76L15.76 4.56C15.8 4.52 15.82 4.48 15.84 4.44C15.86 4.4 15.88 4.36 15.92 4.32C16 4.08 16 3.84 15.92 3.68C15.92 3.6 
-                        15.84 3.52 15.76 3.44L12.56 0.24C12.24 -0.08 11.76 -0.08 11.44 0.24C11.12 0.56 11.12 1.04 11.44 1.36L13.28 3.2H4C1.76 
-                        3.2 0 4.96 0 7.2ZM14.4 10.4C14.4 9.92 14.72 9.6 15.2 9.6C15.68 9.6 16 9.92 16 10.4V12C16 14.24 14.24 16 12 16H2.72L4.56 
-                        17.84C4.88 18.16 4.88 18.64 4.56 18.96C4.4 19.12 4.24 19.2 4 19.2C3.76 19.2 3.6 19.12 3.44 18.96L0.24 15.76C0.2 15.72 
-                        0.18 15.68 0.16 15.64C0.14 15.6 0.12 15.56 0.08 15.52C0 15.28 0 15.04 0.08 14.88C0.08 14.8 0.16 14.72 0.24 14.64L3.44 
-                        11.44C3.76 11.12 4.24 11.12 4.56 11.44C4.88 11.76 4.88 12.24 4.56 12.56L2.72 14.4H12C13.36 14.4 14.4 13.36 14.4 12V10.4Z"/>
-                    </svg>
+                <div class="card__header">
+                    <div class="card__header__turn-icon" title="Girar Cartão" data-side="back">
+                        <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
+                            5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 
+                            7.76L15.76 4.56C15.8 4.52 15.82 4.48 15.84 4.44C15.86 4.4 15.88 4.36 15.92 4.32C16 4.08 16 3.84 15.92 3.68C15.92 3.6 
+                            15.84 3.52 15.76 3.44L12.56 0.24C12.24 -0.08 11.76 -0.08 11.44 0.24C11.12 0.56 11.12 1.04 11.44 1.36L13.28 3.2H4C1.76 
+                            3.2 0 4.96 0 7.2ZM14.4 10.4C14.4 9.92 14.72 9.6 15.2 9.6C15.68 9.6 16 9.92 16 10.4V12C16 14.24 14.24 16 12 16H2.72L4.56 
+                            17.84C4.88 18.16 4.88 18.64 4.56 18.96C4.4 19.12 4.24 19.2 4 19.2C3.76 19.2 3.6 19.12 3.44 18.96L0.24 15.76C0.2 15.72 
+                            0.18 15.68 0.16 15.64C0.14 15.6 0.12 15.56 0.08 15.52C0 15.28 0 15.04 0.08 14.88C0.08 14.8 0.16 14.72 0.24 14.64L3.44 
+                            11.44C3.76 11.12 4.24 11.12 4.56 11.44C4.88 11.76 4.88 12.24 4.56 12.56L2.72 14.4H12C13.36 14.4 14.4 13.36 14.4 12V10.4Z"/>
+                        </svg>
+                    </div>
                 </div>
 
-                <h2>Calma Apressado 😬👻</h2>
-                <br>
-                <br>
-                Aperta T rapidinho... 😉
-                <br>
-                <br>
-                Agora tenta o Q... 😯
-                <br>
-                <br>
-                E o ícone no canto superior direito? 🤔
-                <br>
-                <br>
-                Obrigado por participar 👊🏽
-                <br>
-                <br>
-                Logo logo tem mais! 🥳
+                <div class="card__body">
+                    <div class="card__body__collab-container">
+                        
+                    </div>
+
+                    <div class="card__body__collab-info">
+                        
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -283,24 +276,24 @@
             {"source": 12, "target": 24},
         ],
         "nodes": [
-            {"id": "Andrei", "num": 6, "hobbies": ['Musculação', 'Viajar', 'Andar de moto'], "emojis": ['💪🏻', '🏍️', '😎'] }, //0
-            {"id": "Bruno", "num": 13, "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], "emojis": ['😁', '🏳️‍🌈', '🤝'] }, //1
-            {"id": "Diana", "num": 4, "hobbies": ['Ler', 'Ver séries', 'Escrever'], "emojis": ['🖤', '🌊', '💻'] }, //2
-            {"id": "Cris", "num": 14, "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], "emojis": ['😁', '🤣'] }, //3
-            {"id": "Danilo", "num": 11, "hobbies": ['Ciclismo', 'Jogar (PC)'], "emojis": ['🤪', '😍', '🥲'] }, //4
-            {"id": "Fernando", "num": 17, "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], "emojis": ['🏍', '🍻', '🍖'] }, //5
-            {"id": "Francis", "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], "emojis": ['😎', '😒', '🙃']}, //6
-            {"id": "Gabriel", "num": 2, "hobbies": ['Jogar', 'Lutar Jiujitsu'], "emojis": ['🦥', '🤔'] }, //7
-            {"id": "Henrique", "num": 9, "hobbies": ['Treinar', 'Jogar', 'Aprender coisas novas'], "emojis": ['🏋🏽‍♂️', '😄', '✌🏽'] }, //8
-            {"id": "Juciele", "num": 15, "hobbies": ['Ver séries', 'Jogar', 'Redes sociais'], "emojis": ['🤣', '🥰', '😡'] }, //9
-            {"id": "Julia", "num": 18, "hobbies": ['Ler', 'Tocar teclado', 'Conhecer lugares novos'], "emojis": ['🥰', '🙄', '😚'] }, //10
-            {"id": "Julio", "num": 5, "hobbies": ['Brincar com as filhas', 'Futebol'], "emojis": ['🖤', '🚀', '⚽'] }, //11
-            {"id": "Bigui", "num": 1, "hobbies": ['Crossfit', 'Cozinhar'], "emojis": ['🚀', '😂'] }, //12
-            {"id": "Leo", "num": 7, "hobbies": ['Caminhar', 'Jogar', 'Tocar violão'], "emojis": ['😂', '🤔', '🤩'] }, //13
-            {"id": "Lucas", "num": 10, "hobbies": ['Apreciar uma boa cerveja', 'Jogar'], "emojis": ['🧙', '🤐', '🤒'] }, //14
-            {"id": "Marcos", "num": 12, "hobbies": ['Curtir a natureza', 'Estudar novas tecnologias', 'Experimentar coisas novas (comidas, lugares, etc)'], "emojis": ['🐼', '🐦'] }, //15
-            {"id": "Milleny", "num": 16, "hobbies": ['Dançar', 'Alongar', 'Ver Dorama'], "emojis": ['🤩', '😡', '💃🏻'] }, //16
-            {"id": "Vinicio", "num": 3, "hobbies": ['Jogar', 'Ver séries'], "emojis": ['🤙🏻', '👾'] },//17
+            {"id": "Andrei", "num": 6, "hobbies": ['Musculação', 'Viajar', 'Andar de moto'], "emojis": ['💪🏻', '🏍️', '😎'], "type": "collab", "email": "andrei.travagini@hit.com.vc"}, //0
+            {"id": "Bruno", "num": 13, "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], "emojis": ['😁', '🏳️‍🌈', '🤝'], "type": "collab", "email": "bruno.papalardo@hit.com.vc"}, //1
+            {"id": "Diana", "num": 4, "hobbies": ['Ler', 'Ver séries', 'Escrever'], "emojis": ['🖤', '🌊', '💻'], "type": "collab", "email": "claudia.silva@hit.com.vc"}, //2
+            {"id": "Cris", "num": 14, "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], "emojis": ['😁', '🤣'], "type": "collab", "email": "cristofer.bernado@hit.com.vc"}, //3
+            {"id": "Danilo", "num": 11, "hobbies": ['Ciclismo', 'Jogar (PC)'], "emojis": ['🤪', '😍', '🥲'], "type": "collab", "email": "danilo.baptista@hit.com.vc"}, //4
+            {"id": "Fernando", "num": 17, "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], "emojis": ['🏍', '🍻', '🍖'], "type": "collab", "email": "fernando.gouvea@hit.com.vc"}, //5
+            {"id": "Francis", "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], "emojis": ['😎', '😒', '🙃'], "type": "collab", "email": "francis.fanali@hit.com.vc"}, //6
+            {"id": "Gabriel", "num": 2, "hobbies": ['Jogar', 'Lutar Jiujitsu'], "emojis": ['🦥', '🤔'], "type": "collab", "email": "gabriel.romera@hit.com.vc"}, //7
+            {"id": "Henrique", "num": 9, "hobbies": ['Treinar', 'Jogar', 'Aprender coisas novas'], "emojis": ['🏋🏽‍♂️', '😄', '✌🏽'], "type": "collab", "email": "henrique.derrico@hit.com.vc"}, //8
+            {"id": "Juciele", "num": 15, "hobbies": ['Ver séries', 'Jogar', 'Redes sociais'], "emojis": ['🤣', '🥰', '😡'], "type": "collab", "email": "juciele.wander@hit.com.vc"}, //9
+            {"id": "Julia", "num": 18, "hobbies": ['Ler', 'Tocar teclado', 'Conhecer lugares novos'], "emojis": ['🥰', '🙄', '😚'], "type": "collab", "email": "julia.damacena@hit.com.vc"}, //10
+            {"id": "Julio", "num": 5, "hobbies": ['Brincar com as filhas', 'Futebol'], "emojis": ['🖤', '🚀', '⚽'], "type": "collab", "email": "julio.cassimiro@hit.com.vc"}, //11
+            {"id": "Bigui", "num": 1, "hobbies": ['Crossfit', 'Cozinhar'], "emojis": ['🚀', '😂'], "type": "collab", "email": "leandro.bigui@hit.com.vc"}, //12
+            {"id": "Leo", "num": 7, "hobbies": ['Caminhar', 'Jogar', 'Tocar violão'], "emojis": ['😂', '🤔', '🤩'], "type": "collab", "email": "leonardo.martins@hit.com.vc"}, //13
+            {"id": "Lucas", "num": 10, "hobbies": ['Apreciar uma boa cerveja', 'Jogar'], "emojis": ['🧙', '🤐', '🤒'], "type": "collab", "email": "lucas.paz@hit.com.vc"}, //14
+            {"id": "Marcos", "num": 12, "hobbies": ['Curtir a natureza', 'Estudar novas tecnologias', 'Experimentar coisas novas (comidas, lugares, etc)'], "emojis": ['🐼', '🐦'], "type": "collab", "email": "marcos.filho@hit.com.vc"}, //15
+            {"id": "Milleny", "num": 16, "hobbies": ['Dançar', 'Alongar', 'Ver Dorama'], "emojis": ['🤩', '😡', '💃🏻'], "type": "collab", "email": "milleny.santos@hit.com.vc"}, //16
+            {"id": "Vinicio", "num": 3, "hobbies": ['Jogar', 'Ver séries'], "emojis": ['🤙🏻', '👾'], "type": "collab", "email": "vinicio.nascimento@hit.com.vc"}, //17
 
             {"id": "Onboarding"},//18
             {"id": "Iot"},//19
@@ -434,6 +427,11 @@
     }).on("mousedown", function(d) { d3.event.stopPropagation();
         focus_node = d;
         set_focus(d)
+
+        if (d.type == "collab") {
+            populateCollabCard(d);
+        }
+        
         if (highlight_node === null) set_highlight(d)
     }).on("mouseout", function(d) {
         exit_highlight();
@@ -708,4 +706,29 @@
         return !isNaN(parseFloat(n)) && isFinite(n);
     }	
 
+    function populateCollabCard(collabInfo) {
+        // console.log(collabInfo, collabCard);
+
+        if (collabCard.getAttribute('data-collab') != collabInfo.num) {
+            collabCard.setAttribute('data-collab', collabInfo.num);
+            collabCard.setAttribute('data-ani', 'pop');
+
+            setTimeout(() => {
+                collabCard.setAttribute('data-ani', 'none');
+            }, 500);
+
+            var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h2')[0];
+            var cHobbiesEl = collabCard.querySelectorAll('.collab__hobbies-value')[0];
+            var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
+            var cImgEl = collabCard.querySelectorAll('.collab-image')[0];
+            var cEmailEl = collabCard.querySelectorAll('.collab__email')[0];
+            
+            cNameEl.textContent = collabInfo.id;
+            cEmailEl.textContent = collabInfo.email;
+            cHobbiesEl.textContent = collabInfo.hobbies.join(', ');
+            cEmojisEl.textContent = collabInfo.emojis.join('    ');
+            cImgEl.setAttribute('src', `Images/${collabInfo.id}.jpg`);
+        }
+    }
+    
 </script>
