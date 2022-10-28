@@ -42,24 +42,164 @@ var graph = {
         {"source": 12, "target": 24},
     ],
     "nodes": [
-        {"id": "Andrei", "num": 6, "hobbies": ['Musculação', 'Viajar', 'Andar de moto'], "emojis": ['💪🏻', '🏍️', '😎'], "type": "collab", "email": "andrei.travagini@hit.com.vc"}, //0
-        {"id": "Bruno", "num": 13, "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], "emojis": ['😁', '🏳️‍🌈', '🤝'], "type": "collab", "email": "bruno.papalardo@hit.com.vc"}, //1
-        {"id": "Diana", "num": 4, "hobbies": ['Ler', 'Ver séries', 'Escrever'], "emojis": ['🖤', '🌊', '💻'], "type": "collab", "email": "claudia.silva@hit.com.vc"}, //2
-        {"id": "Cris", "num": 14, "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], "emojis": ['😁', '🤣'], "type": "collab", "email": "cristofer.bernado@hit.com.vc"}, //3
-        {"id": "Danilo", "num": 11, "hobbies": ['Ciclismo', 'Jogar (PC)'], "emojis": ['🤪', '😍', '🚴🏽‍♀️'], "type": "collab", "email": "danilo.baptista@hit.com.vc"}, //4
-        {"id": "Fernando", "num": 17, "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], "emojis": ['🏍', '🍻', '🍖'], "type": "collab", "email": "fernando.gouvea@hit.com.vc"}, //5
-        {"id": "Francis", "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], "emojis": ['😎', '😒', '🙃'], "type": "collab", "email": "francis.fanali@hit.com.vc"}, //6
-        {"id": "Gabriel", "num": 2, "hobbies": ['Jogar', 'Lutar Jiujitsu'], "emojis": ['🦥', '🤔'], "type": "collab", "email": "gabriel.romera@hit.com.vc"}, //7
-        {"id": "Henrique", "num": 9, "hobbies": ['Treinar', 'Jogar', 'Aprender coisas novas'], "emojis": ['🏋🏽‍♂️', '😄', '✌🏽'], "type": "collab", "email": "henrique.derrico@hit.com.vc"}, //8
-        {"id": "Juciele", "num": 15, "hobbies": ['Ver séries', 'Jogar', 'Redes sociais'], "emojis": ['🤣', '🥰', '😡'], "type": "collab", "email": "juciele.wander@hit.com.vc"}, //9
-        {"id": "Julia", "num": 18, "hobbies": ['Ler', 'Tocar teclado', 'Conhecer lugares novos'], "emojis": ['🥰', '🙄', '😚'], "type": "collab", "email": "julia.damacena@hit.com.vc"}, //10
-        {"id": "Julio", "num": 5, "hobbies": ['Brincar com as filhas', 'Futebol'], "emojis": ['🖤', '🚀', '⚽'], "type": "collab", "email": "julio.cassimiro@hit.com.vc"}, //11
-        {"id": "Bigui", "num": 1, "hobbies": ['Crossfit', 'Cozinhar'], "emojis": ['🚀', '😂'], "type": "collab", "email": "leandro.bigui@hit.com.vc"}, //12
-        {"id": "Leo", "num": 7, "hobbies": ['Caminhar', 'Jogar', 'Tocar violão'], "emojis": ['😂', '🤔', '🤩'], "type": "collab", "email": "leonardo.martins@hit.com.vc"}, //13
-        {"id": "Lucas", "num": 10, "hobbies": ['Apreciar uma boa cerveja', 'Jogar'], "emojis": ['🧙', '🤐', '🤒'], "type": "collab", "email": "lucas.paz@hit.com.vc"}, //14
-        {"id": "Marcos", "num": 12, "hobbies": ['Curtir a natureza', 'Estudar novas tecnologias', 'Experimentar coisas novas (comidas, lugares, etc)'], "emojis": ['🐼', '🐦'], "type": "collab", "email": "marcos.filho@hit.com.vc"}, //15
-        {"id": "Milleny", "num": 16, "hobbies": ['Dançar', 'Alongar', 'Ver Dorama'], "emojis": ['🤩', '😡', '💃🏻'], "type": "collab", "email": "milleny.santos@hit.com.vc"}, //16
-        {"id": "Vinicio", "num": 3, "hobbies": ['Jogar', 'Ver séries'], "emojis": ['🤙🏻', '👾'], "type": "collab", "email": "vinicio.nascimento@hit.com.vc"}, //17
+        {
+            "id": "Andrei",
+            "name": "Andrei Travagini",
+            "num": 6,
+            "hobbies": ['Musculação', 'Viajar', 'Andar de moto'],
+            "emojis": ['💪🏻', '🏍️', '😎'],
+            "type": "collab",
+            "email": "andrei.travagini@hit.com.vc"
+        }, //0
+        {
+            "id": "Bruno",
+            "name": "Bruno Papalardo",
+            "num": 13, 
+            "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], 
+            "emojis": ['😁', '🏳️‍🌈', '🤝'], 
+            "type": "collab", 
+            "email": "bruno.papalardo@hit.com.vc"
+        }, //1
+        {
+            "id": "Diana",
+            "name": "Claudia Diana",
+            "num": 4, 
+            "hobbies": ['Ler', 'Ver séries', 'Escrever'], 
+            "emojis": ['🖤', '🌊', '💻'], 
+            "type": "collab", 
+            "email": "claudia.silva@hit.com.vc"
+        }, //2
+        {
+            "id": "Cris", 
+            "name": "Cristofer Bernado",
+            "num": 14, 
+            "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], 
+            "emojis": ['😁', '🤣'], 
+            "type": "collab", 
+            "email": "cristofer.bernado@hit.com.vc"
+        }, //3
+        {
+            "id": "Danilo", 
+            "name": "Danilo Marquiori",
+            "num": 11, 
+            "hobbies": ['Ciclismo', 'Jogar (PC)'], 
+            "emojis": ['🤪', '😍', '🚴🏽‍♀️'], 
+            "type": "collab", 
+            "email": "danilo.baptista@hit.com.vc"
+        }, //4
+        {
+            "id": "Fernando", 
+            "name": "Fernando Francisquini",
+            "num": 17, 
+            "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], 
+            "emojis": ['🏍', '🍻', '🍖'], 
+            "type": "collab", 
+            "email": "fernando.gouvea@hit.com.vc"
+        }, //5
+        {
+            "id": "Francis", 
+            "name": "Francis Fanali",
+            "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], 
+            "emojis": ['😎', '😒', '🙃'], 
+            "type": "collab", 
+            "email": "francis.fanali@hit.com.vc"
+        }, //6
+        {
+            "id": "Gabriel", 
+            "num": 2, 
+            "name": "Gabriel Romera",
+            "hobbies": ['Jogar', 'Lutar Jiujitsu'], 
+            "emojis": ['🦥', '🤔'], 
+            "type": "collab", 
+            "email": "gabriel.romera@hit.com.vc"
+        }, //7
+        {
+            "id": "Henrique", 
+            "num": 9, 
+            "name": "Henrique Derrico",
+            "hobbies": ['Treinar', 'Jogar', 'Aprender coisas novas'], 
+            "emojis": ['🏋🏽‍♂️', '😄', '✌🏽'], 
+            "type": "collab", 
+            "email": "henrique.derrico@hit.com.vc"
+        }, //8
+        {
+            "id": "Juciele", 
+            "num": 15, 
+            "name": "Juciele Wander",
+            "hobbies": ['Ver séries', 'Jogar', 'Redes sociais'], 
+            "emojis": ['🤣', '🥰', '😡'], "type": "collab", "email": "juciele.wander@hit.com.vc"}, //9
+        {
+            "id": "Julia", 
+            "num": 18, 
+            "name": "Julia Damacena",
+            "hobbies": ['Ler', 'Tocar teclado', 'Conhecer lugares novos'], 
+            "emojis": ['🥰', '🙄', '😚'], 
+            "type": "collab", 
+            "email": "julia.damacena@hit.com.vc"
+        }, //10
+        {
+            "id": "Julio", 
+            "num": 5, 
+            "name": "Julio Cassimiro",
+            "hobbies": ['Brincar com as filhas', 'Futebol'], 
+            "emojis": ['🖤', '🚀', '⚽'], 
+            "type": "collab", 
+            "email": "julio.cassimiro@hit.com.vc"
+        }, //11
+        {
+            "id": "Bigui", 
+            "num": 1, 
+            "name": "Leandro Bigui",
+            "hobbies": ['Crossfit', 'Cozinhar'], 
+            "emojis": ['🚀', '😂'], "type": 
+            "collab", 
+            "email": "leandro.bigui@hit.com.vc"
+        }, //12
+        {
+            "id": "Leo", 
+            "num": 7, 
+            "name": "Leonardo Meirelis",
+            "hobbies": ['Caminhar', 'Jogar', 'Tocar violão'], 
+            "emojis": ['😂', '🤔', '🤩'], 
+            "type": "collab", 
+            "email": "leonardo.martins@hit.com.vc"
+        }, //13
+        {
+            "id": "Lucas", 
+            "num": 10, 
+            "name": "Lucas da Paz",
+            "hobbies": ['Apreciar uma boa cerveja', 'Jogar'], 
+            "emojis": ['🧙', '🤐', '🤒'], 
+            "type": "collab", 
+            "email": "lucas.paz@hit.com.vc"
+        }, //14
+        {
+            "id": "Marcos", 
+            "num": 12, 
+            "name": "Marcos Filho",
+            "hobbies": ['Curtir a natureza', 'Estudar novas tecnologias', 'Experimentar coisas novas (comidas, lugares, etc)'], 
+            "emojis": ['🐼', '🐦'], 
+            "type": "collab", 
+            "email": "marcos.filho@hit.com.vc"
+        }, //15
+        {
+            "id": "Milleny", 
+            "name": "Milleny Steffany",
+            "num": 16, 
+            "hobbies": ['Dançar', 'Alongar', 'Ver Dorama'], 
+            "emojis": ['🤩', '😡', '💃🏻'], 
+            "type": "collab", 
+            "email": "milleny.santos@hit.com.vc"
+        }, //16
+        {
+            "id": "Vinicio",
+            "name": "Vinicio Nascimento",
+            "num": 3, 
+            "hobbies": ['Jogar', 'Ver séries'], 
+            "emojis": ['🤙🏻', '👾'], 
+            "type": "collab", 
+            "email": "vinicio.nascimento@hit.com.vc"
+        }, //17
 
         {"id": "Onboarding"},//18
         {"id": "Iot"},//19
