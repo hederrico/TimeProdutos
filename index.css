@@ -61,6 +61,20 @@ body[data-theme='dark'] {
     --mutedColor: #676D7D;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 999999;
+}
+
+.project-tab[data-state='1'] {
+    display: block;
+}
+
+.project-tab[data-state='0'] {
+    display: none;
+}
+
 /* Theme Selector */
 #theme-selector svg {
     z-index: 3;
