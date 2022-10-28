@@ -418,7 +418,7 @@ body[data-theme='dark'] {
     list-style: none;
     width: 1rem;
     height: 1rem;
-    /* background: var(--mutedColor); */
+    background: var(--highlightColor);
     animation: animate-bg 25s linear infinite;
     bottom: -150px;
 }
