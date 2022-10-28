@@ -9,21 +9,18 @@
 
 
 <body data-theme="dark">
-
-    <div class="area">
-        <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
+    <ul class="bgCircles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 
     <div class="copied-container" data-ani="none">
         Texto copiado! ✍🏽
@@ -187,103 +184,6 @@
 </body>
 
 <script src="Js/d3.v3.min.js"></script>
-
-<script>
-    var rotateIcons = document.getElementsByClassName('card__header__turn-icon');
-    var collabCard = document.getElementsByClassName('card')[0];
-    
-    for (let i = 0; i < rotateIcons.length; i++) {
-        var element = rotateIcons[i];
-        
-        element.onclick = function() {
-            collabCard.setAttribute('data-side', this.getAttribute('data-side'));
-        }
-    }
-
-    var email = document.getElementsByClassName('card__body__info-email')[0];
-    var copiedTextContainer = document.getElementsByClassName('copied-container')[0];
-
-    email.onclick = function() {
-
-        copiedTextContainer.setAttribute('data-ani', 'copiedText');
-
-        setTimeout(() => {
-            copiedTextContainer.setAttribute('data-ani', 'none');
-        }, 3300);
-
-        navigator.clipboard.writeText(this.textContent.trim());
-    }
-
-    var themeSelector = document.getElementById('theme-selector');
-    var themeIcon = document.getElementsByClassName('theme-icon')[0];
-    var bodyElem = document.getElementsByTagName('BODY')[0];
-
-    var changeTheme = function() {
-        if ((bodyElem.getAttribute('data-theme') == 'dark')) {
-            bodyElem.setAttribute('data-theme', 'light');
-            themeIcon.setAttribute('d', `M18.3954 10.0503C18.6962 9.74874 19.1977 9.74874 19.4986 9.94975C19.7994 10.1508 20 10.5528 20 10.8543C19.6991 13.5678 18.4957 15.9799 
-                    16.3896 17.6884C14.5843 19.196 12.2777 20 9.97101 20H9.06841C3.55246 19.4975 -0.459131 14.5729 0.0423182 9.04523C0.443478 4.22111 
-                    4.25449 0.40201 9.06841 0C9.46956 0 9.87072 0.201005 10.0713 0.502513C10.2719 0.904523 10.1716 1.30653 9.97101 1.60804C9.06841 
-                    2.91457 8.66725 4.52261 8.86783 6.13065C9.1687 7.63819 9.97101 9.04523 11.2748 10.0503C13.3809 11.6583 16.2893 11.6583 18.3954 
-                    10.0503ZM9.36928 17.99C11.4754 18.191 13.5814 17.5879 15.1861 16.1809C16.2893 15.2764 17.0916 14.0704 17.593 12.6633C15.0858 
-                    13.5678 12.2777 13.1658 10.0713 11.5578C8.26609 10.3518 7.1629 8.44221 6.86203 6.33166C6.66145 5.02513 6.86203 3.71859 7.36348 
-                    2.41206C4.55536 3.41709 2.44927 6.13065 2.14841 9.24623C1.74725 13.6683 4.95652 17.5879 9.36928 17.99Z`)
-        } else {
-            bodyElem.setAttribute('data-theme', 'dark');
-            themeIcon.setAttribute('d', `M9.16667 2.5V0.833333C9.16667 0.333333 9.5 0 10 0C10.5 0 10.8333 0.333333 10.8333 0.833333V2.5C10.8333 
-                3 10.5 3.33333 10 3.33333C9.5 3.33333 9.16667 3 9.16667 2.5ZM5 10C5 7.25 7.25 5 10 5C12.75 5 15 7.25 15 10C15 12.75 12.75 15 10 15C7.25 15 5 12.75 5 
-                10ZM6.66669 10C6.66669 11.8333 8.16669 13.3333 10 13.3333C11.8334 13.3333 13.3334 11.8333 13.3334 10C13.3334 8.16667 11.8334 6.66667 10 6.66667C8.16669 
-                6.66667 6.66669 8.16667 6.66669 10ZM10.8334 19.1667V17.5C10.8334 17 10.5 16.6667 10 16.6667C9.50002 16.6667 9.16669 17 9.16669 17.5V19.1667C9.16669 
-                19.6667 9.50002 20 10 20C10.5 20 10.8334 19.6667 10.8334 19.1667ZM2.91669 4.08594C2.58335 3.7526 2.58335 3.2526 2.91669 2.91927C3.25002 2.58594 3.75002 
-                2.58594 4.08335 2.91927L5.25002 4.08594C5.58335 4.41927 5.58335 4.91927 5.25002 5.2526C5.16669 5.41927 4.91669 5.5026 4.66669 5.5026C4.41669 5.5026 
-                4.25002 5.41927 4.08335 5.2526L2.91669 4.08594ZM17.0833 17.082C17.4167 16.7487 17.4167 16.2487 17.0833 15.9154L15.9167 14.7487C15.5833 14.4154 15.0833 
-                14.4154 14.75 14.7487C14.4167 15.082 14.4167 15.582 14.75 15.9154L15.9167 17.082C16.0833 17.2487 16.3333 17.332 16.5 17.332C16.6667 17.332 16.9167 
-                17.2487 17.0833 17.082ZM2.5 10.8333H0.833333C0.333333 10.8333 0 10.5 0 10C0 9.5 0.333333 9.16667 0.833333 9.16667H2.5C3 9.16667 3.33333 9.5 3.33333 
-                10C3.33333 10.5 3 10.8333 2.5 10.8333ZM19.1667 10.8333C19.6667 10.8333 20 10.5 20 10C20 9.5 19.6667 9.16667 19.1667 9.16667H17.5C17 9.16667 16.6667 
-                9.5 16.6667 10C16.6667 10.5 17 10.8333 17.5 10.8333H19.1667ZM5.25002 14.7487C5.58335 15.082 5.58335 15.582 5.25002 15.9154L4.08335 17.082C3.91669 
-                17.2487 3.66669 17.332 3.50002 17.332C3.33335 17.332 3.08335 17.2487 2.91669 17.082C2.58335 16.7487 2.58335 16.2487 2.91669 15.9154L4.08335 
-                14.7487C4.41669 14.4154 5.00002 14.4154 5.25002 14.7487ZM14.75 4.08594C14.4167 4.41927 14.4167 4.91927 14.75 5.2526C14.8333 5.41927 15.1667 5.5026 
-                15.3333 5.5026C15.5 5.5026 15.75 5.41927 15.9167 5.2526L17.0833 4.08594C17.4167 3.7526 17.4167 3.2526 17.0833 2.91927C16.75 2.58594 16.25 2.58594 
-                15.9167 2.91927L14.75 4.08594Z`)
-        }
-
-        changeGraphTheme();
-    };
-    
-    themeSelector.onclick = changeTheme;
-
-    function populateCollabCard(collabInfo) {
-        // console.log(collabInfo, collabCard);
-
-        if (collabCard.getAttribute('data-collab') != collabInfo.num) {
-            collabCard.setAttribute('data-collab', collabInfo.num);
-            collabCard.setAttribute('data-ani', 'pop');
-
-            setTimeout(() => {
-                collabCard.setAttribute('data-ani', 'none');
-            }, 500);
-
-            //Front
-            var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h2')[0];
-            var cHobbiesEl = collabCard.querySelectorAll('.collab__hobbies-value')[0];
-            var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
-            var cImgEl = collabCard.querySelectorAll('.collab-image')[0];
-            var cEmailEl = collabCard.querySelectorAll('.collab__email')[0];
-
-            cNameEl.textContent = collabInfo.name;
-            cEmailEl.textContent = collabInfo.email;
-            cHobbiesEl.textContent = collabInfo.hobbies.join(', ');
-            cEmojisEl.textContent = collabInfo.emojis.join('    ');
-            cImgEl.setAttribute('src', `Images/${collabInfo.id}.jpg`);
-
-            //Back
-            var cNumEl = collabCard.querySelectorAll('.collab-number')[0];
-            var cTeamEl = collabCard.querySelectorAll('.collab-team')[0];
-
-            cNumEl.textContent = collabInfo.num;
-        }
-    }
-    
-</script>
-
+<script src="Js/card.js"></script>
+<script src="Js/theme.js"></script>
 <script src="Js/forceGraph.js"></script>

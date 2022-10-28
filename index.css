@@ -94,6 +94,7 @@ body[data-theme='dark'] {
     font-family: monospace;
     color: var(--textColor);
     user-select: none;
+    z-index: 3;
 }
 
 #heart-svg {
@@ -171,12 +172,12 @@ body[data-theme='dark'] {
 @keyframes animate-pop {
     0% {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.5) translateY(-50%);
     }
 
     100% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(-50%);
     }
 }
 
@@ -184,7 +185,7 @@ body[data-theme='dark'] {
     height: 450px;
     width: 350px;
 
-    transition: all .3s ease;
+    transition: all .3s cubic-bezier(0.26, 0.53, 0.74, 1.48);
     position: absolute;
     top: 0;
     left: 0;
@@ -399,6 +400,7 @@ body[data-theme='dark'] {
     left: 50%;
     transform: translateX(-50%);
     background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
+    z-index: 3;
 }
 
 .copied-container[data-ani='copiedText'] {
@@ -411,14 +413,14 @@ body[data-theme='dark'] {
 
 /* PARA FAZER O CARD VIRAR AO CLICAR TENTAR HACK NO LINK https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css/32721572#32721572 */
 
-.circles {
+.bgCircles {
     width: 100%;
     height: 100%;
     overflow: hidden;
     z-index: 1;
 }
 
-.circles li {
+.bgCircles li {
     z-index: 1;
     position: absolute;
     display: block;
@@ -430,7 +432,7 @@ body[data-theme='dark'] {
     bottom: -150px;
 }
 
-.circles li:nth-child(1) {
+.bgCircles li:nth-child(1) {
     left: 25%;
     width: 4rem;
     height:4rem;
@@ -438,7 +440,7 @@ body[data-theme='dark'] {
 }
 
 
-.circles li:nth-child(2) {
+.bgCircles li:nth-child(2) {
     left: 10%;
     width: 1rem;
     height: 1rem;
@@ -446,14 +448,14 @@ body[data-theme='dark'] {
     animation-duration: 12s;
 }
 
-.circles li:nth-child(3) {
+.bgCircles li:nth-child(3) {
     left: 70%;
     width: 2rem;
     height: 2rem;
     animation-delay: 4s;
 }
 
-.circles li:nth-child(4) {
+.bgCircles li:nth-child(4) {
     left: 40%;
     width: 3rem;
     height: 3rem;
@@ -461,28 +463,28 @@ body[data-theme='dark'] {
     animation-duration: 18s;
 }
 
-.circles li:nth-child(5) {
+.bgCircles li:nth-child(5) {
     left: 65%;
     width: 1rem;
     height: 1rem;
     animation-delay: 0s;
 }
 
-.circles li:nth-child(6) {
+.bgCircles li:nth-child(6) {
     left: 75%;
     width: 5rem;
     height: 5rem;
     animation-delay: 3s;
 }
 
-.circles li:nth-child(7) {
+.bgCircles li:nth-child(7) {
     left: 35%;
     width: 5rem;
     height: 5rem;
     animation-delay: 7s;
 }
 
-.circles li:nth-child(8) {
+.bgCircles li:nth-child(8) {
     left: 50%;
     width: 1.5rem;
     height: 1.5rem;
@@ -490,7 +492,7 @@ body[data-theme='dark'] {
     animation-duration: 45s;
 }
 
-.circles li:nth-child(9) {
+.bgCircles li:nth-child(9) {
     left: 20%;
     width: 0.5rem;
     height: 0.5rem;
@@ -498,7 +500,7 @@ body[data-theme='dark'] {
     animation-duration: 35s;
 }
 
-.circles li:nth-child(10) {
+.bgCircles li:nth-child(10) {
     left: 85%;
     width: 5rem;
     height: 5rem;
@@ -507,13 +509,13 @@ body[data-theme='dark'] {
 }
 
 @keyframes animate-bg {
-    0%{
+    0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
         border-radius: 0;
     }
 
-    100%{
+    100% {
         transform: translateY(-1000px) rotate(720deg);
         opacity: 0;
         border-radius: 50%;
