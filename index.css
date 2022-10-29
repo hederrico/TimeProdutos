@@ -145,7 +145,7 @@ body[data-theme='dark'] {
 #project-icons {
     z-index: 101;
     position:absolute;
-    top : 4.4rem;
+    top : 2.5rem;
     right: 3rem;
     display: flex;
     gap: 2rem;
@@ -570,6 +570,7 @@ body[data-theme='dark'] {
     height: 100%;
     overflow: hidden;
     z-index: 1;
+    position: absolute;
 }
 
 .bgCircles li {
