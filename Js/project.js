@@ -7,9 +7,15 @@ var graphContainer = document.getElementsByClassName('project-graph')[0];
 navCards.onclick = function() {
     cardsContainer.setAttribute('data-state',  1);
     graphContainer.setAttribute('data-state',  0);
+
+    navCards.setAttribute('active-tab',  'true');
+    navGraph.setAttribute('active-tab',  'false');
 }
 
 navGraph.onclick = function() {
     graphContainer.setAttribute('data-state',  1);
     cardsContainer.setAttribute('data-state',  0);
+
+    navGraph.setAttribute('active-tab',  'true');
+    navCards.setAttribute('active-tab',  'false');
 }

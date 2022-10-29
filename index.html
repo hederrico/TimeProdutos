@@ -28,7 +28,7 @@
 
     <div class="navbar">
         <ul>
-            <li class="navbar-opt navbar-cards">
+            <li class="navbar-opt navbar-cards" active-tab="false">
                 <svg class="navbar-opt__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.37037 8.88889C2.72593 8.88889 2.96296 8.65185 2.96296 8.2963C2.96296 7.94074 2.72593 7.7037 2.37037 7.7037H1.77778C1.42222 
                     7.7037 1.18519 7.46667 1.18519 7.11111V1.77778C1.18519 1.42222 1.42222 1.18519 1.77778 1.18519H7.11111C7.46667 1.18519 7.7037 1.42222 7.7037 1.77778V2.37037C7.7037 2.72593 
@@ -43,7 +43,7 @@
                 </svg>
                 Cartas
             </li>
-            <li class="navbar-opt navbar-graph">
+            <li class="navbar-opt navbar-graph" active-tab="true">
                 <svg class="navbar-opt__icon navbar-opt__graph-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
                     s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
@@ -89,7 +89,7 @@
         </div>
     
         <div id="centeringDiv">
-            <div class="card" data-collab="1">
+            <div class="card uniqueCard" data-collab="1">
                 <div class="card__side card__side--front">
                     <div class="card__header">
                         <div class="card__header__logo-container">
@@ -101,7 +101,7 @@
                             <img class="card__header__image collab-image" src="Images/Bigui.jpg" alt="Foto do Colaborador">
                         </div>
     
-                        <div class="card__header__turn-icon" title="Girar Cartão" data-side="front">
+                        <div class="card__header__turn-icon" title="Girar Cartão" data-side="front" data-collab="1">
                             <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
                                 5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 
@@ -180,7 +180,7 @@
                             <div class="collab-team">Produtos</div>
                         </div>
     
-                        <div class="card__header__turn-icon" title="Girar Cartão" data-side="back">
+                        <div class="card__header__turn-icon" title="Girar Cartão" data-side="back" data-collab="1">
                             <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
                                 5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 
@@ -212,7 +212,9 @@
     </div>
 
     <div class="project-cards project-tab" data-state="0">
+        <div class="project-cards__all-cards">
 
+        </div>
     </div>
 
     <div id="created-by">
@@ -231,6 +233,7 @@
     </div>
 </body>
 
+<script src="Js/variables.js"></script>
 <script src="Js/d3.v3.min.js"></script>
 <script src="Js/card.js"></script>
 <script src="Js/theme.js"></script>
