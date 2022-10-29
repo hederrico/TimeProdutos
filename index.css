@@ -46,7 +46,7 @@ body {
 
 body[data-theme='light'] {
     --bgColor: #F8F8F8;
-    --navBgColor: #2830461A;
+    --navBgColor: #a9afc21a;
     --panelColor: #FFFFFF;
     --panelDarkenColor: #f3f5fa;
     --textColor: #6E6B7B;
@@ -58,7 +58,7 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
     --bgColor: #161D31;
-    --navBgColor: #FFFFFF1A;
+    --navBgColor: #a9afc21a;
     --panelColor: #283046;
     --panelDarkenColor: #191f2f;
     --textColor: #B4B7BD;
