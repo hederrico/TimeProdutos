@@ -1,4 +1,4 @@
-var themeSelector = document.getElementById('theme-selector');
+var themeSelector = document.getElementsByClassName('theme-selector')[0];
 var themeIcon = document.getElementsByClassName('theme-icon')[0];
 var bodyElem = document.getElementsByTagName('BODY')[0];
 

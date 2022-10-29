@@ -295,7 +295,6 @@ function resize() {
     var width = chartContainer.offsetWidth, height = chartContainer.offsetHeight
 
     svg.attr("width", width).attr("height", height);
-
     
     force.size([force.size()[0]+(width-w)/zoom.scale(),force.size()[1]+(height-h)/zoom.scale()]).resume();
         w = width;
@@ -337,6 +336,11 @@ function keydown() {
         if (String.fromCharCode(d3.event.keyCode) == "Q") {
             changeTheme();    
         }
+
+        if (String.fromCharCode(d3.event.keyCode) == "A") {
+            rotateAllCardsFnc();
+        }
+
 
         link.style("display", function(d) {
             var flag  = vis_by_type(d.source.type) && vis_by_type(d.target.type) && vis_by_node_score(d.source.score) && vis_by_node_score(d.target.score) && vis_by_link_score(d.score);

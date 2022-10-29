@@ -141,27 +141,43 @@ body[data-theme='dark'] {
 
 
 /* Theme Selector */
-#theme-selector svg {
+
+#project-icons {
     z-index: 101;
     position:absolute;
-    top : 2.2rem;
+    top : 4.4rem;
     right: 3rem;
-    cursor: pointer;
-    transition: all .3s;
-    transform: scale(1.4);
+    display: flex;
+    gap: 2rem;
 }
 
-#theme-selector svg path {
+#project-icons svg {
+    transition: all .3s;
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+#project-icons svg path {
     fill: var(--textColor);
     transition: all .3s;
 }
 
-#theme-selector svg:hover {
+#project-icons svg:hover {
     transform: scale(1.6);
 }
 
-#theme-selector svg:hover path {
+#project-icons svg:hover path {
     fill: #de7333;
+}
+
+#project-icons .rotate-all-cards {
+    transition: transform .3s cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    display: none;
+}
+
+#project-icons .rotate-all-cards:hover {
+    fill: #de7333;
+    transform: scale(1.6) rotate(180deg);
 }
 
 /* Created By */
@@ -493,8 +509,16 @@ body[data-theme='dark'] {
     font-family: 'Lemon Milk', 'sans-serif';
 }
 
+.all-cards .collab-number {
+    font-size: 5.5rem;
+}
+
 .collab-team {
     font-size: 1.25rem;
+}
+
+.all-cards .collab-team {
+    font-size: 1.15rem;
 }
 
 .card__body__info-creation {
