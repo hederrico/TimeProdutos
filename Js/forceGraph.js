@@ -49,6 +49,8 @@ var graph = {
             "hobbies": ['Musculação', 'Viajar', 'Andar de moto'],
             "emojis": ['💪🏻', '🏍️', '😎'],
             "type": "collab",
+            "admission": "25/02/2019",
+            "team": "SAM",
             "email": "andrei.travagini@hit.com.vc"
         }, //0
         {
@@ -57,7 +59,9 @@ var graph = {
             "num": 13, 
             "hobbies": ['Jogar (PC)', 'Ver séries/filmes', 'Ouvir música'], 
             "emojis": ['😁', '🏳️‍🌈', '🤝'], 
-            "type": "collab", 
+            "type": "collab",
+            "admission": "13/07/2022",
+            "team": "Onboarding",
             "email": "bruno.papalardo@hit.com.vc"
         }, //1
         {
@@ -67,6 +71,8 @@ var graph = {
             "hobbies": ['Ler', 'Ver séries', 'Escrever'], 
             "emojis": ['🖤', '🌊', '💻'], 
             "type": "collab", 
+            "admission": "05/04/2021",
+            "team": "Onboarding",
             "email": "claudia.silva@hit.com.vc"
         }, //2
         {
@@ -76,6 +82,8 @@ var graph = {
             "hobbies": ['Jogar videogames', 'Ler', 'Ver séries'], 
             "emojis": ['😁', '🤣'], 
             "type": "collab", 
+            "admission": "05/08/2019",
+            "team": "IOT",
             "email": "cristofer.bernado@hit.com.vc"
         }, //3
         {
@@ -85,6 +93,8 @@ var graph = {
             "hobbies": ['Ciclismo', 'Jogar (PC)'], 
             "emojis": ['🤪', '😍', '🚴🏽‍♀️'], 
             "type": "collab", 
+            "admission": "21/01/2019",
+            "team": "Automação",
             "email": "danilo.baptista@hit.com.vc"
         }, //4
         {
@@ -94,6 +104,8 @@ var graph = {
             "hobbies": ['Moto', 'Cervejeiro', 'Churrasco'], 
             "emojis": ['🏍', '🍻', '🍖'], 
             "type": "collab", 
+            "admission": "21/08/2017",
+            "team": "SAM",
             "email": "fernando.gouvea@hit.com.vc"
         }, //5
         {
@@ -102,6 +114,8 @@ var graph = {
             "num": 8, "hobbies": ['Consertar', 'Entender o funcionamento das coisas', 'Diy'], 
             "emojis": ['😎', '😒', '🙃'], 
             "type": "collab", 
+            "admission": "23/06/2022",
+            "team": "IOT",
             "email": "francis.fanali@hit.com.vc"
         }, //6
         {
@@ -111,6 +125,8 @@ var graph = {
             "hobbies": ['Jogar', 'Lutar Jiujitsu'], 
             "emojis": ['🦥', '🤔'], 
             "type": "collab", 
+            "admission": "05/07/2022",
+            "team": "Desenvolvimento em PHP",
             "email": "gabriel.romera@hit.com.vc"
         }, //7
         {
@@ -120,6 +136,8 @@ var graph = {
             "hobbies": ['Treinar', 'Jogar', 'Aprender coisas novas'], 
             "emojis": ['🏋🏽‍♂️', '😄', '✌🏽'], 
             "type": "collab", 
+            "admission": "15/01/2018",
+            "team": "Desenvolvimento em PHP",
             "email": "henrique.derrico@hit.com.vc"
         }, //8
         {
@@ -127,7 +145,12 @@ var graph = {
             "num": 15, 
             "name": "Juciele Wander",
             "hobbies": ['Ver séries', 'Jogar', 'Redes sociais'], 
-            "emojis": ['🤣', '🥰', '😡'], "type": "collab", "email": "juciele.wander@hit.com.vc"}, //9
+            "emojis": ['🤣', '🥰', '😡'],
+            "type": "collab",
+            "admission": "12/04/2021",
+            "team": "Desenvolvimento em Node",
+            "email": "juciele.wander@hit.com.vc"
+        }, //9
         {
             "id": "Julia", 
             "num": 18, 
@@ -135,6 +158,8 @@ var graph = {
             "hobbies": ['Ler', 'Tocar teclado', 'Conhecer lugares novos'], 
             "emojis": ['🥰', '🙄', '😚'], 
             "type": "collab", 
+            "admission": "05/07/2022",
+            "team": "Onboarding",
             "email": "julia.damacena@hit.com.vc"
         }, //10
         {
@@ -144,6 +169,8 @@ var graph = {
             "hobbies": ['Brincar com as filhas', 'Futebol'], 
             "emojis": ['🖤', '🚀', '⚽'], 
             "type": "collab", 
+            "admission": "12/05/2022",
+            "team": "Monitoramento",
             "email": "julio.cassimiro@hit.com.vc"
         }, //11
         {
@@ -153,6 +180,8 @@ var graph = {
             "hobbies": ['Crossfit', 'Cozinhar'], 
             "emojis": ['🚀', '😂'], "type": 
             "collab", 
+            "admission": "02/01/2017",
+            "team": "Engenharia de Produtos",
             "email": "leandro.bigui@hit.com.vc"
         }, //12
         {
@@ -162,6 +191,8 @@ var graph = {
             "hobbies": ['Caminhar', 'Jogar', 'Tocar violão'], 
             "emojis": ['😂', '🤔', '🤩'], 
             "type": "collab", 
+            "admission": "05/08/2019",
+            "team": "IOT",
             "email": "leonardo.martins@hit.com.vc"
         }, //13
         {
@@ -171,6 +202,8 @@ var graph = {
             "hobbies": ['Apreciar uma boa cerveja', 'Jogar'], 
             "emojis": ['🧙', '🤐', '🤒'], 
             "type": "collab", 
+            "admission": "10/10/2019",
+            "team": "Desenvolvimento em Node",
             "email": "lucas.paz@hit.com.vc"
         }, //14
         {
@@ -180,6 +213,8 @@ var graph = {
             "hobbies": ['Curtir a natureza', 'Estudar novas tecnologias', 'Experimentar coisas novas (comidas, lugares, etc)'], 
             "emojis": ['🐼', '🐦'], 
             "type": "collab", 
+            "admission": "25/10/2021",
+            "team": "Desenvolvimento em Node",
             "email": "marcos.filho@hit.com.vc"
         }, //15
         {
@@ -189,6 +224,8 @@ var graph = {
             "hobbies": ['Dançar', 'Alongar', 'Ver Dorama'], 
             "emojis": ['🤩', '😡', '💃🏻'], 
             "type": "collab", 
+            "admission": "20/12/2021",
+            "team": "SAM",
             "email": "milleny.santos@hit.com.vc"
         }, //16
         {
@@ -198,6 +235,8 @@ var graph = {
             "hobbies": ['Jogar', 'Ver séries'], 
             "emojis": ['🤙🏻', '👾'], 
             "type": "collab", 
+            "admission": "10/11/2015",
+            "team": "Monitoramento",
             "email": "vinicio.nascimento@hit.com.vc"
         }, //17
 

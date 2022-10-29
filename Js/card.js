@@ -34,13 +34,17 @@ function populateCollabCard(collabInfo) {
 
         //Front
         var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h2')[0];
+        var cTeamEl = collabCard.querySelectorAll('.card__body__collab-team')[0];
         var cHobbiesEl = collabCard.querySelectorAll('.collab__hobbies-value')[0];
         var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
+        var cAdmissionEl = collabCard.querySelectorAll('.card__body__collab-admission')[0];
         var cImgEl = collabCard.querySelectorAll('.collab-image')[0];
         var cEmailEl = collabCard.querySelectorAll('.collab__email')[0];
 
         cNameEl.textContent = collabInfo.name;
+        cTeamEl.textContent = collabInfo.team;
         cEmailEl.textContent = collabInfo.email;
+        cAdmissionEl.textContent = collabInfo.admission;
         cHobbiesEl.textContent = collabInfo.hobbies.join(', ');
         cEmojisEl.textContent = collabInfo.emojis.join('    ');
         cImgEl.setAttribute('src', `Images/${collabInfo.id}.jpg`);
