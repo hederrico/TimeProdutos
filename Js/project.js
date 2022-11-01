@@ -12,6 +12,8 @@ navCards.onclick = function() {
     navGraph.setAttribute('active-tab',  'false');
 
     rotateAllCards.style.display = 'block';
+
+    animateAllCards();
 }
 
 navGraph.onclick = function() {
@@ -40,4 +42,17 @@ var rotateAllCardsFnc = function() {
     }
 }
 
-rotateAllCards.onclick = rotateAllCardsFnc();
+var animateAllCards = function() {
+    var allCards = document.querySelectorAll('div.all-cards');
+
+    var i = 1;
+    for (var card of allCards) {
+        card.classList.add('pop')
+
+        card.style["animation-delay"] = i*0.03 + 's';
+        i++;
+    }
+}
+
+animateAllCards();
+rotateAllCards.onclick = rotateAllCardsFnc;

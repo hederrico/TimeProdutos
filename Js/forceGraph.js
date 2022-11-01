@@ -140,23 +140,48 @@ var circle = node.append("image")
     .attr("height", 2*nominal_base_node_size)
     .attr("xlink:href", function(d) { return `Images/${d.id}.jpg`;})
     .attr("clip-path", "url(#circleView)")
-    .on("mousemove", function(d, i) {
-        tooltip
-        .html(() => {
-            return (`<h4 class="bolder">${d.id}</h4>
-                <hr style="margin: 0.5rem 0;">
-                <span class="bolder">1: </span> ${d.id}
-                <br>
-                <hr style="margin: 0.5rem 0">
-                <span class="bolder">2: </span> ${d.id}`
-            )
-        })
-        .style("left", d3.event.pageX - 80 + "px")
-        .style("top", d3.event.pageY - 140 + "px")
-        // .style("display", "inline-block")
-        // .style("opacity", "1");
+    .on("mouseenter", function(d) {
+
+        if(d.type == 'collab') {
+            populateCollabCard(d);
+
+            d3.select(uniqueCard)
+                .style("z-index", "101")
+                .style("opacity", "1");
+        }
+       
     })
-    .on("mouseleave", function (d) { tooltip.style("opacity", "0") })
+    .on("mousemove", function(d) {
+        if(d.type == 'collab') {
+
+            var elPos = uniqueCard.getBoundingClientRect();
+            
+            d3.select(uniqueCard)
+            .style("left", function() {
+                var pos = (d3.event.pageX - 360);
+
+                if (pos < 0) {
+                    pos = d3.event.pageX + 10;
+                }
+
+                return `${pos}px`;
+            })
+            .style("top", function() {
+                var pos = (d3.event.pageY - 240);
+
+                if (pos - elPos.height/2 < 0) {
+                    pos = (d3.event.pageY + 240);
+                }
+                
+                return `${pos}px`;
+            })
+        }
+    })
+    .on("mouseleave", function (d) { 
+        if(d.type == 'collab') {
+            d3.select(uniqueCard).style("z-index", "0").style("opacity", "0") 
+        }
+    })
 
 var text = g.selectAll(".text")
     .data(collabsInfo.nodes)

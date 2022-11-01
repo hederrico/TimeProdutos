@@ -1,5 +1,6 @@
 var rotateIcons = document.getElementsByClassName('card__header__turn-icon');
 var collabCard = document.getElementsByClassName('card')[0];
+var uniqueCard = document.getElementsByClassName('uniqueCard')[0];
 
 for (let i = 0; i < rotateIcons.length; i++) {
     var element = rotateIcons[i];
@@ -26,11 +27,11 @@ email.onclick = function() {
 function populateCollabCard(collabInfo) {
     if (collabCard.getAttribute('data-collab') != collabInfo.num) {
         collabCard.setAttribute('data-collab', collabInfo.num);
-        collabCard.setAttribute('data-ani', 'pop');
+        // collabCard.setAttribute('data-ani', 'pop');
 
-        setTimeout(() => {
-            collabCard.setAttribute('data-ani', 'none');
-        }, 500);
+        // setTimeout(() => {
+        //     collabCard.setAttribute('data-ani', 'none');
+        // }, 500);
 
         //Front
         var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h2')[0];
@@ -63,7 +64,7 @@ function populateAllCardsTab(collabs) {
     collabs.nodes.forEach(collab => {
         if (collab.type) {
             allCardsContainer.insertAdjacentHTML('beforeend', `
-            <div class="card all-cards collabNum${collab.num}" data-side="front">
+            <div class="card all-cards collabNum${collab.num}" data-side="back">
                 <div class="card__side card__side--front">
                     <div class="card__header">
                         <div class="card__header__logo-container">
@@ -75,7 +76,7 @@ function populateAllCardsTab(collabs) {
                             <img class="card__header__image collab-image" src="Images/${collab.id}.jpg" alt="Foto do Colaborador">
                         </div>
 
-                        <div class="card__header__turn-icon" title="Girar Cartão" data-side="front"  onclick="rotateCardFromAllCards(${collab.num}, 'front')">
+                        <div class="card__header__turn-icon" title="Girar Cartão" data-side="back"  onclick="rotateCardFromAllCards(${collab.num}, 'front')">
                             <svg width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.2V8.8C0 9.28 0.32 9.6 0.8 9.6C1.28 9.6 1.6 9.28 1.6 8.8V7.2C1.6 
                                 5.84 2.64 4.8 4 4.8H13.28L11.44 6.64C11.12 6.96 11.12 7.44 11.44 7.76C11.6 7.92 11.76 8 12 8C12.24 8 12.4 7.92 12.56 

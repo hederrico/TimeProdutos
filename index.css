@@ -172,7 +172,7 @@ body[data-theme='dark'] {
 
 #project-icons .rotate-all-cards {
     transition: transform .3s cubic-bezier(0.26, 0.53, 0.74, 1.48);
-    display: none;
+    display: block;
 }
 
 #project-icons .rotate-all-cards:hover {
@@ -247,9 +247,10 @@ body[data-theme='dark'] {
     top: 50%;
     left: 5%;
     transform: translateY(-50%);
-
+    opacity: 0;
     height: 450px;
     width: 350px;
+    transition: opacity .3s ;
 }
 
 
@@ -674,4 +675,38 @@ body[data-theme='dark'] {
         border-radius: 50%;
     }
 
+}
+  
+.all-cards.showing {
+    animation-duration: 0.3s;
+    animation-name: animate-fade;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+}
+
+
+@keyframes animate-fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.all-cards.pop {
+    animation-name: animate-pop2;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    animation-fill-mode: backwards;
+}
+
+@keyframes animate-pop2 {
+    0% {
+        opacity: 0;
+        transform: scale(0.5, 0.5);
+    }
+            
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
 }
