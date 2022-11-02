@@ -172,7 +172,7 @@ body[data-theme='dark'] {
 
 #project-icons .rotate-all-cards {
     transition: transform .3s cubic-bezier(0.26, 0.53, 0.74, 1.48);
-    display: block;
+    display: none;
 }
 
 #project-icons .rotate-all-cards:hover {
