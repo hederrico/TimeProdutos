@@ -239,14 +239,38 @@ var collabsInfo = {
             "team": "Monitoramento",
             "email": "vinicio.nascimento@hit.com.vc"
         }, //17
-
-        {"id": "Onboarding"},//18
-        {"id": "Iot"},//19
-        {"id": "Dev FINEP"},//20
-        {"id": "Dev PHP"},//21
-        {"id": "Monitoramento"},//22
-        {"id": "Automação"},//23
-        {"id": "Sam"},//24
+        {
+            "id": "Onboarding",
+            "subarea": 'Engenharia de Produtos',
+            "desc": "A equipe de Onboarding é responsável por ..."
+        },//18
+        {
+            "id": "Iot",
+            "subarea": 'Engenharia de Produtos'
+        },//19
+        {
+            "id": "Dev FINEP",
+            "subarea": 'Engenharia de Produtos'
+        },//20
+        {
+            "id": "Dev PHP",
+            "subarea": 'Engenharia de Produtos',
+            "desc": `A equipe de Desenvolvimento em PHP é responsável pela criação e manutenção da plataforma HIT.
+                Atualmente composta por 2 colaboradores, a equipe busca desenvolver soluções que auxiliem na exibição de informações para o cliente final.
+                Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`
+        },//21
+        {
+            "id": "Monitoramento",
+            "subarea": 'Engenharia de Produtos'
+        },//22
+        {
+            "id": "Automação",
+            "subarea": 'Engenharia de Produtos'
+        },//23
+        {
+            "id": "Sam",
+            "subarea": 'Engenharia de Produtos'
+        },//24
     ],
     "directed": false,
     "multigraph": false
