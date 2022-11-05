@@ -152,34 +152,34 @@ var circle = node.append("image")
        
     })
     .on("mousemove", function(d) {
-        if(d.type == 'collab') {
+        // if(d.type == 'collab') {
 
-            var elPos = uniqueCard.getBoundingClientRect();
+        //     var elPos = uniqueCard.getBoundingClientRect();
             
-            d3.select(uniqueCard)
-            .style("left", function() {
-                var pos = (d3.event.pageX - 360);
+        //     d3.select(uniqueCard)
+        //     .style("left", function() {
+        //         var pos = (d3.event.pageX - 360);
 
-                if (pos < 0) {
-                    pos = d3.event.pageX + 10;
-                }
+        //         if (pos < 0) {
+        //             pos = d3.event.pageX + 10;
+        //         }
 
-                return `${pos}px`;
-            })
-            .style("top", function() {
-                var pos = (d3.event.pageY - 240);
+        //         return `${pos}px`;
+        //     })
+        //     .style("top", function() {
+        //         var pos = (d3.event.pageY - 240);
 
-                if (pos - elPos.height/2 < 0) {
-                    pos = (d3.event.pageY + 240);
-                }
+        //         if (pos - elPos.height/2 < 0) {
+        //             pos = (d3.event.pageY + 240);
+        //         }
                 
-                return `${pos}px`;
-            })
-        }
+        //         return `${pos}px`;
+        //     })
+        // }
     })
     .on("mouseleave", function (d) { 
         if(d.type == 'collab') {
-            d3.select(uniqueCard).style("z-index", "0").style("opacity", "0") 
+            // d3.select(uniqueCard).style("z-index", "0").style("opacity", "0") 
         }
     })
 

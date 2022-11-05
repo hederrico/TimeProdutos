@@ -34,7 +34,7 @@ function populateCollabCard(collabInfo) {
         // }, 500);
 
         //Front
-        var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h2')[0];
+        var cNameEl = collabCard.querySelectorAll('.card__body__collab-name h3')[0];
         var cTeamEl = collabCard.querySelectorAll('.card__body__collab-team')[0];
         var cHobbiesEl = collabCard.querySelectorAll('.collab__hobbies-value')[0];
         var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
