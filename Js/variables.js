@@ -241,35 +241,47 @@ var collabsInfo = {
         }, //17
         {
             "id": "Onboarding",
+            "num": 19,
             "subarea": 'Engenharia de Produtos',
             "desc": "A equipe de Onboarding é responsável por ..."
         },//18
         {
             "id": "Iot",
-            "subarea": 'Engenharia de Produtos'
+            "num": 20,
+            "subarea": 'Engenharia de Produtos',
+            "desc": `A equipe de IOT é responsável por ...`
         },//19
         {
             "id": "Dev FINEP",
-            "subarea": 'Engenharia de Produtos'
+            "num": 21,
+            "subarea": 'Engenharia de Produtos',
+            "desc": `A equipe de Onboarding é responsável por ...`
         },//20
         {
             "id": "Dev PHP",
+            "num": 22,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe de Desenvolvimento em PHP é responsável pela criação e manutenção da plataforma HIT.
-                Atualmente composta por 2 colaboradores, a equipe busca desenvolver soluções que auxiliem na exibição de informações para o cliente final.
+            "desc": `A equipe de Desenvolvimento em PHP é responsável pela criação e manutenção da plataforma HIT.<br><br>
+                Atualmente composta por 2 colaboradores, a equipe busca desenvolver soluções que auxiliem na exibição de informações para o cliente final.<br><br>
                 Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`
         },//21
         {
             "id": "Monitoramento",
-            "subarea": 'Engenharia de Produtos'
+            "num": 23,
+            "subarea": 'Engenharia de Produtos',
+            "desc": `A equipe de Monitoramento é responsável por ...`
         },//22
         {
             "id": "Automação",
-            "subarea": 'Engenharia de Produtos'
+            "num": 23,
+            "subarea": 'Engenharia de Produtos',
+            "desc": `A equipe de Automação é responsável por ...`
         },//23
         {
             "id": "Sam",
-            "subarea": 'Engenharia de Produtos'
+            "num": 24,
+            "subarea": 'Engenharia de Produtos',
+            "desc": `A equipe SAM é responsável por ...`
         },//24
     ],
     "directed": false,

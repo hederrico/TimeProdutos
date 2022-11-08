@@ -139,19 +139,22 @@ body[data-theme='dark'] {
     align-items: center;
 }
 
-.project-cards__all-cards::-webkit-scrollbar-track {
+.project-cards__all-cards::-webkit-scrollbar-track,
+.card__body__collab-info::-webkit-scrollbar-track  {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
     background-color: var(--panelColor);
 }
 
-.project-cards__all-cards::-webkit-scrollbar {
+.project-cards__all-cards::-webkit-scrollbar,
+.card__body__collab-info::-webkit-scrollbar {
     width: 4px;
     height: 4px;
     background-color: var(--panelColor);
 }
 
-.project-cards__all-cards::-webkit-scrollbar-thumb {
+.project-cards__all-cards::-webkit-scrollbar-thumb,
+.card__body__collab-info::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: var(--headingColor);
@@ -271,8 +274,8 @@ body[data-theme='dark'] {
     right: 5%;
     transform: translateY(-50%);
     /* opacity: 0; */
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 450px;
     transition: opacity .3s;
 }
 
@@ -329,8 +332,8 @@ body[data-theme='dark'] {
 }
 
 .uniqueTeamCard .card__side {
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 450px;
 }
 
 .card__side--front {
@@ -445,7 +448,7 @@ body[data-theme='dark'] {
 }
 
 .card__body__collab-info {
-    margin: 0px 10px;
+    padding: 0px 10px;
     font-size: .8rem;
     display: flex;
     flex-direction: column;
@@ -455,6 +458,8 @@ body[data-theme='dark'] {
 .all-cards .card__body__collab-info {
     align-self: center;
     font-size: .8rem;
+    height: 100px;
+    overflow: auto;
 }
 
 .card__body__separator {

@@ -140,7 +140,7 @@ var circle = node.append("image")
     .attr("height", 2*nominal_base_node_size)
     .attr("xlink:href", function(d) { return `Images/${d.id}.jpg`;})
     .attr("clip-path", "url(#circleView)")
-    .on("mouseenter", function(d) {
+    .on("mouseenter", function(d, i) {
 
         if(d.type == 'collab') {
             populateCollabCard(d);
@@ -148,8 +148,13 @@ var circle = node.append("image")
             d3.select(uniqueCard)
                 .style("z-index", "101")
                 .style("opacity", "1");
+        } else {
+            populateTeamCard(d, i);
+            
+            d3.select(uniqueTeamCard)
+            .style("z-index", "101")
+            .style("opacity", "1");
         }
-       
     })
     .on("mousemove", function(d) {
         // if(d.type == 'collab') {
