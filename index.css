@@ -79,7 +79,7 @@ body[data-theme='dark'] {
 }
 
 .navbar ul {
-    padding: 2rem 5%;
+    padding: 2rem 5% 2rem 4rem;
     list-style: none;
     display: flex;
     gap: 4rem;
@@ -198,6 +198,18 @@ body[data-theme='dark'] {
 #project-icons .rotate-all-cards:hover {
     fill: #de7333;
     transform: scale(1.6) rotate(180deg);
+}
+
+.navbar-logo {
+    width: 48px;
+}
+
+.page-logo {
+    position: absolute;
+}
+
+.page-logo img{
+    height: 48px;
 }
 
 /* Created By */
