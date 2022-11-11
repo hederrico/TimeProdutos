@@ -275,13 +275,13 @@ var collabsInfo = {
         },//22
         {
             "id": "Automação",
-            "num": 23,
+            "num": 24,
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Automação é responsável por ...`
         },//23
         {
             "id": "Sam",
-            "num": 24,
+            "num": 25,
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe SAM é responsável por ...`
         },//24
