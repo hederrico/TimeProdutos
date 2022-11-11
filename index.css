@@ -279,6 +279,7 @@ body[data-theme='dark'] {
     height: 350px;
     width: 272.22px;
     transition: opacity .3s, transform .3s;
+    cursor: move;
 }
 
 .uniqueTeamCard.card {
@@ -290,7 +291,8 @@ body[data-theme='dark'] {
     z-index: 0;
     height: 450px;
     width: 450px;
-    transition: opacity .3s;
+    transition: opacity .3s, transform .3s;
+    cursor: move;
 }
 
 .card {
@@ -303,7 +305,6 @@ body[data-theme='dark'] {
     width: 233.33px;
 
     color: var(--textColor);
-    cursor: move;
 }
 
 .card[data-ani='pop'] {

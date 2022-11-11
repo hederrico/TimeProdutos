@@ -1,45 +1,45 @@
 var collabsInfo = {
     "links": [
         //SAM
-        {"source": 0,"target": 24},
-        {"source": 5, "target": 24},
+        {"source": 5,"target": 24},
+        {"source": 15, "target": 24},
         {"source": 16, "target": 24},
 
         //Onboarding
-        {"source": 2, "target": 18},
-        {"source": 1, "target": 18},
-        {"source": 10, "target": 18},
+        {"source": 3, "target": 18},
+        {"source": 12, "target": 18},
+        {"source": 17, "target": 18},
 
         //IOT
-        {"source": 3, "target": 19},
         {"source": 6, "target": 19},
+        {"source": 7, "target": 19},
         {"source": 13, "target": 19},
 
         //Monitoramento
-        {"source": 17, "target": 22},
-        {"source": 11, "target": 22},
+        {"source": 2, "target": 22},
+        {"source": 4, "target": 22},
 
         //Dev FINEP
         {"source": 9, "target": 20},
+        {"source": 11, "target": 20},
         {"source": 14, "target": 20},
-        {"source": 15, "target": 20},
 
         //Dev PHP
+        {"source": 1, "target": 21},
         {"source": 8, "target": 21},
-        {"source": 7, "target": 21},
 
         //Automação
-        {"source": 4, "target": 23},
+        {"source": 10, "target": 23},
 
 
         //Gestor
-        {"source": 12, "target": 18},
-        {"source": 12, "target": 19},
-        {"source": 12, "target": 20},
-        {"source": 12, "target": 21},
-        {"source": 12, "target": 22},
-        {"source": 12, "target": 23},
-        {"source": 12, "target": 24},
+        {"source": 0, "target": 18},
+        {"source": 0, "target": 19},
+        {"source": 0, "target": 20},
+        {"source": 0, "target": 21},
+        {"source": 0, "target": 22},
+        {"source": 0, "target": 23},
+        {"source": 0, "target": 24},
     ],
     "nodes": [
         {
