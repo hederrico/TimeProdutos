@@ -274,10 +274,11 @@ body[data-theme='dark'] {
     top: 50%;
     left: 5%;
     transform: translateY(-50%);
-    /* opacity: 0; */
+    opacity: 0;
+    z-index: 0;
     height: 350px;
     width: 272.22px;
-    transition: opacity .3s;
+    transition: opacity .3s, transform .3s;
 }
 
 .uniqueTeamCard.card {
@@ -285,7 +286,8 @@ body[data-theme='dark'] {
     top: 50%;
     right: 5%;
     transform: translateY(-50%);
-    /* opacity: 0; */
+    opacity: 0;
+    z-index: 0;
     height: 450px;
     width: 450px;
     transition: opacity .3s;
@@ -301,6 +303,7 @@ body[data-theme='dark'] {
     width: 233.33px;
 
     color: var(--textColor);
+    cursor: move;
 }
 
 .card[data-ani='pop'] {
@@ -521,6 +524,16 @@ body[data-theme='dark'] {
     right: 16px;
 }
 
+.all-cards .card__body__info-email {
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.collab__email a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
 .all-cards .collab__email {
     align-self: center;
     position: absolute;
@@ -541,7 +554,15 @@ body[data-theme='dark'] {
     fill: var(--highlightColor);
 }
 
-.card__header__turn-icon {
+.card__move-icon {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    cursor: pointer;
+}
+
+.card__header__turn-icon,
+.card__header__close-icon  {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -555,6 +576,22 @@ body[data-theme='dark'] {
 
 .card__header__turn-icon:hover svg {
     fill: var(--highlightColor);
+    transform: scale(1.2) rotate(180deg);
+}
+
+.card.shown-card {
+    opacity: 1;
+    z-index: 4;
+}
+
+
+.card__header__close-icon i {
+    transition: all .3s;
+    color: var(--textColor);
+}
+
+.card__header__close-icon:hover i {
+    color: var(--highlightColor);
     transform: scale(1.2) rotate(180deg);
 }
 

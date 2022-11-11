@@ -243,7 +243,9 @@ var collabsInfo = {
             "id": "Onboarding",
             "num": 19,
             "subarea": 'Engenharia de Produtos',
-            "desc": "A equipe de Onboarding é responsável por ..."
+            "desc": `A equipe de Onboarding é responsável pelo mapeamento da infraestrutura do cliente, implantação do monitoramento e capacitação da Plataforma HIT.<br><br>
+                Atualmente composta por 3 colaboradores, a equipe busca acompanhar o cliente na sua jornada inicial e entregar a melhor experiência até a entrega para a equipe de sustentação.<br><br>
+                Algumas das tecnologias utilizadas são Zabbix, Grafana e Sistemas Operacionais como Windows e Linux.`
         },//18
         {
             "id": "Iot",
@@ -262,7 +264,7 @@ var collabsInfo = {
             "num": 22,
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Desenvolvimento em PHP é responsável pela criação e manutenção da plataforma HIT.<br><br>
-                Atualmente composta por 2 colaboradores, a equipe busca desenvolver soluções que auxiliem na exibição de informações para o cliente final.<br><br>
+                Atualmente composta por 2 colaboradores, a equipe busca desenvolver soluções que auxiliem no gerenciamento dos ativos de TI monitorados dos clientes HIT.<br><br>
                 Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`
         },//21
         {

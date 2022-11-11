@@ -106,7 +106,6 @@ var node = g.selectAll(".node")
     .attr("class", "node")
     .call(force.drag);
 
-
 node.on("dblclick.zoom", function(d) { 
     d3.event.stopPropagation();
     var dcx = (chartContainer.offsetWidth / 2-d.x * zoom.scale());
@@ -145,48 +144,13 @@ var circle = node.append("image")
         if(d.type == 'collab') {
             populateCollabCard(d);
 
-            d3.select(uniqueCard)
-                .style("z-index", "101")
-                .style("opacity", "1");
+            uniqueCard.classList.add("shown-card");
         } else {
             populateTeamCard(d, i);
             
-            d3.select(uniqueTeamCard)
-            .style("z-index", "101")
-            .style("opacity", "1");
+            uniqueTeamCard.classList.add("shown-card");
         }
-    })
-    .on("mousemove", function(d) {
-        // if(d.type == 'collab') {
-
-        //     var elPos = uniqueCard.getBoundingClientRect();
-            
-        //     d3.select(uniqueCard)
-        //     .style("left", function() {
-        //         var pos = (d3.event.pageX - 360);
-
-        //         if (pos < 0) {
-        //             pos = d3.event.pageX + 10;
-        //         }
-
-        //         return `${pos}px`;
-        //     })
-        //     .style("top", function() {
-        //         var pos = (d3.event.pageY - 240);
-
-        //         if (pos - elPos.height/2 < 0) {
-        //             pos = (d3.event.pageY + 240);
-        //         }
-                
-        //         return `${pos}px`;
-        //     })
-        // }
-    })
-    .on("mouseleave", function (d) { 
-        if(d.type == 'collab') {
-            // d3.select(uniqueCard).style("z-index", "0").style("opacity", "0") 
-        }
-    })
+    });
 
 var text = g.selectAll(".text")
     .data(collabsInfo.nodes)

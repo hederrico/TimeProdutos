@@ -1,4 +1,7 @@
+var closeIcons = document.getElementsByClassName('card__header__close-icon');
 var rotateIcons = document.getElementsByClassName('card__header__turn-icon');
+var moveIcon = document.getElementsByClassName('card__move-icon')[0];
+
 var collabCard = document.getElementsByClassName('card')[0];
 var uniqueCard = document.getElementsByClassName('uniqueCard')[0];
 var uniqueTeamCard = document.getElementsByClassName('uniqueTeamCard')[0];
@@ -15,11 +18,22 @@ for (let i = 0; i < rotateIcons.length; i++) {
     }
 }
 
-var email = document.getElementsByClassName('card__body__info-email')[0];
+for (let i = 0; i < closeIcons.length; i++) {
+    var element = closeIcons[i];
+    
+    element.onclick = function() {
+        if (this.getAttribute('data-type') == 'collab') {
+            collabCard.classList.remove("shown-card");
+        } else {
+            uniqueTeamCard.classList.remove("shown-card");
+        }
+    }
+}
+
+var email = document.getElementsByClassName('card__body__copy-icon')[0];
 var copiedTextContainer = document.getElementsByClassName('copied-container')[0];
 
 email.onclick = function() {
-
     copiedTextContainer.setAttribute('data-ani', 'copiedText');
 
     setTimeout(() => {
@@ -40,11 +54,12 @@ function populateCollabCard(collabInfo) {
         var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
         var cAdmissionEl = collabCard.querySelectorAll('.card__body__collab-admission')[0];
         var cImgEl = collabCard.querySelectorAll('.collab-image')[0];
-        var cEmailEl = collabCard.querySelectorAll('.collab__email')[0];
+        var cEmailEl = collabCard.querySelectorAll('.collab__email a')[0];
 
         cNameEl.textContent = collabInfo.name;
         cTeamEl.textContent = collabInfo.team;
         cEmailEl.textContent = collabInfo.email;
+        cEmailEl.setAttribute('href', `https://teams.microsoft.com/l/chat/0/0?users=${collabInfo.email}`);
         cAdmissionEl.textContent = collabInfo.admission;
         cHobbiesEl.textContent = collabInfo.hobbies.join(', ');
         cEmojisEl.textContent = collabInfo.emojis.join('    ');
@@ -53,7 +68,7 @@ function populateCollabCard(collabInfo) {
         //Back
         var cNumEl = collabCard.querySelectorAll('.collab-number')[0];
         var cTeamEl = collabCard.querySelectorAll('.collab-team')[0];
-
+        
         cNumEl.textContent = collabInfo.num;
     }
 }
@@ -145,7 +160,9 @@ function populateAllCardsTab(collabs) {
                         <div class="card__body__collab-info">
                             <span class="collab__emojis">${collab.emojis.join('    ')}</span>
 
-                            <span class="collab__email">${collab.email}</span>
+                            <span class="collab__email card__body__info-email" title="Chat no Teams">
+                                <a href="https://teams.microsoft.com/l/chat/0/0?users=${collab.email}" target="_blank">${collab.email}</a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -173,9 +190,9 @@ function populateAllCardsTab(collabs) {
 
                     <div class="card__body">
                         <div class="card__body__collab-info">
-                            <div class="card__body__info-line" title="Data de criação">
+                            <div class="card__body__info-line" title="Data de Lançamento da Coleção">
                                 <div class="card__body__info-value card__body__info-creation">
-                                    <span>27/10/2022</span>
+                                    <span>10/11/2022</span>
                                 </div>
                             </div>
                         </div>
@@ -254,9 +271,9 @@ function populateAllCardsTab(collabs) {
 
                     <div class="card__body">
                         <div class="card__body__collab-info">
-                            <div class="card__body__info-line" title="Data de criação">
+                            <div class="card__body__info-line" title="Data de Lançamento da Coleção">
                                 <div class="card__body__info-value card__body__info-creation">
-                                    <span>27/10/2022</span>
+                                    <span>10/11/2022</span>
                                 </div>
                             </div>
                         </div>
@@ -274,3 +291,58 @@ function rotateCardFromAllCards(collab, side) {
 }
 
 populateAllCardsTab(collabsInfo);
+
+dragElement(uniqueCard);
+dragElement(uniqueTeamCard);
+
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0, bound = elmnt.getBoundingClientRect();
+    /* if present, the header is where you move the DIV from:*/
+    elmnt.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+  
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        // set the element's new position:
+        var t = (elmnt.offsetTop - pos2);
+        var l = (elmnt.offsetLeft - pos1);
+        
+        if (t < bound.height/2 + 20) {
+        t = bound.height/2 + 20;
+        } else if(t > (window.innerHeight - (bound.height/2 + 20))) {
+        t = (window.innerHeight - (bound.height/2 + 20));
+        }
+
+        if (l < 20) {
+        l = 20;
+        } else if(l > (window.innerWidth - (bound.width + 20))) {
+        l = (window.innerWidth - (bound.width + 20));
+        }
+
+        elmnt.style.top = t + "px";
+        elmnt.style.left = l + "px";
+    }
+  
+    function closeDragElement() {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
