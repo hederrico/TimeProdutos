@@ -109,9 +109,11 @@ function populateTeamCard(teamInfo, i) {
 }
 
 function populateAllCardsTab(collabs) {
+
+
     var allCardsContainer = document.getElementsByClassName('project-cards__all-cards')[0];
     
-    collabs.nodes.forEach(collab => {
+    collabs.nodes.sort(function(a,b) { return parseFloat(a.num) - parseFloat(b.num) }).forEach(collab => {
         if (collab.type) {
             allCardsContainer.insertAdjacentHTML('beforeend', `
             <div class="card all-cards collabNum${collab.num}" data-side="back">
