@@ -13,7 +13,7 @@ var default_node_color = default_link_color = getComputedStyle(bodyElem).getProp
 var default_text_color = getComputedStyle(bodyElem).getPropertyValue('--headingColor');
     
 var force = d3.layout.force()
-.linkDistance(90)
+.linkDistance(80)
 .charge(-1000)
 .size([w,h]);
 

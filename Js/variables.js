@@ -277,7 +277,9 @@ var collabsInfo = {
             "id": "Automação",
             "num": 24,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe de Automação é responsável por ...`
+            "desc": `Automação é uma das áreas que compõem o departamento de produtos e tem como propósito automatizar tarefas e realizar coletas de informações de equipamentos para monitoramento, reduzindo tempo e custo.<br><br>
+                As principais tecnologias utilizadas são a linguagem de programação Python e suas diversas bibliotecas, bancos de dados e a ferramenta monitoramento Zabbix.<br><br>
+                A Equipe está em constante busca de aperfeiçoamento e conhecimento, para garantir uma melhor satisfação do cliente.<br><br>`
         },//23
         {
             "id": "Sam",

@@ -116,6 +116,14 @@ body[data-theme='dark'] {
     fill: var(--textColor);
 }
 
+.navbar-opt__icon {
+    gap: .8rem;
+}
+
+.navbar-opt__help-icon {
+    font-size: 16px;
+}
+
 .navbar-opt__graph-icon path {
     transform: scale(0.29090909);
 }
@@ -126,6 +134,12 @@ body[data-theme='dark'] {
 
 .project-tab[data-state='0'] {
     display: none;
+}
+
+.project-help__container {
+    margin: 120px 20px 0px;
+    height: calc(100vh - 140px);
+    overflow: auto;
 }
 
 .project-cards__all-cards {
