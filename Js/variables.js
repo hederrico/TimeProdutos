@@ -35,11 +35,16 @@ var collabsInfo = {
         //Gestor
         {"source": 0, "target": 18},
         {"source": 0, "target": 19},
-        {"source": 0, "target": 20},
-        {"source": 0, "target": 21},
+        // {"source": 0, "target": 20},
+        // {"source": 0, "target": 21},
         {"source": 0, "target": 22},
         {"source": 0, "target": 23},
         {"source": 0, "target": 24},
+
+        {"source": 0, "target": 25},
+        {"source": 25, "target": 21},
+        {"source": 25, "target": 20},
+
     ],
     "nodes": [
         {
@@ -286,6 +291,12 @@ var collabsInfo = {
             "num": 25,
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe SAM é responsável por ...`
+        },//24
+        {
+            "id": "Plataforma",
+            "num": 26,
+            "subarea": 'Engenharia de Produtos',
+            "desc": `...`
         },//24
     ],
     "directed": false,
