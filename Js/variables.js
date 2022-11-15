@@ -56,7 +56,8 @@ var collabsInfo = {
             "type": "collab",
             "admission": "25/02/2019",
             "team": "SAM",
-            "email": "andrei.travagini@hit.com.vc"
+            "email": "andrei.travagini@hit.com.vc",
+            "launch": "16/11/2022",
         }, //0
         {
             "id": "Bruno",
@@ -67,7 +68,8 @@ var collabsInfo = {
             "type": "collab",
             "admission": "13/07/2022",
             "team": "Onboarding",
-            "email": "bruno.papalardo@hit.com.vc"
+            "email": "bruno.papalardo@hit.com.vc",
+            "launch": "16/11/2022",
         }, //1
         {
             "id": "Diana",
@@ -78,7 +80,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "05/04/2021",
             "team": "Onboarding",
-            "email": "claudia.silva@hit.com.vc"
+            "email": "claudia.silva@hit.com.vc",
+            "launch": "16/11/2022",
         }, //2
         {
             "id": "Cris", 
@@ -89,7 +92,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "05/08/2019",
             "team": "IOT",
-            "email": "cristofer.bernado@hit.com.vc"
+            "email": "cristofer.bernado@hit.com.vc",
+            "launch": "16/11/2022",
         }, //3
         {
             "id": "Danilo", 
@@ -100,7 +104,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "21/01/2019",
             "team": "Automação",
-            "email": "danilo.baptista@hit.com.vc"
+            "email": "danilo.baptista@hit.com.vc",
+            "launch": "16/11/2022",
         }, //4
         {
             "id": "Fernando", 
@@ -111,7 +116,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "21/08/2017",
             "team": "SAM",
-            "email": "fernando.gouvea@hit.com.vc"
+            "email": "fernando.gouvea@hit.com.vc",
+            "launch": "16/11/2022",
         }, //5
         {
             "id": "Francis", 
@@ -121,7 +127,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "23/06/2022",
             "team": "IOT",
-            "email": "francis.fanali@hit.com.vc"
+            "email": "francis.fanali@hit.com.vc",
+            "launch": "16/11/2022",
         }, //6
         {
             "id": "Gabriel", 
@@ -132,7 +139,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "05/07/2022",
             "team": "Desenvolvimento em PHP",
-            "email": "gabriel.romera@hit.com.vc"
+            "email": "gabriel.romera@hit.com.vc",
+            "launch": "16/11/2022",
         }, //7
         {
             "id": "Henrique", 
@@ -143,7 +151,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "15/01/2018",
             "team": "Desenvolvimento em PHP",
-            "email": "henrique.derrico@hit.com.vc"
+            "email": "henrique.derrico@hit.com.vc",
+            "launch": "16/11/2022",
         }, //8
         {
             "id": "Juciele", 
@@ -154,7 +163,8 @@ var collabsInfo = {
             "type": "collab",
             "admission": "12/04/2021",
             "team": "Desenvolvimento em Node",
-            "email": "juciele.wander@hit.com.vc"
+            "email": "juciele.wander@hit.com.vc",
+            "launch": "16/11/2022",
         }, //9
         {
             "id": "Julia", 
@@ -165,7 +175,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "05/07/2022",
             "team": "Onboarding",
-            "email": "julia.damacena@hit.com.vc"
+            "email": "julia.damacena@hit.com.vc",
+            "launch": "16/11/2022",
         }, //10
         {
             "id": "Julio", 
@@ -176,7 +187,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "12/05/2022",
             "team": "Monitoramento",
-            "email": "julio.cassimiro@hit.com.vc"
+            "email": "julio.cassimiro@hit.com.vc",
+            "launch": "16/11/2022",
         }, //11
         {
             "id": "Bigui", 
@@ -187,7 +199,8 @@ var collabsInfo = {
             "collab", 
             "admission": "02/01/2017",
             "team": "Engenharia de Produtos",
-            "email": "leandro.bigui@hit.com.vc"
+            "email": "leandro.bigui@hit.com.vc",
+            "launch": "16/11/2022",
         }, //12
         {
             "id": "Leo", 
@@ -198,7 +211,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "05/08/2019",
             "team": "IOT",
-            "email": "leonardo.martins@hit.com.vc"
+            "email": "leonardo.martins@hit.com.vc",
+            "launch": "16/11/2022",
         }, //13
         {
             "id": "Lucas", 
@@ -209,7 +223,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "10/10/2019",
             "team": "Desenvolvimento em Node",
-            "email": "lucas.paz@hit.com.vc"
+            "email": "lucas.paz@hit.com.vc",
+            "launch": "16/11/2022",
         }, //14
         {
             "id": "Marcos", 
@@ -220,7 +235,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "25/10/2021",
             "team": "Desenvolvimento em Node",
-            "email": "marcos.filho@hit.com.vc"
+            "email": "marcos.filho@hit.com.vc",
+            "launch": "16/11/2022",
         }, //15
         {
             "id": "Milleny", 
@@ -231,7 +247,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "20/12/2021",
             "team": "SAM",
-            "email": "milleny.santos@hit.com.vc"
+            "email": "milleny.santos@hit.com.vc",
+            "launch": "16/11/2022",
         }, //16
         {
             "id": "Vinicio",
@@ -242,7 +259,8 @@ var collabsInfo = {
             "type": "collab", 
             "admission": "10/11/2015",
             "team": "Monitoramento",
-            "email": "vinicio.nascimento@hit.com.vc"
+            "email": "vinicio.nascimento@hit.com.vc",
+            "launch": "16/11/2022",
         }, //17
         {
             "id": "Onboarding",
@@ -250,7 +268,8 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Onboarding é responsável pelo mapeamento da infraestrutura do cliente, implantação do monitoramento e capacitação da Plataforma HIT.<br><br>
                 A equipe busca acompanhar o cliente na sua jornada inicial e entregar a melhor experiência até a entrega para a equipe de sustentação.<br><br>
-                Algumas das tecnologias utilizadas são Zabbix, Grafana e Sistemas Operacionais como Windows e Linux.`
+                Algumas das tecnologias utilizadas são Zabbix, Grafana e Sistemas Operacionais como Windows e Linux.`,
+                "launch": "16/11/2022",
         },//18
         {
             "id": "Iot",
@@ -258,7 +277,8 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `O time de IOT é responsável pelo desenvolvimento de novas soluções, em hardware e firmware com o conceito de internet das coisas, para monitoramento de ambientes.<br><br>
                 O foco da equipe é acoplar novos sensores e funções aos Kit's IOT e Endpoint's, para aumentar e melhorar a gama de monitoramento.<br><br>
-                Atualmente é utilizado Python, C/C++ (Arduino), Laravel e MQTT.`
+                Atualmente é utilizado Python, C/C++ (Arduino), Laravel e MQTT.`,
+                "launch": "16/11/2022",
         },//19
         {
             "id": "Dev FINEP",
@@ -266,7 +286,8 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Desenvolvimento em Node é uma das equipes responsáveis pelo gerenciamento do portal HIT.<br><br>
                 O time surgiu através do projeto FINEP, e atualmente é responsável pela transcrição da plataforma atual para um novo modelo.<br><br>
-                Algumas das tecnologias utilizadas são Node.js, nestJS, Kubernets e Docker`
+                Algumas das tecnologias utilizadas são Node.js, nestJS, Kubernets e Docker`,
+                "launch": "16/11/2022",
         },//20
         {
             "id": "Dev PHP",
@@ -274,14 +295,16 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Desenvolvimento em PHP é uma das equipes responsáveis pelo gerenciamento do portal HIT.<br><br>
                 O time surgiu juntamente à criação da plataforma, e atualmente trabalha com a metodologia Scrum.<br><br>
-                Algumas das tecnologias utilizadas são a linguagem de programação PHP, o framework Laravel, a ferramenta de versionamento de códigos Gitlab e a ferramenta de captura de erros Sentry.`
+                Algumas das tecnologias utilizadas são a linguagem de programação PHP, o framework Laravel, a ferramenta de versionamento de códigos Gitlab e a ferramenta de captura de erros Sentry.`,
+                "launch": "16/11/2022",
         },//21
         {
             "id": "Monitoramento",
             "num": 23,
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Desenvolvimento de Monitoramento é responsável por criar novos monitoramentos, utilizando APIs, SNMP, Agents, PowerShell, ShellScript, Python e Javascript.<br><br>
-                Podemos monitorar qualquer tecnologia que se conecte na internet e entregue qualquer tipo de informação.`
+                Podemos monitorar qualquer tecnologia que se conecte na internet e entregue qualquer tipo de informação.`,
+                "launch": "16/11/2022",
         },//22
         {
             "id": "Automação",
@@ -289,7 +312,8 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `Automação é uma das áreas que compõem o departamento de produtos e tem como propósito automatizar tarefas e realizar coletas de informações de equipamentos para monitoramento, reduzindo tempo e custo.<br><br>
                 As principais tecnologias utilizadas são a linguagem de programação Python e suas diversas bibliotecas, bancos de dados e a ferramenta monitoramento Zabbix.<br><br>
-                A Equipe está em constante busca de aperfeiçoamento e conhecimento, para garantir uma melhor satisfação do cliente.`
+                A Equipe está em constante busca de aperfeiçoamento e conhecimento, para garantir uma melhor satisfação do cliente.`,
+                "launch": "16/11/2022",
         },//23
         {
             "id": "Sam",
@@ -297,7 +321,8 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe SAM é responsável pela monitoração e sustentação do ambiente de monitoramento.<br><br>
             A equipe possui como objetivos garantir a disponibilidade dos ambientes zabbix e grafana, analisar e corrigir falhas no monitoramento, e auxiliar o usuário final no uso do portal HIT.<br><br>
-            Algumas tecnologias utilizadas são: Zabbix e Grafana.`
+            Algumas tecnologias utilizadas são: Zabbix e Grafana.`,
+            "launch": "16/11/2022",
         },//24
         {
             "id": "Plataforma",
@@ -306,7 +331,8 @@ var collabsInfo = {
             "desc": `As equipes de Desenvolvimento são responsáveis pela criação e manutenção da plataforma HIT.<br><br>
                 Dentre seus objetivos, vale ressaltar o desenvolvimento de soluções que auxiliem no gerenciamento dos ativos de TI monitorados dos clientes HIT.<br><br>
                 Atualmente os times estão segmentados, mas futuramente ambos se unirão e passarão a trabalhar apenas com os processos da equipe de Desenvolvimento em Node.<br><br>
-                Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`
+                Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`,
+                "launch": "16/11/2022",
         },//24
     ],
     "directed": false,

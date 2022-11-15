@@ -217,7 +217,7 @@ function populateAllCardsTab(collabs) {
                         <div class="card__body__collab-info">
                             <div class="card__body__info-line" title="Data de Lançamento da Coleção">
                                 <div class="card__body__info-value card__body__info-creation">
-                                    <span>10/11/2022</span>
+                                    <span>${collab.launch}</span>
                                 </div>
                             </div>
                         </div>
@@ -298,7 +298,7 @@ function populateAllCardsTab(collabs) {
                         <div class="card__body__collab-info">
                             <div class="card__body__info-line" title="Data de Lançamento da Coleção">
                                 <div class="card__body__info-value card__body__info-creation">
-                                    <span>10/11/2022</span>
+                                    <span>${collab.launch}</span>
                                 </div>
                             </div>
                         </div>
