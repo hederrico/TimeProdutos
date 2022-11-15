@@ -102,6 +102,11 @@ body[data-theme='dark'] {
     fill: var(--highlightColor);
 }
 
+/* Está escondido até finalizar, aprensetação marcada para daqui 2 dias */
+.navbar-info {
+    display: none !important;
+}
+
 .navbar-opt[active-tab='true'] {
     color: var(--highlightColor);
 }
@@ -120,7 +125,8 @@ body[data-theme='dark'] {
     gap: .8rem;
 }
 
-.navbar-opt__help-icon {
+
+.navbar-opt__info-icon {
     font-size: 16px;
 }
 
@@ -136,10 +142,11 @@ body[data-theme='dark'] {
     display: none;
 }
 
-.project-help__container {
+.project-info__container {
     margin: 120px 20px 0px;
     height: calc(100vh - 140px);
     overflow: auto;
+    color: var(--textColor);
 }
 
 .project-cards__all-cards {
@@ -530,13 +537,16 @@ body[data-theme='dark'] {
 }
 
 .card__body__info-email {
-    cursor: pointer;
     display: flex;
     gap: .5rem;
-    transition: all .3s;
     position: fixed;
     bottom: 12px;
     right: 16px;
+}
+
+.card__body__info-email div {
+    transition: all .3s;
+    cursor: pointer;
 }
 
 .all-cards .card__body__info-email {
@@ -549,23 +559,18 @@ body[data-theme='dark'] {
     text-decoration: inherit;
 }
 
-.all-cards .collab__email {
-    align-self: center;
-    position: absolute;
-    bottom: 1rem;
-}
-
-.card__body__info-email:hover {
+.card__body__info-email div:hover {
     color: var(--highlightColor);
-    transform: scale(1.05);
+    transform: scale(1.2);
 }
 
-.card__body__copy-icon svg {
+.card__body__copy-icon svg,
+.card__body__chat-icon svg {
     transition: all .3s;
     fill: var(--textColor);
 }
 
-.card__body__info-email:hover svg {
+.card__body__info-email div:hover svg {
     fill: var(--highlightColor);
 }
 
@@ -665,7 +670,7 @@ body[data-theme='dark'] {
     left: 50%;
     transform: translateX(-50%);
     background-image: linear-gradient(to right bottom, var(--panelColor), var(--panelDarkenColor));
-    z-index: 3;
+    z-index: 5;
 }
 
 .copied-container[data-ani='copiedText'] {

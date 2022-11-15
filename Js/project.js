@@ -2,20 +2,20 @@ var navCards = document.getElementsByClassName('navbar-cards')[0];
 var cardsContainer = document.getElementsByClassName('project-cards')[0];
 var navGraph = document.getElementsByClassName('navbar-graph')[0];
 var graphContainer = document.getElementsByClassName('project-graph')[0];
-var navHelp = document.getElementsByClassName('navbar-help')[0];
+var navInfo = document.getElementsByClassName('navbar-info')[0];
 
-var helpContainer = document.getElementsByClassName('project-help')[0];
+var infoContainer = document.getElementsByClassName('project-info')[0];
 
 var rotateAllCards = document.getElementsByClassName('rotate-all-cards')[0];
 
 navCards.onclick = function() {
     cardsContainer.setAttribute('data-state',  1);
     graphContainer.setAttribute('data-state',  0);
-    helpContainer.setAttribute('data-state',  0);
+    infoContainer.setAttribute('data-state',  0);
 
     navCards.setAttribute('active-tab',  'true');
     navGraph.setAttribute('active-tab',  'false');
-    navHelp.setAttribute('active-tab',  'false');
+    navInfo.setAttribute('active-tab',  'false');
 
     rotateAllCards.style.display = 'block';
 
@@ -25,22 +25,22 @@ navCards.onclick = function() {
 navGraph.onclick = function() {
     graphContainer.setAttribute('data-state',  1);
     cardsContainer.setAttribute('data-state',  0);
-    helpContainer.setAttribute('data-state',  0);
+    infoContainer.setAttribute('data-state',  0);
 
     navGraph.setAttribute('active-tab',  'true');
     navCards.setAttribute('active-tab',  'false');
-    navHelp.setAttribute('active-tab',  'false');
+    navInfo.setAttribute('active-tab',  'false');
 
     rotateAllCards.style.display = 'none';
     resize();
 }
 
-navHelp.onclick = function() {
-    helpContainer.setAttribute('data-state',  1);
+navInfo.onclick = function() {
+    infoContainer.setAttribute('data-state',  1);
     cardsContainer.setAttribute('data-state',  0);
     graphContainer.setAttribute('data-state',  0);
 
-    navHelp.setAttribute('active-tab',  'true');
+    navInfo.setAttribute('active-tab',  'true');
     navCards.setAttribute('active-tab',  'false');
     navGraph.setAttribute('active-tab',  'false');
 }

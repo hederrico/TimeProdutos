@@ -6,6 +6,9 @@ var collabCard = document.getElementsByClassName('card')[0];
 var uniqueCard = document.getElementsByClassName('uniqueCard')[0];
 var uniqueTeamCard = document.getElementsByClassName('uniqueTeamCard')[0];
 
+var email = document.getElementsByClassName('card__body__copy-icon')[0];
+var copiedTextContainer = document.getElementsByClassName('copied-container')[0];
+
 for (let i = 0; i < rotateIcons.length; i++) {
     var element = rotateIcons[i];
     
@@ -30,17 +33,8 @@ for (let i = 0; i < closeIcons.length; i++) {
     }
 }
 
-var email = document.getElementsByClassName('card__body__copy-icon')[0];
-var copiedTextContainer = document.getElementsByClassName('copied-container')[0];
-
 email.onclick = function() {
-    copiedTextContainer.setAttribute('data-ani', 'copiedText');
-
-    setTimeout(() => {
-        copiedTextContainer.setAttribute('data-ani', 'none');
-    }, 3300);
-
-    navigator.clipboard.writeText(this.textContent.trim());
+    copyEmail(this.getAttribute('data-email').trim());
 }
 
 function populateCollabCard(collabInfo) {
@@ -54,12 +48,14 @@ function populateCollabCard(collabInfo) {
         var cEmojisEl = collabCard.querySelectorAll('.collab__emojis-value')[0];
         var cAdmissionEl = collabCard.querySelectorAll('.card__body__collab-admission')[0];
         var cImgEl = collabCard.querySelectorAll('.collab-image')[0];
-        var cEmailEl = collabCard.querySelectorAll('.collab__email a')[0];
+        var cEmailEl = collabCard.querySelectorAll('.card__body__chat-icon a')[0];
+        var cCopyEmailEl = collabCard.querySelectorAll('.card__body__copy-icon')[0];
 
         cNameEl.textContent = collabInfo.name;
         cTeamEl.textContent = collabInfo.team;
-        cEmailEl.textContent = collabInfo.email;
+        // cEmailEl.textContent = collabInfo.email;
         cEmailEl.setAttribute('href', `https://teams.microsoft.com/l/chat/0/0?users=${collabInfo.email}`);
+        cCopyEmailEl.setAttribute('data-email', collabInfo.email);
         cAdmissionEl.textContent = collabInfo.admission;
         cHobbiesEl.textContent = collabInfo.hobbies.join(', ');
         cEmojisEl.textContent = collabInfo.emojis.join('    ');
@@ -162,9 +158,36 @@ function populateAllCardsTab(collabs) {
                         <div class="card__body__collab-info">
                             <span class="collab__emojis">${collab.emojis.join('    ')}</span>
 
-                            <span class="collab__email card__body__info-email" title="Chat no Teams">
-                                <a href="https://teams.microsoft.com/l/chat/0/0?users=${collab.email}" target="_blank">${collab.email}</a>
-                            </span>
+                            <div class="card__body__info-value card__body__info-email" data-type="Email">
+                                    <div class="card__body__chat-icon" title="Chat no Teams">
+                                    <a href="https://teams.microsoft.com/l/chat/0/0?users=${collab.email}" target="_blank">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.58333 0.333328H13.0833C14.3583 0.333328 15.3333 1.30833 15.3333 
+                                            2.58333V10.0833C15.3333 11.3583 14.3583 12.3333 13.0833 12.3333H4.38333L1.60833 15.1083C1.45833 15.2583 1.30833 15.3333 
+                                            1.08333 15.3333C1.00833 15.3333 0.858334 15.3333 0.783334 15.2583C0.483334 15.1833 0.333334 14.8833 0.333334 14.5833V2.58333C0.333334 
+                                            1.30833 1.30833 0.333328 2.58333 0.333328ZM13.0833 10.8333C13.5333 10.8333 13.8333 10.5333 13.8333 10.0833V2.58332C13.8333 2.13332 
+                                            13.5333 1.83332 13.0833 1.83332H2.58333C2.13333 1.83332 1.83333 2.13332 1.83333 2.58332V12.7833L3.55833 11.0583C3.70833 10.9083 
+                                            3.85833 10.8333 4.08333 10.8333H13.0833Z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+
+                                <div class="card__body__copy-icon" title="Copiar E-mail" onclick="copyEmail('${collab.email}')">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.90909 10.9091C3.34545 10.9091 3.63636 10.6182 3.63636 10.1818C3.63636 
+                                        9.74545 3.34545 9.45455 2.90909 9.45455H2.18182C1.74545 9.45455 1.45455 9.16364 1.45455 8.72727V2.18182C1.45455 1.74545 
+                                        1.74545 1.45455 2.18182 1.45455H8.72727C9.16364 1.45455 9.45455 1.74545 9.45455 2.18182V2.90909C9.45455 3.34545 9.74545 
+                                        3.63636 10.1818 3.63636C10.6182 3.63636 10.9091 3.34545 10.9091 2.90909V2.18182C10.9091 0.945455 9.96364 0 8.72727 
+                                        0H2.18182C0.945455 0 0 0.945455 0 2.18182V8.72727C0 9.96364 0.945455 10.9091 2.18182 10.9091H2.90909ZM13.8182 
+                                        5.09091H7.27273C6.03636 5.09091 5.09091 6.03636 5.09091 7.27273V13.8182C5.09091 15.0545 6.03636 16 7.27273 
+                                        16H13.8182C15.0545 16 16 15.0545 16 13.8182V7.27273C16 6.03636 15.0545 5.09091 13.8182 5.09091ZM14.5455 13.8182C14.5455 
+                                        14.2545 14.2545 14.5455 13.8182 14.5455H7.27273C6.83636 14.5455 6.54545 14.2545 6.54545 13.8182V7.27273C6.54545 6.83636 
+                                        6.83636 6.54545 7.27273 6.54545H13.8182C14.2545 6.54545 14.5455 6.83636 14.5455 7.27273V13.8182Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+
                         </div>
                     </div>
                 </div>
@@ -290,6 +313,16 @@ function rotateCardFromAllCards(collab, side) {
     var collabCard = document.getElementsByClassName(`collabNum${collab}`)[0];
 
     collabCard.setAttribute('data-side', side);
+}
+
+function copyEmail(copyEmail) {
+    copiedTextContainer.setAttribute('data-ani', 'copiedText');
+
+    setTimeout(() => {
+        copiedTextContainer.setAttribute('data-ani', 'none');
+    }, 3300);
+
+    navigator.clipboard.writeText(copyEmail);
 }
 
 populateAllCardsTab(collabsInfo);

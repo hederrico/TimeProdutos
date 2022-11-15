@@ -141,14 +141,16 @@ var circle = node.append("image")
     .attr("clip-path", "url(#circleView)")
     .on("mouseenter", function(d, i) {
 
-        if(d.type == 'collab') {
-            populateCollabCard(d);
-
-            uniqueCard.classList.add("shown-card");
-        } else {
-            populateTeamCard(d, i);
-            
-            uniqueTeamCard.classList.add("shown-card");
+        if (keyc) {
+            if(d.type == 'collab') {
+                populateCollabCard(d);
+    
+                uniqueCard.classList.add("shown-card");
+            } else {
+                populateTeamCard(d, i);
+                
+                uniqueTeamCard.classList.add("shown-card");
+            }
         }
     });
 
@@ -176,7 +178,7 @@ d3.select(window).on("mouseup", function() {
             bgCircles.style("opacity", 1)
             circle.style("opacity", 1);
             text.style("opacity", keyt ? 1 : 0);
-            link.style("opacity", keyspace ? 1 : 0);
+            link.style("opacity", keyl ? 1 : 0);
         }   
     }
     if (highlight_node === null) exit_highlight();
@@ -208,7 +210,7 @@ function set_focus(d) {
         });
         
         link.style("opacity", function(o) {
-            return keyspace ? (o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans) : 0;
+            return keyl ? (o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans) : 0;
         });		
     }
 }
@@ -290,9 +292,13 @@ function resize() {
 
     svg.attr("width", width).attr("height", height);
     
-    force.size([force.size()[0]+(width-w)/zoom.scale(),force.size()[1]+(height-h)/zoom.scale()]).resume();
-        w = width;
-        h = height;
+    force.size([force.size()[0]+(width-w)/zoom.scale(),force.size()[1]+(height-h)/zoom.scale()])
+    w = width;
+    h = height;
+
+    if (keyspace) {
+        force.resume();
+    }
 }
 
 function keydown() {
@@ -302,11 +308,9 @@ function keydown() {
 
         if (keyspace) {
             force.resume();
-            link.style("opacity", "1");
             node.call(force.drag);
         } else {
             force.stop();
-            link.style("opacity", "0");
             node.call(customDrag);
         }
 
@@ -325,6 +329,20 @@ function keydown() {
             case "2": key2 = !key2; break;
             case "3": key3 = !key3; break;
             case "0": key0 = !key0; break;
+        }
+
+        if (String.fromCharCode(d3.event.keyCode) == "L") {
+            if (keyl) {
+                link.style("opacity", "1");
+            } else {
+                link.style("opacity", "0");
+            }
+        }
+
+
+        if (String.fromCharCode(d3.event.keyCode) == "C") {
+            uniqueCard.classList.remove("shown-card");
+            uniqueTeamCard.classList.remove("shown-card");
         }
 
         if (String.fromCharCode(d3.event.keyCode) == "Q") {

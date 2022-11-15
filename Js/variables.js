@@ -249,34 +249,39 @@ var collabsInfo = {
             "num": 19,
             "subarea": 'Engenharia de Produtos',
             "desc": `A equipe de Onboarding é responsável pelo mapeamento da infraestrutura do cliente, implantação do monitoramento e capacitação da Plataforma HIT.<br><br>
-                Atualmente composta por 3 colaboradores, a equipe busca acompanhar o cliente na sua jornada inicial e entregar a melhor experiência até a entrega para a equipe de sustentação.<br><br>
+                A equipe busca acompanhar o cliente na sua jornada inicial e entregar a melhor experiência até a entrega para a equipe de sustentação.<br><br>
                 Algumas das tecnologias utilizadas são Zabbix, Grafana e Sistemas Operacionais como Windows e Linux.`
         },//18
         {
             "id": "Iot",
             "num": 20,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe de IOT é responsável por ...`
+            "desc": `O time de IOT é responsável pelo desenvolvimento de novas soluções, em hardware e firmware com o conceito de internet das coisas, para monitoramento de ambientes.<br><br>
+                O foco da equipe é acoplar novos sensores e funções aos Kit's IOT e Endpoint's, para aumentar e melhorar a gama de monitoramento.<br><br>
+                Atualmente é utilizado Python, C/C++ (Arduino), Laravel e MQTT.`
         },//19
         {
             "id": "Dev FINEP",
             "num": 21,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe de Onboarding é responsável por ...`
+            "desc": `A equipe de Desenvolvimento em Node é uma das equipes responsáveis pelo gerenciamento do portal HIT.<br><br>
+                O time surgiu através do projeto FINEP, e atualmente é responsável pela transcrição da plataforma atual para um novo modelo.<br><br>
+                Algumas das tecnologias utilizadas são Node.js, nestJS, Kubernets e Docker`
         },//20
         {
             "id": "Dev PHP",
             "num": 22,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe de Desenvolvimento em PHP é responsável pela criação e manutenção da plataforma HIT.<br><br>
-                Atualmente composta por 2 colaboradores, a equipe busca desenvolver soluções que auxiliem no gerenciamento dos ativos de TI monitorados dos clientes HIT.<br><br>
-                Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`
+            "desc": `A equipe de Desenvolvimento em PHP é uma das equipes responsáveis pelo gerenciamento do portal HIT.<br><br>
+                O time surgiu juntamente à criação da plataforma, e atualmente trabalha com a metodologia Scrum.<br><br>
+                Algumas das tecnologias utilizadas são a linguagem de programação PHP, o framework Laravel, a ferramenta de versionamento de códigos Gitlab e a ferramenta de captura de erros Sentry.`
         },//21
         {
             "id": "Monitoramento",
             "num": 23,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe de Monitoramento é responsável por ...`
+            "desc": `A equipe de Desenvolvimento de Monitoramento é responsável por criar novos monitoramentos, utilizando APIs, SNMP, Agents, PowerShell, ShellScript, Python e Javascript.<br><br>
+                Podemos monitorar qualquer tecnologia que se conecte na internet e entregue qualquer tipo de informação.`
         },//22
         {
             "id": "Automação",
@@ -284,19 +289,24 @@ var collabsInfo = {
             "subarea": 'Engenharia de Produtos',
             "desc": `Automação é uma das áreas que compõem o departamento de produtos e tem como propósito automatizar tarefas e realizar coletas de informações de equipamentos para monitoramento, reduzindo tempo e custo.<br><br>
                 As principais tecnologias utilizadas são a linguagem de programação Python e suas diversas bibliotecas, bancos de dados e a ferramenta monitoramento Zabbix.<br><br>
-                A Equipe está em constante busca de aperfeiçoamento e conhecimento, para garantir uma melhor satisfação do cliente.<br><br>`
+                A Equipe está em constante busca de aperfeiçoamento e conhecimento, para garantir uma melhor satisfação do cliente.`
         },//23
         {
             "id": "Sam",
             "num": 25,
             "subarea": 'Engenharia de Produtos',
-            "desc": `A equipe SAM é responsável por ...`
+            "desc": `A equipe SAM é responsável pela monitoração e sustentação do ambiente de monitoramento.<br><br>
+            A equipe possui como objetivos garantir a disponibilidade dos ambientes zabbix e grafana, analisar e corrigir falhas no monitoramento, e auxiliar o usuário final no uso do portal HIT.<br><br>
+            Algumas tecnologias utilizadas são: Zabbix e Grafana.`
         },//24
         {
             "id": "Plataforma",
             "num": 26,
             "subarea": 'Engenharia de Produtos',
-            "desc": `...`
+            "desc": `As equipes de Desenvolvimento são responsáveis pela criação e manutenção da plataforma HIT.<br><br>
+                Dentre seus objetivos, vale ressaltar o desenvolvimento de soluções que auxiliem no gerenciamento dos ativos de TI monitorados dos clientes HIT.<br><br>
+                Atualmente os times estão segmentados, mas futuramente ambos se unirão e passarão a trabalhar apenas com os processos da equipe de Desenvolvimento em Node.<br><br>
+                Algumas das tecnologias usadas são Laravel, Gitlab e Sentry.`
         },//24
     ],
     "directed": false,
